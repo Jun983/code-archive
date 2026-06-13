@@ -1,0 +1,25 @@
+@startuml widening-cast
+!theme plain
+left to right direction
+skinparam rectangle {
+    BackgroundColor #E8EDF8
+    BorderColor #5C78C8
+    FontSize 13
+}
+skinparam ArrowColor #333333
+
+rectangle byte
+rectangle short
+rectangle int
+rectangle long
+rectangle float
+rectangle double
+rectangle char
+
+byte --> short
+short --> int
+int --> long
+long --> float
+float --> double
+char --> float
+@enduml
