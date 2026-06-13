@@ -1,0 +1,21 @@
+@startuml if-else
+!theme plain
+skinparam DefaultFontSize 13
+skinparam ActivityBackgroundColor #E8EDF8
+skinparam ActivityBorderColor #5C78C8
+skinparam ArrowColor #333333
+skinparam DiamondBackgroundColor #E8EDF8
+skinparam DiamondBorderColor #5C78C8
+
+start
+if (score >= 90?) then (true)
+  :A 출력;
+elseif (score >= 80?) then (true)
+  :B 출력;
+elseif (score >= 70?) then (true)
+  :C 출력;
+else (false)
+  :F 출력;
+endif
+stop
+@enduml
