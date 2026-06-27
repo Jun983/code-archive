@@ -72,16 +72,16 @@ true
 
 값 자체를 직접 저장하는 8가지 타입입니다.
 
-| 타입 | 종류 | 기본값 | 범위 |
-|------|------|--------|------|
-| `byte` | 정수 | `0` | -128 ~ 127 |
-| `short` | 정수 | `0` | -32,768 ~ 32,767 |
-| `int` | 정수 | `0` | 약 -21억 ~ 21억 |
-| `long` | 정수 | `0L` | 약 -922경 ~ 922경 |
-| `float` | 실수 | `0.0f` | 소수점 약 7자리 |
-| `double` | 실수 | `0.0` | 소수점 약 15자리 |
-| `char` | 문자 | `'\0'` | 0 ~ 65535 (유니코드) |
-| `boolean` | 논리 | `false` | true / false |
+| 타입 | 종류 | 크기 | 기본값 | 범위 |
+|------|------|------|--------|------|
+| `byte` | 정수 | 1 byte | `0` | -128 ~ 127 |
+| `short` | 정수 | 2 byte | `0` | -32,768 ~ 32,767 |
+| `int` | 정수 | 4 byte | `0` | 약 -21억 ~ 21억 |
+| `long` | 정수 | 8 byte | `0L` | 약 -922경 ~ 922경 |
+| `float` | 실수 | 4 byte | `0.0f` | 소수점 약 7자리 |
+| `double` | 실수 | 8 byte | `0.0` | 소수점 약 15자리 |
+| `char` | 문자 | 2 byte | `'\0'` | 0 ~ 65,535 (유니코드) |
+| `boolean` | 논리 | 1 byte | `false` | true / false |
 
 > 접미사가 없으면 정수는 `int`, 실수는 `double`로 처리됩니다. `long`은 `L`, `float`은 `f`를 붙여 구분합니다 (예: `100L`, `3.14f`).
 
@@ -102,9 +102,17 @@ true
 
 ## 4. 변수
 
-변수는 값을 저장하는 메모리 공간에 붙인 이름입니다. 선언 시 타입을 명시하며, 선언 위치에 따라 **지역 변수**, **인스턴스 변수**, **클래스 변수**로 구분됩니다.
+변수는 값을 저장하는 메모리 공간에 붙인 이름입니다. 선언 시 타입을 명시합니다.
 
-### 4.1 선언과 초기화
+### 4.1 변수의 속성
+
+변수는 세 가지 속성을 가집니다.
+
+- **값(Value)**: 변수에 저장된 실제 데이터입니다.
+- **크기(Size)**: 타입마다 차지하는 메모리 크기가 다릅니다.
+- **주소(Address)**: 값이 저장된 메모리 위치입니다. 참조 타입에서 중요하게 쓰입니다.
+
+### 4.2 변수의 선언과 초기화
 
 선언은 타입과 변수명을 지정해 메모리 공간을 확보하고, 초기화는 선언된 변수에 처음 값을 할당하는 것입니다.
 
@@ -113,37 +121,39 @@ public class VariableExample {
     public static void main(String[] args) {
         // 선언: 타입과 변수명만 지정
         int age;
-        String name;
 
         // 초기화: 선언 후 값 할당
         age = 30;
-        name = "Java";
 
         // 선언 및 초기화: 선언과 동시에 값 할당
         int count = 0;
         double pi = 3.14159;
-        long population = 8_000_000_000L;  // L: long 리터럴 접미사 (int 범위 초과 시 필수)
+        long population = 8_000_000_000L;  // L: long 접미사 (int 범위 초과 시 필수), _는 숫자 가독성을 위한 구분자
         char grade = 'A';
         boolean isActive = true;
+
+        System.out.println(age);         // 30
+        System.out.println(count);       // 0
+        System.out.println(pi);          // 3.14159
+        System.out.println(population);  // 8000000000
+        System.out.println(grade);       // A
+        System.out.println(isActive);    // true
     }
 }
 ```
 
-`String`은 문자열을 저장하는 타입입니다. 큰따옴표를 사용하며, 단일 문자를 저장하는 `char`의 작은따옴표와 구분합니다.
-
-```java
-String name = "Java";              // 문자열: 큰따옴표
-char initial = 'J';                // 단일 문자: 작은따옴표
-
-String greeting = "안녕, " + name; // + 연산자로 문자열을 이어 붙입니다
-System.out.println(greeting);      // 안녕, Java
+```
+30
+0
+3.14159
+8000000000
+A
+true
 ```
 
-### 4.2 변수의 종류
+코드에 직접 쓴 값(예: `30`, `3.14159`, `'A'`)을 **리터럴**이라고 합니다.
 
-> 변수는 선언 위치에 따라 지역 변수·인스턴스 변수·클래스 변수로 구분됩니다. [클래스와 객체](class-object.md)에서 다룹니다.
-
-### 4.3 명명 규칙
+### 4.3 변수의 명명 규칙
 
 변수명은 **camelCase**로 작성합니다. 첫 글자는 소문자이며, 이후 단어의 첫 글자를 대문자로 씁니다.
 
@@ -151,7 +161,6 @@ System.out.println(greeting);      // 안녕, Java
 public class NamingExample {
     public static void main(String[] args) {
         int maxRetryCount = 3;
-        String userName = "Alice";
         boolean isActive = true;
     }
 }
