@@ -153,6 +153,8 @@ true
 
 코드에 직접 쓴 값(예: `30`, `3.14159`, `'A'`)을 **리터럴**이라고 합니다.
 
+> 값을 변수에 저장할 때 쓰는 `=`는 **대입 연산자**입니다. [9. 연산자](#9-연산자)에서 자세히 다룹니다.
+
 ### 4.3 변수의 명명 규칙
 
 변수명은 **camelCase**로 작성합니다. 첫 글자는 소문자이며, 이후 단어의 첫 글자를 대문자로 씁니다.
@@ -168,11 +170,79 @@ public class NamingExample {
 
 ---
 
-## 5. 상수
+## 5. String 클래스
+
+`String`은 문자열을 저장하는 **참조 타입**입니다.
+
+### 5.1 선언
+
+큰따옴표(`"`)로 감싼 문자열을 `String` 변수에 저장합니다.
+
+```java
+public class StringDeclareExample {
+    public static void main(String[] args) {
+        String name = "홍길동";
+        String greeting = "안녕하세요";
+        String empty = "";      // 빈 문자열
+        String nothing = null;  // 아무것도 가리키지 않는 상태
+
+        System.out.println(name);      // 홍길동
+        System.out.println(greeting);  // 안녕하세요
+    }
+}
+```
+
+```
+홍길동
+안녕하세요
+```
+
+### 5.2 주요 메서드
+
+`String`은 문자열을 다루는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
+
+> 메서드 전반은 [13. 메서드](#13-메서드)에서 자세히 다룹니다.
+
+| 메서드 | 설명 | 반환 타입 |
+|--------|------|-----------|
+| `length()` | 문자열 길이를 반환합니다. | `int` |
+| `charAt(index)` | 특정 위치의 문자를 반환합니다. 인덱스는 0부터 시작합니다. | `char` |
+| `substring(start, end)` | `start`부터 `end` 직전까지의 부분 문자열을 반환합니다. | `String` |
+| `toUpperCase()` | 모든 문자를 대문자로 변환합니다. | `String` |
+| `toLowerCase()` | 모든 문자를 소문자로 변환합니다. | `String` |
+| `contains(str)` | 특정 문자열이 포함되면 `true`를 반환합니다. | `boolean` |
+
+```java
+public class StringMethodExample {
+    public static void main(String[] args) {
+        String word = "Hello";
+
+        System.out.println(word.length());         // 5
+        System.out.println(word.charAt(0));        // H
+        System.out.println(word.substring(1, 3));  // el
+        System.out.println(word.toUpperCase());    // HELLO
+        System.out.println(word.toLowerCase());    // hello
+    }
+}
+```
+
+```
+5
+H
+el
+HELLO
+hello
+```
+
+> 문자열 **연결**과 **비교**는 [9. 연산자](#9-연산자)에서 다룹니다.
+
+---
+
+## 6. 상수
 
 상수는 한 번 초기화되면 값을 변경할 수 없는 변수입니다. `final` 키워드로 선언합니다.
 
-### 5.1 선언
+### 6.1 선언
 
 `final`을 붙이면 최초 초기화 이후 재할당이 불가합니다.
 
@@ -194,7 +264,7 @@ MAX_SIZE = 200;  // 컴파일 오류: final 변수에 재할당 불가
 
 > 클래스 전체에서 공유하는 상수(`static final`)는 [클래스와 객체](class-object.md)에서 다룹니다.
 
-### 5.2 명명 규칙
+### 6.2 명명 규칙
 
 상수명은 **UPPER_SNAKE_CASE**로 작성합니다. 모든 글자를 대문자로 쓰고, 단어 사이는 언더스코어(`_`)로 구분합니다.
 
@@ -208,17 +278,17 @@ public class ConstantNamingExample {
 }
 ```
 
-### 5.3 용어 사전
+### 6.3 용어 사전
 
 - **final** — 변수에 붙이면 최초 할당 이후 재할당을 금지합니다.
 
 ---
 
-## 6. 입력
+## 7. 입력
 
 `Scanner` 클래스를 사용해 표준 입력(`System.in`)에서 데이터를 읽습니다. `java.util.Scanner`를 import해야 합니다.
 
-### 6.1 선언과 사용
+### 7.1 선언과 사용
 
 `Scanner` 객체를 생성한 뒤 타입에 맞는 메서드로 값을 읽습니다.
 
@@ -240,7 +310,7 @@ public class InputExample {
 }
 ```
 
-### 6.2 주요 메서드
+### 7.2 주요 메서드
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -249,18 +319,18 @@ public class InputExample {
 | `next()` | `String` | 공백 기준 단어 1개를 읽음 |
 | `nextLine()` | `String` | 줄 바꿈까지 한 줄을 읽음 |
 
-### 6.3 용어 사전
+### 7.3 용어 사전
 
 - **버퍼(Buffer)** — 데이터를 임시로 저장하는 메모리 공간. `Scanner`는 입력 스트림을 내부 버퍼에 담아두고 메서드 호출 시 꺼내 씁니다.
 - **버퍼 비우기** — `nextInt()` 등 숫자 계열 메서드는 줄 바꿈 문자(`\n`)를 소비하지 않습니다. 이후 `nextLine()`을 바로 호출하면 빈 문자열이 반환되므로, `scanner.nextLine()`을 한 번 호출해 버퍼를 비워야 합니다.
 
 ---
 
-## 7. 타입 캐스팅
+## 8. 타입 캐스팅
 
 타입 캐스팅은 하나의 타입을 다른 타입으로 변환하는 것입니다. **묵시적 변환(widening)**과 **명시적 변환(narrowing)**으로 구분됩니다.
 
-### 7.1 묵시적 변환 (Widening)
+### 8.1 묵시적 변환 (Widening)
 
 작은 타입에서 큰 타입으로 자동 변환됩니다. 데이터 손실이 없으므로 캐스트 연산자 없이 컴파일러가 처리합니다.
 
@@ -276,7 +346,7 @@ public class WideningExample {
 }
 ```
 
-### 7.2 명시적 변환 (Narrowing)
+### 8.2 명시적 변환 (Narrowing)
 
 큰 타입에서 작은 타입으로 변환할 때는 데이터 손실 가능성이 있으므로 캐스트 연산자를 명시해야 합니다.
 
@@ -292,17 +362,17 @@ public class NarrowingExample {
 }
 ```
 
-### 7.3 용어 사전
+### 8.3 용어 사전
 
 - **오버플로우(Overflow)** — 타입의 표현 범위를 초과하면 값이 최솟값부터 다시 순환됩니다. `byte`의 범위는 -128 ~ 127이므로 `(byte) 300`은 300 − 256 = 44가 됩니다.
 
 ---
 
-## 8. 연산자
+## 9. 연산자
 
 연산자는 값을 계산하거나 비교·조합할 때 사용하는 기호입니다.
 
-### 8.1 산술 연산자
+### 9.1 산술 연산자
 
 숫자 타입에 적용하며, `/`는 정수끼리 연산하면 소수점을 버립니다.
 
@@ -326,9 +396,28 @@ public class ArithmeticExample {
 }
 ```
 
-> `+`는 `String`과 함께 쓰면 문자열을 이어 붙입니다 (`"안녕" + "Java"` → `"안녕Java"`).
+> `+`는 `String`과 함께 쓰면 문자열을 이어 붙입니다. 문자열과 다른 타입을 `+`로 연결하면 자동으로 문자열로 변환됩니다.
 
-### 8.2 비교 연산자
+```java
+public class StringConcatExample {
+    public static void main(String[] args) {
+        String name = "지수";
+        int age = 25;
+
+        System.out.println("이름: " + name);             // 이름: 지수
+        System.out.println("나이: " + age);               // 나이: 25
+        System.out.println(name + "님은 " + age + "살");  // 지수님은 25살
+    }
+}
+```
+
+```
+이름: 지수
+나이: 25
+지수님은 25살
+```
+
+### 9.2 비교 연산자
 
 두 값을 비교해 `boolean`을 반환합니다.
 
@@ -341,7 +430,24 @@ public class ArithmeticExample {
 | `<=` | 왼쪽 값이 오른쪽 값보다 작거나 같으면 `true`를 반환합니다. |
 | `>=` | 왼쪽 값이 오른쪽 값보다 크거나 같으면 `true`를 반환합니다. |
 
-### 8.3 논리 연산자
+> **문자열 비교**: `==`은 두 변수가 같은 메모리 주소를 가리키는지 비교합니다. 문자열 내용을 비교할 때는 반드시 **`equals()`** 메서드를 사용하세요.
+
+```java
+public class StringEqualsExample {
+    public static void main(String[] args) {
+        String a = "hello";
+        String b = "hello";
+
+        System.out.println(a.equals(b));  // true (내용 비교)
+    }
+}
+```
+
+```
+true
+```
+
+### 9.3 논리 연산자
 
 `boolean` 값을 조합합니다. `&&`와 `||`는 단락 평가를 수행합니다.
 
@@ -362,7 +468,7 @@ public class LogicalExample {
 }
 ```
 
-### 8.4 대입 연산자
+### 9.4 대입 연산자
 
 `=`로 값을 할당하며, 산술 연산과 결합한 복합 대입 연산자로 코드를 줄일 수 있습니다.
 
@@ -388,7 +494,7 @@ public class AssignmentExample {
 }
 ```
 
-### 8.5 증감 연산자
+### 9.5 증감 연산자
 
 변수 값을 1 증가(`++`)하거나 감소(`--`)합니다. 전위는 연산 전, 후위는 연산 후에 값이 변합니다.
 
@@ -409,7 +515,7 @@ public class IncrementExample {
 }
 ```
 
-### 8.6 삼항 연산자
+### 9.6 삼항 연산자
 
 `조건 ? 참일 때 값 : 거짓일 때 값` 형태로, `if-else`를 한 줄로 표현합니다.
 
@@ -429,17 +535,17 @@ public class TernaryExample {
 }
 ```
 
-### 8.7 용어 사전
+### 9.7 용어 사전
 
 - **단락 평가(Short-circuit evaluation)** — `&&`는 왼쪽이 `false`이면 오른쪽을 평가하지 않고, `||`는 왼쪽이 `true`이면 오른쪽을 평가하지 않습니다. 불필요한 연산을 건너뛰거나 NPE를 방지할 때 활용합니다.
 
 ---
 
-## 9. 조건문
+## 10. 조건문
 
 조건식의 결과에 따라 실행할 코드 블록을 선택합니다.
 
-### 9.1 if / else if / else
+### 10.1 if / else if / else
 
 `if`는 조건이 `true`일 때 블록을 실행합니다. `else if`로 추가 조건을, `else`로 모든 조건이 `false`일 때의 처리를 지정합니다.
 
@@ -464,7 +570,7 @@ public class IfExample {
 }
 ```
 
-### 9.2 switch
+### 10.2 switch
 
 하나의 값을 여러 `case`와 비교합니다. 일치한 `case`부터 실행하고, `break`로 블록을 빠져나옵니다. 일치하는 `case`가 없으면 `default`를 실행합니다.
 
@@ -497,11 +603,11 @@ public class SwitchExample {
 
 ---
 
-## 10. 반복문
+## 11. 반복문
 
 조건이 만족되는 동안 코드 블록을 반복 실행합니다.
 
-### 10.1 for
+### 11.1 for
 
 반복 횟수가 정해진 경우에 사용합니다. 초기화·조건·증감식을 한 줄로 표현합니다.
 
@@ -517,7 +623,7 @@ public class ForExample {
 }
 ```
 
-### 10.2 while
+### 11.2 while
 
 조건이 `true`인 동안 반복합니다. 반복 횟수를 사전에 알 수 없을 때 사용합니다.
 
@@ -535,7 +641,7 @@ public class WhileExample {
 }
 ```
 
-### 10.3 break와 continue
+### 11.3 break와 continue
 
 `break`는 반복문을 즉시 종료하고, `continue`는 현재 반복을 건너뛰고 다음 반복으로 이동합니다.
 
@@ -560,11 +666,11 @@ public class BreakContinueExample {
 
 ---
 
-## 11. 배열
+## 12. 배열
 
 배열은 같은 타입의 값을 연속된 메모리에 고정 개수만큼 저장하는 자료구조입니다. 선언 시 크기가 결정되며, 이후 변경할 수 없습니다.
 
-### 11.1 선언과 초기화
+### 12.1 선언과 초기화
 
 타입 뒤에 `[]`를 붙여 선언하며, `new` 키워드로 크기를 지정하거나 중괄호로 초기값을 직접 지정합니다.
 
@@ -581,7 +687,7 @@ public class ArrayExample {
 }
 ```
 
-### 11.2 원소 접근과 수정
+### 12.2 원소 접근과 수정
 
 인덱스는 `0`부터 시작하며, `배열명[인덱스]`로 원소를 읽거나 씁니다. `배열명.length`로 크기를 얻습니다.
 
@@ -600,7 +706,7 @@ public class ArrayAccessExample {
 }
 ```
 
-### 11.3 배열 순회
+### 12.3 배열 순회
 
 인덱스 기반 `for`문 또는 `for-each`문으로 모든 원소를 순회합니다.
 
@@ -627,7 +733,7 @@ public class ArrayLoopExample {
 }
 ```
 
-### 11.4 다차원 배열
+### 12.4 다차원 배열
 
 `[][]`로 2차원 배열을 선언합니다. 행·열 구조로 표나 격자를 표현할 때 사용합니다.
 
@@ -655,19 +761,19 @@ public class TwoDArrayExample {
 }
 ```
 
-### 11.5 용어 사전
+### 12.5 용어 사전
 
 - **인덱스(Index)** — 배열 원소의 위치를 나타내는 정수. `0`부터 시작하므로 마지막 원소의 인덱스는 `length - 1`입니다. 범위를 벗어나면 런타임 오류가 발생합니다.
 
 ---
 
-## 12. 메서드
+## 13. 메서드
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
 > `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. `static`의 의미는 [클래스와 객체](class-object.md) 섹션에서 자세히 설명합니다.
 
-### 12.1 선언과 호출
+### 13.1 선언과 호출
 
 선언은 반환 타입 → 이름 → 매개변수 순으로 작성합니다. 호출은 이름 뒤에 `()`를 붙입니다.
 
@@ -684,7 +790,7 @@ public class MethodExample {
 }
 ```
 
-### 12.2 매개변수
+### 13.2 매개변수
 
 호출 시 값을 전달하려면 선언부에 매개변수를 씁니다. 여러 개는 `,`로 구분합니다.
 
@@ -701,7 +807,7 @@ public class ParamExample {
 }
 ```
 
-### 12.3 반환값
+### 13.3 반환값
 
 값을 돌려줄 때는 반환 타입을 지정하고 `return`으로 값을 반환합니다.
 
@@ -723,7 +829,7 @@ public class ReturnExample {
 }
 ```
 
-### 12.4 용어 사전
+### 13.4 용어 사전
 
 - **메서드(Method)** — 이름이 있는 코드 블록. 선언 한 번으로 여러 번 호출할 수 있습니다.
 - **매개변수(Parameter)** — 메서드 선언부에 작성하는 변수. `greet(String name)`에서 `name`이 매개변수입니다.
