@@ -11,12 +11,14 @@ hide:
 
 Java 프로그램은 `class` 안의 **`main` 메서드**에서 시작합니다.
 
-- **메서드(method)**: 특정 작업을 수행하는 코드 묶음입니다. `main` 메서드는 프로그램 시작 시 자동으로 실행됩니다.
-- **`class`**: 코드를 담는 그릇으로, 모든 코드는 반드시 `class` 안에 있어야 합니다.
+| 용어 | 설명 |
+|------|------|
+| 메서드(method) | 특정 작업을 수행하는 코드 묶음. `main` 메서드는 프로그램 시작 시 자동으로 실행됩니다. |
+| `class` | 코드를 담는 그릇으로, 모든 코드는 반드시 `class` 안에 있어야 합니다. |
 
 ```java
-public class Hello {
-    public static void main(String[] args) {
+public class Hello {  // 클래스 이름은 파일명(Hello.java)과 반드시 같아야 합니다
+    public static void main(String[] args) {  // 프로그램 시작 시 가장 먼저 실행되는 진입점
         // 여기에 코드를 작성합니다
     }
 }
@@ -25,11 +27,6 @@ public class Hello {
 *지금은 `main` 메서드 안에 코드를 작성한다는 것만 기억하면 됩니다.*
 
 > 메서드 전반은 [13. 메서드](#13-메서드)에서 자세히 다룹니다.
-
-| 부분 | 역할 |
-|------|------|
-| `public class Hello` | 클래스 이름을 `Hello`로 정합니다. 이 이름은 직접 정할 수 있으며, 파일명(`Hello.java`)과 반드시 같아야 합니다. |
-| `public static void main(String[] args)` | 프로그램 시작 시 가장 먼저 실행되는 진입점입니다. |
 
 ---
 
@@ -710,9 +707,9 @@ C
 
 | 형태 | 의미 |
 |------|------|
-| `case 값:` | 값이 일치하면 이 블록부터 실행합니다 |
-| `break` | 현재 `case` 블록을 끝내고 `switch`를 빠져나옵니다 |
-| `default:` | 일치하는 `case`가 없을 때 실행합니다 |
+| `case 값:` | 값이 일치하면 이 블록부터 실행합니다. |
+| `break` | 현재 `case` 블록을 끝내고 `switch`를 빠져나옵니다. |
+| `default:` | 일치하는 `case`가 없을 때 실행합니다. |
 
 > `break`를 생략하면 다음 `case`까지 실행이 계속됩니다(fall-through).
 
@@ -932,8 +929,8 @@ public class ArrayAccessExample {
 
 | 방식 | 용도 |
 |------|------|
-| `for (int i = 0; i < arr.length; i++)` | 인덱스가 필요하거나 원소를 수정할 때 |
-| `for (int n : arr)` | 값만 읽을 때 |
+| `for (int i = 0; i < arr.length; i++)` | 인덱스가 필요하거나 원소를 수정할 때. |
+| `for (int n : arr)` | 값만 읽을 때. |
 
 ```java
 public class ArrayLoopExample {
@@ -978,8 +975,8 @@ public class ArrayLoopExample {
 
 | 방법 | 예시 | 설명 |
 |------|------|------|
-| 크기 지정 | `new int[3][4]` | 3행 4열, 기본값 0으로 초기화 |
-| 값 지정 | `{ {1,2}, {3,4} }` | 선언과 동시에 값 할당 |
+| 크기 지정 | `new int[3][4]` | 3행 4열, 기본값 0으로 초기화. |
+| 값 지정 | `{ {1,2}, {3,4} }` | 선언과 동시에 값 할당. |
 
 ```java
 public class TwoDimArrayExample {
@@ -1087,8 +1084,8 @@ public class ParamExample {
 
 | 구분 | 반환 타입 | `return` |
 |------|-----------|----------|
-| 반환값 없음 | `void` | 생략함 |
-| 반환값 있음 | `int`, `String` 등 | 반드시 작성 |
+| 반환값 없음 | `void` | 생략함. |
+| 반환값 있음 | `int`, `String` 등 | 반드시 작성. |
 
 ```java
 public class ReturnExample {
