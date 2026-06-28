@@ -664,7 +664,13 @@ false
 
 ### 10.1 if / else if / else
 
-`if`는 조건이 `true`일 때 블록을 실행합니다. `else if`로 추가 조건을, `else`로 모든 조건이 `false`일 때의 처리를 지정합니다.
+조건이 `true`인 블록을 순서대로 찾아 실행하고, 나머지는 건너뜁니다.
+
+| 형태 | 의미 |
+|------|------|
+| `if (조건)` | 조건이 `true`이면 블록을 실행합니다. |
+| `else if (조건)` | 위 조건이 `false`이고 이 조건이 `true`이면 실행합니다. |
+| `else` | 위의 모든 조건이 `false`이면 실행합니다. |
 
 ![if-else diagram](../assets/images/java/if-else.svg){ width="600" }
 
@@ -682,14 +688,25 @@ public class IfExample {
         } else {
             System.out.println("F");
         }
-        // 출력: C
     }
 }
 ```
 
+```
+C
+```
+
 ### 10.2 switch
 
-하나의 값을 여러 `case`와 비교합니다. 일치한 `case`부터 실행하고, `break`로 블록을 빠져나옵니다. 일치하는 `case`가 없으면 `default`를 실행합니다.
+하나의 값을 여러 `case`와 비교하여 일치하는 블록을 실행합니다.
+
+| 형태 | 의미 |
+|------|------|
+| `case 값:` | 값이 일치하면 이 블록부터 실행합니다 |
+| `break` | 현재 `case` 블록을 끝내고 `switch`를 빠져나옵니다 |
+| `default:` | 일치하는 `case`가 없을 때 실행합니다 |
+
+> `break`를 생략하면 다음 `case`까지 실행이 계속됩니다(fall-through).
 
 ![switch diagram](../assets/images/java/switch.svg){ width="600" }
 
@@ -711,12 +728,13 @@ public class SwitchExample {
             default:
                 System.out.println("그 외");
         }
-        // 출력: 수요일
     }
 }
 ```
 
-> Java 14부터 `switch` 표현식과 `->` 화살표 문법이 정식 지원됩니다.
+```
+수요일
+```
 
 ---
 
