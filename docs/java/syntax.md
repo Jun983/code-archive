@@ -46,6 +46,7 @@ public class PrintExample {
 
         System.out.print("Hello");            // 줄 바꿈 없이 출력
         System.out.print(", World!");         // 앞 줄과 이어짐
+        System.out.println();                 // 줄 바꿈
 
         System.out.println(42);               // 정수, 실수, 논리값도 출력 가능
         System.out.println(3.14);
