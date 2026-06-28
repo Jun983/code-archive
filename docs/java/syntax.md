@@ -24,6 +24,8 @@ public class Hello {
 
 *지금은 `main` 메서드 안에 코드를 작성한다는 것만 기억하면 됩니다.*
 
+> 메서드 전반은 [13. 메서드](#13-메서드)에서 자세히 다룹니다.
+
 | 부분 | 역할 |
 |------|------|
 | `public class Hello` | 클래스 이름을 `Hello`로 정합니다. 이 이름은 직접 정할 수 있으며, 파일명(`Hello.java`)과 반드시 같아야 합니다. |
@@ -204,14 +206,14 @@ public class StringDeclareExample {
 
 > 메서드 전반은 [13. 메서드](#13-메서드)에서 자세히 다룹니다.
 
-| 메서드 | 설명 | 반환 타입 |
-|--------|------|-----------|
-| `length()` | 문자열 길이를 반환합니다. | `int` |
-| `charAt(index)` | 특정 위치의 문자를 반환합니다. 인덱스는 0부터 시작합니다. | `char` |
-| `substring(start, end)` | `start`부터 `end` 직전까지의 부분 문자열을 반환합니다. | `String` |
-| `toUpperCase()` | 모든 문자를 대문자로 변환합니다. | `String` |
-| `toLowerCase()` | 모든 문자를 소문자로 변환합니다. | `String` |
-| `contains(str)` | 특정 문자열이 포함되면 `true`를 반환합니다. | `boolean` |
+| 메서드 | 반환 타입 | 설명 |
+|--------|-----------|------|
+| `length()` | `int` | 문자열 길이를 반환합니다. |
+| `charAt(index)` | `char` | 특정 위치의 문자를 반환합니다. 인덱스는 0부터 시작합니다. |
+| `substring(start, end)` | `String` | `start`부터 `end` 직전까지의 부분 문자열을 반환합니다. |
+| `toUpperCase()` | `String` | 모든 문자를 대문자로 변환합니다. |
+| `toLowerCase()` | `String` | 모든 문자를 소문자로 변환합니다. |
+| `contains(str)` | `boolean` | 특정 문자열이 포함되면 `true`를 반환합니다. |
 
 ```java
 public class StringMethodExample {
@@ -325,6 +327,10 @@ public class InputExample {
 ```
 
 ### 7.2 주요 메서드
+
+`Scanner`는 입력을 읽는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
+
+> 메서드 전반은 [13. 메서드](#13-메서드)에서 자세히 다룹니다.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
