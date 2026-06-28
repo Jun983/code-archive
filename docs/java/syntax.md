@@ -809,9 +809,9 @@ public class WhileExample {
 | `break` | 반복문 전체를 즉시 종료합니다. |
 | `continue` | 이번 반복의 남은 코드를 건너뛰고 다음 반복으로 이동합니다. |
 
-![break-continue diagram](../assets/images/java/break-continue.svg){ width="350" }
-
 **break 예시** — `i`가 3이 되는 순간 반복문을 종료합니다.
+
+![break diagram](../assets/images/java/break.svg){ width="350" }
 
 ```java
 public class BreakExample {
@@ -831,6 +831,8 @@ public class BreakExample {
 ```
 
 **continue 예시** — `i`가 3일 때만 건너뛰고 나머지는 출력합니다.
+
+![continue diagram](../assets/images/java/continue.svg){ width="350" }
 
 ```java
 public class ContinueExample {

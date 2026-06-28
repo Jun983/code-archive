@@ -1,0 +1,22 @@
+@startuml continue
+!theme plain
+skinparam DefaultFontSize 13
+skinparam ActivityBackgroundColor #E8EDF8
+skinparam ActivityBorderColor #5C78C8
+skinparam ArrowColor #333333
+skinparam DiamondBackgroundColor #E8EDF8
+skinparam DiamondBorderColor #5C78C8
+
+start
+:i = 0;
+while (i < 5?) is (true)
+  if (i == 3?) then (yes)
+    :i++;
+    note right: 이번 반복 건너뜀
+  else (no)
+    :출력: i;
+    :i++;
+  endif
+endwhile (false)
+stop
+@enduml
