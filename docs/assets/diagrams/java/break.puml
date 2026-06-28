@@ -1,4 +1,4 @@
-@startuml break-continue
+@startuml break
 !theme plain
 skinparam DefaultFontSize 13
 skinparam ActivityBackgroundColor #E8EDF8
@@ -9,12 +9,12 @@ skinparam DiamondBorderColor #5C78C8
 
 start
 :i = 0;
-while (i < 10?) is (true)
-  if (i == 3?) then (continue)
-    note right: 이번 반복 건너뜀
-  elseif (i == 6?) then (break)
-    note right: 루프 즉시 종료
-  else (계속)
+while (i < 5?) is (true)
+  if (i == 3?) then (yes)
+    :break;
+    note right: 반복문 즉시 종료
+    stop
+  else (no)
     :출력: i;
   endif
   :i++;
