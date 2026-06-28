@@ -297,28 +297,31 @@ https://api.example.com
 
 ## 7. 입력
 
-`Scanner` 클래스를 사용해 표준 입력(`System.in`)에서 데이터를 읽습니다. `java.util.Scanner`를 import해야 합니다.
+키보드로 입력받으려면 `Scanner`를 사용합니다.
 
 ### 7.1 선언과 사용
 
-`Scanner` 객체를 생성한 뒤 타입에 맞는 메서드로 값을 읽습니다.
+`new Scanner(System.in)`으로 Scanner를 만든 뒤, 타입에 맞는 메서드로 값을 읽습니다.
 
 ```java
-import java.util.Scanner;
+import java.util.Scanner; // Scanner를 사용하기 위해 필요한 선언
 
 public class InputExample {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int age = scanner.nextInt();          // 정수 입력
-        double height = scanner.nextDouble(); // 실수 입력
-        scanner.nextLine();                   // 버퍼 비우기
-        String name = scanner.nextLine();     // 문자열(한 줄) 입력
+        System.out.print("이름 입력: ");
+        String name = scanner.nextLine();
 
-        System.out.println(name + ", " + age + ", " + height);
+        System.out.println("안녕, " + name);
         scanner.close();
     }
 }
+```
+
+```
+이름 입력: 홍길동
+안녕, 홍길동
 ```
 
 ### 7.2 주요 메서드
@@ -329,11 +332,7 @@ public class InputExample {
 | `nextDouble()` | `double` | 실수 1개를 읽음 |
 | `next()` | `String` | 공백 기준 단어 1개를 읽음 |
 | `nextLine()` | `String` | 줄 바꿈까지 한 줄을 읽음 |
-
-### 7.3 용어 사전
-
-- **버퍼(Buffer)** — 데이터를 임시로 저장하는 메모리 공간. `Scanner`는 입력 스트림을 내부 버퍼에 담아두고 메서드 호출 시 꺼내 씁니다.
-- **버퍼 비우기** — `nextInt()` 등 숫자 계열 메서드는 줄 바꿈 문자(`\n`)를 소비하지 않습니다. 이후 `nextLine()`을 바로 호출하면 빈 문자열이 반환되므로, `scanner.nextLine()`을 한 번 호출해 버퍼를 비워야 합니다.
+| `close()` | `void` | 사용이 끝난 Scanner를 닫아 자원을 반환함. 사용 후 닫는 것이 관례 |
 
 ---
 
