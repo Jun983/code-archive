@@ -968,13 +968,76 @@ public class ArrayLoopExample {
 
 ---
 
-## 13. 메서드
+## 13. 다차원 배열
+
+배열의 원소가 다시 배열인 구조입니다. 행(row)과 열(column)로 데이터를 표현할 때 사용합니다.
+
+### 13.1 2차원 배열 선언과 초기화
+
+`타입[][] 변수명` 형태로 선언하고, 중첩 중괄호로 초기화합니다.
+
+| 방법 | 예시 | 설명 |
+|------|------|------|
+| 크기 지정 | `new int[3][4]` | 3행 4열, 기본값 0으로 초기화 |
+| 값 지정 | `{ {1,2}, {3,4} }` | 선언과 동시에 값 할당 |
+
+```java
+public class TwoDimArrayExample {
+    public static void main(String[] args) {
+        int[][] grid = new int[3][4];         // 3행 4열, 기본값 0
+        int[][] matrix = { {1, 2}, {3, 4} };  // 2행 2열
+
+        System.out.println(grid[0][0]);    // 0
+        System.out.println(matrix[0][1]);  // 2
+        System.out.println(matrix[1][0]);  // 3
+    }
+}
+```
+
+```
+0
+2
+3
+```
+
+### 13.2 2차원 배열 순회
+
+중첩 `for`문으로 행과 열을 순서대로 접근합니다.
+
+```java
+public class TwoDimLoopExample {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                System.out.print(matrix[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+```
+1 2 3 
+4 5 6 
+7 8 9 
+```
+
+---
+
+## 14. 메서드
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
 > `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. `static`의 의미는 [클래스와 객체](class-object.md) 섹션에서 자세히 설명합니다.
 
-### 13.1 선언과 호출
+### 14.1 선언과 호출
 
 선언은 반환 타입 → 이름 → 매개변수 순으로 작성합니다. 호출은 이름 뒤에 `()`를 붙입니다.
 
@@ -996,7 +1059,7 @@ public class MethodExample {
 안녕하세요!
 ```
 
-### 13.2 매개변수
+### 14.2 매개변수
 
 호출 시 값을 전달하려면 선언부에 **매개변수**를 씁니다. 여러 개는 `,`로 구분합니다. 호출 시 실제로 넘기는 값은 **인수**라고 합니다.
 
@@ -1018,7 +1081,7 @@ public class ParamExample {
 민준님은 30살입니다.
 ```
 
-### 13.3 반환값
+### 14.3 반환값
 
 값을 돌려줄 때는 반환 타입을 지정하고 `return`으로 값을 반환합니다.
 
