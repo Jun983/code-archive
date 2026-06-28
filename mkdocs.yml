@@ -6,6 +6,12 @@ repo_name: Jun983/code-archive
 
 docs_dir: docs
 
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/lightbox-zoom.js
+
 theme:
   name: material
   language: ko
@@ -36,6 +42,8 @@ plugins:
   - search:
       lang: ko
   - awesome-pages
+  - glightbox:
+      draggable: true
 
 markdown_extensions:
   - admonition
