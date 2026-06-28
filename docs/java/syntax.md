@@ -348,7 +348,7 @@ public class InputExample {
 
 ### 8.1 묵시적 변환 (Widening)
 
-작은 타입에서 큰 타입으로 자동 변환됩니다. 데이터 손실이 없으므로 캐스트 연산자 없이 컴파일러가 처리합니다.
+작은 타입에서 큰 타입으로 자동 변환됩니다. 데이터 손실이 없으므로 별도 문법 없이 컴파일러가 처리합니다.
 
 ![widening cast diagram](../assets/images/java/widening-cast.svg){ width="600" }
 
@@ -358,29 +358,41 @@ public class WideningExample {
         int intValue = 100;
         long longValue = intValue;      // 자동 변환
         double doubleValue = intValue;  // 자동 변환
+
+        System.out.println(longValue);    // 100
+        System.out.println(doubleValue);  // 100.0
     }
 }
 ```
 
+```
+100
+100.0
+```
+
 ### 8.2 명시적 변환 (Narrowing)
 
-큰 타입에서 작은 타입으로 변환할 때는 데이터 손실 가능성이 있으므로 캐스트 연산자를 명시해야 합니다.
+큰 타입에서 작은 타입으로 변환할 때는 데이터 손실 가능성이 있으므로 변환할 타입을 `(타입명)` 형태로 직접 명시해야 합니다. 이를 **캐스트 연산자**라고 합니다.
 
 ```java
 public class NarrowingExample {
     public static void main(String[] args) {
         double doubleValue = 9.99;
-        int intValue = (int) doubleValue;      // 9 (소수점 버림)
+        int intValue = (int) doubleValue;  // (int): double → int로 변환
 
         int big = 300;
-        byte byteValue = (byte) big;  // 44 (오버플로우 발생)
+        byte byteValue = (byte) big;  // (byte): int → byte로 변환
+
+        System.out.println(intValue);   // 9
+        System.out.println(byteValue);  // 44
     }
 }
 ```
 
-### 8.3 용어 사전
-
-- **오버플로우(Overflow)** — 타입의 표현 범위를 초과하면 값이 최솟값부터 다시 순환됩니다. `byte`의 범위는 -128 ~ 127이므로 `(byte) 300`은 300 − 256 = 44가 됩니다.
+```
+9
+44
+```
 
 ---
 
