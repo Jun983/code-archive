@@ -402,103 +402,49 @@ public class NarrowingExample {
 
 ### 9.1 산술 연산자
 
-숫자 타입에 적용하며, `/`는 정수끼리 연산하면 소수점을 버립니다.
+두 수를 계산해 결과값을 반환합니다.
 
-| 연산자 | 의미 | 예시 |
-|--------|------|------|
-| `+` | 왼쪽 값과 오른쪽 값을 더한 값을 반환합니다. | `10 + 3` → `13` |
-| `-` | 왼쪽 값에서 오른쪽 값을 뺀 값을 반환합니다. | `10 - 3` → `7` |
-| `*` | 왼쪽 값과 오른쪽 값을 곱한 값을 반환합니다. | `10 * 3` → `30` |
-| `/` | 왼쪽 값을 오른쪽 값으로 나눈 몫을 반환합니다. 정수끼리는 소수점을 버립니다. | `10 / 3` → `3` |
-| `%` | 왼쪽 값을 오른쪽 값으로 나눈 나머지를 반환합니다. | `10 % 3` → `1` |
+| 연산자 | 의미 |
+|--------|------|
+| `+` | 왼쪽 값과 오른쪽 값을 더한 값을 반환합니다. |
+| `-` | 왼쪽 값에서 오른쪽 값을 뺀 값을 반환합니다. |
+| `*` | 왼쪽 값과 오른쪽 값을 곱한 값을 반환합니다. |
+| `/` | 왼쪽 값을 오른쪽 값으로 나눈 몫을 반환합니다. 정수끼리는 소수점을 버립니다. |
+| `%` | 왼쪽 값을 오른쪽 값으로 나눈 나머지를 반환합니다. |
 
 ```java
 public class ArithmeticExample {
     public static void main(String[] args) {
-        int sum       = 10 + 3;  // 13
-        int diff      = 10 - 3;  // 7
-        int product   = 10 * 3;  // 30
-        int quotient  = 10 / 3;  // 3  (소수점 버림)
-        int remainder = 10 % 3;  // 1  (나머지)
-    }
-}
-```
+        int number1 = 10;
+        int number2 = 3;
 
-> `+`는 `String`과 함께 쓰면 문자열을 이어 붙입니다. 문자열과 다른 타입을 `+`로 연결하면 자동으로 문자열로 변환됩니다.
+        int sum       = number1 + number2;
+        int diff      = number1 - number2;
+        int product   = number1 * number2;
+        int quotient  = number1 / number2;
+        int remainder = number1 % number2;
 
-```java
-public class StringConcatExample {
-    public static void main(String[] args) {
-        String name = "지수";
-        int age = 25;
-
-        System.out.println("이름: " + name);             // 이름: 지수
-        System.out.println("나이: " + age);               // 나이: 25
-        System.out.println(name + "님은 " + age + "살");  // 지수님은 25살
+        System.out.println(sum);        // 13
+        System.out.println(diff);       // 7
+        System.out.println(product);    // 30
+        System.out.println(quotient);   // 3
+        System.out.println(remainder);  // 1
     }
 }
 ```
 
 ```
-이름: 지수
-나이: 25
-지수님은 25살
+13
+7
+30
+3
+1
 ```
 
-### 9.2 비교 연산자
 
-두 값을 비교해 `boolean`을 반환합니다.
+### 9.2 대입 연산자
 
-| 연산자 | 의미 |
-|--------|------|
-| `==` | 두 값이 같으면 `true`를 반환합니다. |
-| `!=` | 두 값이 다르면 `true`를 반환합니다. |
-| `<` | 왼쪽 값이 오른쪽 값보다 작으면 `true`를 반환합니다. |
-| `>` | 왼쪽 값이 오른쪽 값보다 크면 `true`를 반환합니다. |
-| `<=` | 왼쪽 값이 오른쪽 값보다 작거나 같으면 `true`를 반환합니다. |
-| `>=` | 왼쪽 값이 오른쪽 값보다 크거나 같으면 `true`를 반환합니다. |
-
-> **문자열 비교**: `==`은 두 변수가 같은 메모리 주소를 가리키는지 비교합니다. 문자열 내용을 비교할 때는 반드시 **`equals()`** 메서드를 사용하세요.
-
-```java
-public class StringEqualsExample {
-    public static void main(String[] args) {
-        String a = "hello";
-        String b = "hello";
-
-        System.out.println(a.equals(b));  // true (내용 비교)
-    }
-}
-```
-
-```
-true
-```
-
-### 9.3 논리 연산자
-
-`boolean` 값을 조합합니다. `&&`와 `||`는 단락 평가를 수행합니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `&&` | 두 피연산자가 모두 `true`이면 `true`를 반환합니다. |
-| `||` | 두 피연산자 중 하나라도 `true`이면 `true`를 반환합니다. |
-| `!` | 피연산자의 논리값을 반전해 반환합니다. |
-
-```java
-public class LogicalExample {
-    public static void main(String[] args) {
-        boolean a = true, b = false;
-        System.out.println(a && b);  // false (AND)
-        System.out.println(a || b);  // true  (OR)
-        System.out.println(!a);      // false (NOT)
-    }
-}
-```
-
-### 9.4 대입 연산자
-
-`=`로 값을 할당하며, 산술 연산과 결합한 복합 대입 연산자로 코드를 줄일 수 있습니다.
+변수에 값을 할당합니다.
 
 | 연산자 | 의미 |
 |--------|------|
@@ -513,25 +459,112 @@ public class LogicalExample {
 public class AssignmentExample {
     public static void main(String[] args) {
         int count = 10;
-        count += 5;   // count = count + 5  → 15
-        count -= 3;   // count = count - 3  → 12
-        count *= 2;   // count = count * 2  → 24
-        count /= 4;   // count = count / 4  → 6
-        count %= 4;   // count = count % 4  → 2
+
+        count += 5;
+        System.out.println(count);  // 15
+
+        count -= 3;
+        System.out.println(count);  // 12
+
+        count *= 2;
+        System.out.println(count);  // 24
+
+        count /= 4;
+        System.out.println(count);  // 6
+
+        count %= 4;
+        System.out.println(count);  // 2
     }
 }
 ```
 
+```
+15
+12
+24
+6
+2
+```
+
+### 9.3 비교 연산자
+
+두 값을 비교해 `boolean`을 반환합니다.
+
+| 연산자 | 의미 |
+|--------|------|
+| `==` | 두 값이 같으면 `true`를 반환합니다. |
+| `!=` | 두 값이 다르면 `true`를 반환합니다. |
+| `<` | 왼쪽 값이 오른쪽 값보다 작으면 `true`를 반환합니다. |
+| `>` | 왼쪽 값이 오른쪽 값보다 크면 `true`를 반환합니다. |
+| `<=` | 왼쪽 값이 오른쪽 값보다 작거나 같으면 `true`를 반환합니다. |
+| `>=` | 왼쪽 값이 오른쪽 값보다 크거나 같으면 `true`를 반환합니다. |
+
+```java
+public class ComparisonExample {
+    public static void main(String[] args) {
+        int number1 = 10;
+        int number2 = 3;
+
+        System.out.println(number1 == number2);  // false
+        System.out.println(number1 != number2);  // true
+        System.out.println(number1 < number2);   // false
+        System.out.println(number1 > number2);   // true
+        System.out.println(number1 <= number2);  // false
+        System.out.println(number1 >= number2);  // true
+    }
+}
+```
+
+```
+false
+true
+false
+true
+false
+true
+```
+
+### 9.4 논리 연산자
+
+두 `boolean` 값을 조합해 하나의 `boolean`을 반환합니다.
+
+| 연산자 | 의미 |
+|--------|------|
+| `&&` | 두 값이 모두 `true`이면 `true`를 반환합니다. |
+| `\|\|` | 두 값 중 하나라도 `true`이면 `true`를 반환합니다. |
+| `!` | `true`는 `false`로, `false`는 `true`로 반환합니다. |
+
+`&&`는 왼쪽이 `false`이면 오른쪽을 확인하지 않고, `||`는 왼쪽이 `true`이면 오른쪽을 확인하지 않습니다.
+
+```java
+public class LogicalExample {
+    public static void main(String[] args) {
+        boolean a = true;
+        boolean b = false;
+
+        System.out.println(a && b);  // false
+        System.out.println(a || b);  // true
+        System.out.println(!a);      // false
+    }
+}
+```
+
+```
+false
+true
+false
+```
+
 ### 9.5 증감 연산자
 
-변수 값을 1 증가(`++`)하거나 감소(`--`)합니다. 전위는 연산 전, 후위는 연산 후에 값이 변합니다.
+변수의 값을 1씩 증가하거나 감소시킵니다.
 
-| 연산자 | 형태 | 동작 |
-|--------|------|------|
-| `++` | 전위 (`++x`) | 변수를 1 증가시킨 뒤 값을 반환합니다. |
-| `++` | 후위 (`x++`) | 현재 값을 반환한 뒤 변수를 1 증가시킵니다. |
-| `--` | 전위 (`--x`) | 변수를 1 감소시킨 뒤 값을 반환합니다. |
-| `--` | 후위 (`x--`) | 현재 값을 반환한 뒤 변수를 1 감소시킵니다. |
+| 연산자 | 의미 |
+|--------|------|
+| `++x` | 변수를 1 증가시킨 뒤 값을 반환합니다. |
+| `x++` | 현재 값을 반환한 뒤 변수를 1 증가시킵니다. |
+| `--x` | 변수를 1 감소시킨 뒤 값을 반환합니다. |
+| `x--` | 현재 값을 반환한 뒤 변수를 1 감소시킵니다. |
 
 ```java
 public class IncrementExample {
@@ -543,29 +576,85 @@ public class IncrementExample {
 }
 ```
 
+```
+5
+7
+```
+
 ### 9.6 삼항 연산자
 
-`조건 ? 참일 때 값 : 거짓일 때 값` 형태로, `if-else`를 한 줄로 표현합니다.
+조건에 따라 두 값 중 하나를 반환합니다.
 
-| 부분 | 역할 |
+| 형태 | 의미 |
 |------|------|
-| `조건` | 평가할 `boolean` 표현식입니다. |
-| `참일 때 값` | 조건이 `true`이면 이 값을 반환합니다. |
-| `거짓일 때 값` | 조건이 `false`이면 이 값을 반환합니다. |
+| `조건 ? A : B` | 조건이 `true`이면 `A`, `false`이면 `B`를 반환합니다. |
 
 ```java
 public class TernaryExample {
     public static void main(String[] args) {
         int score = 75;
         String result = (score >= 60) ? "합격" : "불합격";
-        System.out.println(result);  // 합격
+        System.out.println(result);
     }
 }
 ```
 
-### 9.7 용어 사전
+```
+합격
+```
 
-- **단락 평가(Short-circuit evaluation)** — `&&`는 왼쪽이 `false`이면 오른쪽을 평가하지 않고, `||`는 왼쪽이 `true`이면 오른쪽을 평가하지 않습니다. 불필요한 연산을 건너뛰거나 NPE를 방지할 때 활용합니다.
+### 9.7 String 연산
+
+`String`은 숫자 타입과 달리 `+`로 이어 붙이고, 내용 비교에는 `equals()`를 사용합니다.
+
+#### 문자열 연결
+
+| 형태 | 의미 |
+|------|------|
+| `+` | 두 문자열을 이어 붙입니다. 다른 타입과 연결하면 자동으로 문자열로 변환됩니다. |
+
+```java
+public class StringConcatExample {
+    public static void main(String[] args) {
+        String name = "지수";
+        int age = 25;
+
+        System.out.println("이름: " + name);
+        System.out.println("나이: " + age);
+        System.out.println(name + "님은 " + age + "살");
+    }
+}
+```
+
+```
+이름: 지수
+나이: 25
+지수님은 25살
+```
+
+#### 문자열 비교
+
+| 형태 | 의미 |
+|------|------|
+| `a.equals(b)` | 두 문자열의 **내용**이 같은지 비교합니다. |
+| `a == b` | 두 변수가 같은 **객체**를 가리키는지 비교합니다. 내용이 같아도 `false`가 나올 수 있습니다. |
+
+```java
+public class StringEqualsExample {
+    public static void main(String[] args) {
+        String a = "hello";
+        String b = new String("hello");
+
+        System.out.println(a.equals(b));
+        System.out.println(a == b);
+    }
+}
+```
+
+```
+true
+false
+```
 
 ---
 
@@ -717,7 +806,7 @@ public class ArrayExample {
 
 ### 12.2 원소 접근과 수정
 
-인덱스는 `0`부터 시작하며, `배열명[인덱스]`로 원소를 읽거나 씁니다. `배열명.length`로 크기를 얻습니다.
+인덱스는 `0`부터 시작하며 마지막 원소의 인덱스는 `length - 1`입니다. 범위를 벗어난 인덱스를 사용하면 런타임 오류가 발생합니다. `배열명[인덱스]`로 원소를 읽거나 쓰고, `배열명.length`로 크기를 얻습니다.
 
 ```java
 public class ArrayAccessExample {
@@ -789,10 +878,6 @@ public class TwoDArrayExample {
 }
 ```
 
-### 12.5 용어 사전
-
-- **인덱스(Index)** — 배열 원소의 위치를 나타내는 정수. `0`부터 시작하므로 마지막 원소의 인덱스는 `length - 1`입니다. 범위를 벗어나면 런타임 오류가 발생합니다.
-
 ---
 
 ## 13. 메서드
@@ -820,7 +905,7 @@ public class MethodExample {
 
 ### 13.2 매개변수
 
-호출 시 값을 전달하려면 선언부에 매개변수를 씁니다. 여러 개는 `,`로 구분합니다.
+호출 시 값을 전달하려면 선언부에 **매개변수**를 씁니다. 여러 개는 `,`로 구분합니다. 호출 시 실제로 넘기는 값은 **인수**라고 합니다.
 
 ```java
 public class ParamExample {
@@ -857,10 +942,3 @@ public class ReturnExample {
 }
 ```
 
-### 13.4 용어 사전
-
-- **메서드(Method)** — 이름이 있는 코드 블록. 선언 한 번으로 여러 번 호출할 수 있습니다.
-- **매개변수(Parameter)** — 메서드 선언부에 작성하는 변수. `greet(String name)`에서 `name`이 매개변수입니다.
-- **인수(Argument)** — 메서드 호출 시 실제로 전달하는 값. `greet("지수", 25)`에서 `"지수"`와 `25`가 인수입니다.
-- **반환값(Return value)** — `return`으로 메서드 바깥에 돌려보내는 값.
-- **void** — 반환값이 없음을 나타내는 키워드.
