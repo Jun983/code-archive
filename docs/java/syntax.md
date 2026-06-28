@@ -1035,15 +1035,13 @@ public class TwoDimLoopExample {
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
-> `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. `static`의 의미는 [클래스와 객체](class-object.md) 섹션에서 자세히 설명합니다.
-
 ### 14.1 선언과 호출
 
-선언은 반환 타입 → 이름 → 매개변수 순으로 작성합니다. 호출은 이름 뒤에 `()`를 붙입니다.
+선언은 `반환 타입 → 이름 → 매개변수` 순으로 작성합니다. 반환할 값이 없으면 반환 타입으로 `void`를 씁니다. 호출은 이름 뒤에 `()`를 붙입니다.
 
 ```java
 public class MethodExample {
-    static void sayHello() {
+    static void sayHello() {  // void: 반환값 없음
         System.out.println("안녕하세요!");
     }
 
@@ -1059,19 +1057,21 @@ public class MethodExample {
 안녕하세요!
 ```
 
+> `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. `static`의 의미는 [클래스와 객체](class-object.md) 섹션에서 자세히 설명합니다.
+
 ### 14.2 매개변수
 
-호출 시 값을 전달하려면 선언부에 **매개변수**를 씁니다. 여러 개는 `,`로 구분합니다. 호출 시 실제로 넘기는 값은 **인수**라고 합니다.
+**매개변수**는 메서드를 선언할 때 지정하는 변수 이름이고, **인수**는 호출할 때 실제로 전달하는 값입니다. 여러 개는 `,`로 구분합니다.
 
 ```java
 public class ParamExample {
-    static void greet(String name, int age) {
+    static void greet(String name, int age) {  // name, age: 매개변수
         System.out.println(name + "님은 " + age + "살입니다.");
     }
 
     public static void main(String[] args) {
-        greet("지수", 25);  // 지수님은 25살입니다.
-        greet("민준", 30);  // 민준님은 30살입니다.
+        greet("지수", 25);  // "지수", 25: 인수
+        greet("민준", 30);
     }
 }
 ```
@@ -1087,7 +1087,7 @@ public class ParamExample {
 
 | 구분 | 반환 타입 | `return` |
 |------|-----------|----------|
-| 반환값 없음 | `void` | 생략 가능 |
+| 반환값 없음 | `void` | 생략함 |
 | 반환값 있음 | `int`, `String` 등 | 반드시 작성 |
 
 ```java
