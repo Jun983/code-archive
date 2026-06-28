@@ -241,11 +241,11 @@ hello
 
 ## 6. 상수
 
-상수는 한 번 초기화되면 값을 변경할 수 없는 변수입니다. `final` 키워드로 선언합니다.
+상수는 `final` 키워드로 선언한 변수로, 최초 초기화 이후 값을 변경할 수 없습니다.
 
-### 6.1 선언
+### 6.1 선언과 초기화
 
-`final`을 붙이면 최초 초기화 이후 재할당이 불가합니다.
+변수 선언 앞에 `final`을 붙이면 상수가 됩니다. 선언과 동시에 초기화해야 하며, 이후 재할당을 시도하면 오류가 발생합니다.
 
 ```java
 public class ConstantExample {
@@ -253,35 +253,45 @@ public class ConstantExample {
         final int MAX_SIZE = 100;
         final double PI = 3.14159;
         final String APP_NAME = "MyApp";
+
+        System.out.println(MAX_SIZE);   // 100
+        System.out.println(PI);         // 3.14159
+        System.out.println(APP_NAME);   // MyApp
     }
 }
 ```
 
-재할당을 시도하면 컴파일 오류가 발생합니다.
-
-```java
-MAX_SIZE = 200;  // 컴파일 오류: final 변수에 재할당 불가
+```
+100
+3.14159
+MyApp
 ```
 
 > 클래스 전체에서 공유하는 상수(`static final`)는 [클래스와 객체](class-object.md)에서 다룹니다.
 
 ### 6.2 명명 규칙
 
-상수명은 **UPPER_SNAKE_CASE**로 작성합니다. 모든 글자를 대문자로 쓰고, 단어 사이는 언더스코어(`_`)로 구분합니다.
+상수명은 **UPPER_SNAKE_CASE**로 작성합니다. 변수의 camelCase와 구분하기 위해 모든 글자를 대문자로 쓰고, 단어 사이는 언더스코어(`_`)로 구분합니다.
 
 ```java
 public class ConstantNamingExample {
     public static void main(String[] args) {
-        final int MAX_SIZE = 100;
+        final int MAX_RETRY_COUNT = 3;
         final double DEFAULT_TIMEOUT = 30.0;
         final String BASE_URL = "https://api.example.com";
+
+        System.out.println(MAX_RETRY_COUNT);   // 3
+        System.out.println(DEFAULT_TIMEOUT);   // 30.0
+        System.out.println(BASE_URL);          // https://api.example.com
     }
 }
 ```
 
-### 6.3 용어 사전
-
-- **final** — 변수에 붙이면 최초 할당 이후 재할당을 금지합니다.
+```
+3
+30.0
+https://api.example.com
+```
 
 ---
 
