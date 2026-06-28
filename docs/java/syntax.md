@@ -167,8 +167,16 @@ public class NamingExample {
     public static void main(String[] args) {
         int maxRetryCount = 3;
         boolean isActive = true;
+
+        System.out.println(maxRetryCount);
+        System.out.println(isActive);
     }
 }
+```
+
+```
+3
+true
 ```
 
 ---
@@ -856,7 +864,7 @@ public class ContinueExample {
 
 ## 12. 배열
 
-배열은 같은 타입의 값을 연속된 메모리에 고정 개수만큼 저장하는 자료구조입니다. 선언 시 크기가 결정되며, 이후 변경할 수 없습니다.
+배열은 같은 타입의 값을 순서대로 묶어 보관하는 자료구조입니다. 선언할 때 크기가 고정됩니다.
 
 ### 12.1 선언과 초기화
 
@@ -865,19 +873,36 @@ public class ContinueExample {
 ```java
 public class ArrayExample {
     public static void main(String[] args) {
-        // 크기 지정: 기본값으로 초기화 (숫자 → 0, boolean → false, 객체 → null)
+        // 크기 지정: 숫자 타입은 0으로 초기화
         int[] scores = new int[5];
 
         // 초기값 직접 지정
         int[] primes = {2, 3, 5, 7, 11};
         String[] days = {"월", "화", "수", "목", "금"};
+
+        System.out.println(scores[0]);   // 기본값: 0
+        System.out.println(primes[0]);   // 2
+        System.out.println(days[0]);     // 월
     }
 }
 ```
 
+```
+0
+2
+월
+```
+
 ### 12.2 원소 접근과 수정
 
-인덱스는 `0`부터 시작하며 마지막 원소의 인덱스는 `length - 1`입니다. 범위를 벗어난 인덱스를 사용하면 런타임 오류가 발생합니다. `배열명[인덱스]`로 원소를 읽거나 쓰고, `배열명.length`로 크기를 얻습니다.
+배열에 담긴 각 값을 **원소**라 하며, **인덱스**로 접근합니다.
+
+| 용어 | 설명 |
+|------|------|
+| **원소** | 배열에 담긴 각각의 값 |
+| **인덱스** | 원소의 위치를 나타내는 번호. `0`부터 시작하며 마지막은 `length - 1` |
+
+존재하지 않는 인덱스를 사용하면 프로그램 실행 중 오류가 발생합니다.
 
 ```java
 public class ArrayAccessExample {
@@ -894,9 +919,16 @@ public class ArrayAccessExample {
 }
 ```
 
+```
+90
+60
+5
+75
+```
+
 ### 12.3 배열 순회
 
-인덱스 기반 `for`문 또는 `for-each`문으로 모든 원소를 순회합니다.
+인덱스 기반 `for`문 또는 `for-each`문으로 모든 원소를 순회합니다. `for-each`는 `for (타입 변수 : 배열)` 형태로, 인덱스 없이 값만 꺼낼 때 사용합니다.
 
 | 방식 | 용도 |
 |------|------|
@@ -921,32 +953,17 @@ public class ArrayLoopExample {
 }
 ```
 
-### 12.4 다차원 배열
-
-`[][]`로 2차원 배열을 선언합니다. 행·열 구조로 표나 격자를 표현할 때 사용합니다.
-
-```java
-public class TwoDArrayExample {
-    public static void main(String[] args) {
-        int[][] matrix = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
-
-        System.out.println(matrix[1][2]);  // 6 (2행 3열)
-
-        for (int[] row : matrix) {
-            for (int val : row) {
-                System.out.print(val + " ");
-            }
-            System.out.println();
-        }
-        // 1 2 3
-        // 4 5 6
-        // 7 8 9
-    }
-}
+```
+0: 10
+1: 20
+2: 30
+3: 40
+4: 50
+10
+20
+30
+40
+50
 ```
 
 ---
@@ -974,6 +991,11 @@ public class MethodExample {
 }
 ```
 
+```
+안녕하세요!
+안녕하세요!
+```
+
 ### 13.2 매개변수
 
 호출 시 값을 전달하려면 선언부에 **매개변수**를 씁니다. 여러 개는 `,`로 구분합니다. 호출 시 실제로 넘기는 값은 **인수**라고 합니다.
@@ -989,6 +1011,11 @@ public class ParamExample {
         greet("민준", 30);  // 민준님은 30살입니다.
     }
 }
+```
+
+```
+지수님은 25살입니다.
+민준님은 30살입니다.
 ```
 
 ### 13.3 반환값
@@ -1011,5 +1038,9 @@ public class ReturnExample {
         System.out.println(result);  // 7
     }
 }
+```
+
+```
+7
 ```
 
