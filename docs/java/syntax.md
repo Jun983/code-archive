@@ -299,6 +299,13 @@ public class BoxingExample {
 | `Integer.parseInt(str)` | `int` | 문자열을 정수로 변환합니다. |
 | `Double.parseDouble(str)` | `double` | 문자열을 실수로 변환합니다. |
 | `Character.isDigit(c)` | `boolean` | 문자가 숫자면 `true`를 반환합니다. |
+| `Integer.valueOf(str)` | `Integer` | 문자열을 `Integer` 객체로 변환합니다. |
+| `Integer.MAX_VALUE` / `MIN_VALUE` | `int` | `int`의 최댓값/최솟값 상수입니다. |
+| `Integer.compare(a, b)` | `int` | 두 값을 비교합니다. |
+| `Character.isLetter(c)` | `boolean` | 문자가 알파벳이면 `true`를 반환합니다. |
+| `Character.isUpperCase(c)` / `isLowerCase(c)` | `boolean` | 대문자/소문자 여부를 반환합니다. |
+| `Character.toUpperCase(c)` / `toLowerCase(c)` | `char` | 대소문자를 변환합니다. |
+| `Boolean.parseBoolean(str)` | `boolean` | 문자열을 `boolean`으로 변환합니다. |
 
 ```java
 public class WrapperExample {
