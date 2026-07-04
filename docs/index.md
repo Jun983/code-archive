@@ -35,3 +35,17 @@ C, Java를 비롯한 프로그래밍 언어에 대한 내용을 직접 정리한
     [:octicons-arrow-right-24: 바로 가기](java/index.md)
 
 </div>
+
+### 연습 문제
+
+<div class="grid cards" markdown>
+
+-   :material-pencil: **연습 문제**
+
+    ---
+
+    개념 정리와 함께 풀어보는 프로그래밍 연습 문제 모음
+
+    [:octicons-arrow-right-24: 바로 가기](exercises/index.md)
+
+</div>
