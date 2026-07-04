@@ -27,7 +27,7 @@ public class Hello {  // 클래스 이름은 파일명(Hello.java)과 반드시 
 *지금은 `main` 메서드 안에 코드를 작성한다는 것만 기억하면 됩니다.*
 
 !!! info "참고"
-    자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
+    자세한 내용은 [15. 메서드](#15-메서드)를 참고하세요.
 
 ---
 
@@ -216,7 +216,7 @@ public class StringDeclareExample {
 `String`은 문자열을 다루는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
 
 !!! info "참고"
-    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [15. 메서드](#15-메서드)를 참고하세요.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -345,7 +345,7 @@ public class InputExample {
 `Scanner`는 입력을 읽는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
 
 !!! info "참고"
-    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [15. 메서드](#15-메서드)를 참고하세요.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -869,7 +869,71 @@ public class ContinueExample {
 
 ---
 
-## 12. 배열
+## 12. 랜덤 라이브러리
+
+무작위 값이 필요할 때는 `Math.random()` 또는 `Random` 클래스를 사용합니다.
+
+### 12.1 Math.random()
+
+`Math.random()`은 `0.0` 이상 `1.0` 미만의 `double` 값을 무작위로 반환합니다. 원하는 정수 범위로 바꾸려면 곱하고 더한 뒤 `(int)`로 캐스팅합니다.
+
+| 형태 | 의미 |
+|------|------|
+| `Math.random()` | `0.0` 이상 `1.0` 미만의 `double`을 반환합니다. |
+| `(int) (Math.random() * n)` | `0` 이상 `n` 미만의 정수를 반환합니다. |
+| `(int) (Math.random() * n) + start` | `start` 이상 `start + n` 미만의 정수를 반환합니다. |
+
+```java
+public class MathRandomExample {
+    public static void main(String[] args) {
+        int dice = (int) (Math.random() * 6) + 1;        // 1 ~ 6
+        int fourDigit = (int) (Math.random() * 9000) + 1000;  // 1000 ~ 9999
+
+        System.out.println(dice);
+        System.out.println(fourDigit);
+    }
+}
+```
+
+```
+4
+7392
+```
+
+### 12.2 Random 클래스
+
+`Random`은 무작위 값을 생성하는 객체입니다. `new Random()`으로 만든 뒤, 타입에 맞는 메서드로 값을 뽑습니다.
+
+!!! info "참고"
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [15. 메서드](#15-메서드)를 참고하세요.
+
+| 메서드 | 반환 타입 | 설명 |
+|--------|-----------|------|
+| `nextInt()` | `int` | 정수 범위 전체에서 무작위 값을 반환합니다. |
+| `nextInt(bound)` | `int` | `0` 이상 `bound` 미만의 무작위 정수를 반환합니다. |
+| `nextDouble()` | `double` | `0.0` 이상 `1.0` 미만의 무작위 실수를 반환합니다. |
+| `nextBoolean()` | `boolean` | 무작위로 `true` 또는 `false`를 반환합니다. |
+
+```java
+import java.util.Random; // Random을 사용하기 위해 필요한 선언
+
+public class RandomExample {
+    public static void main(String[] args) {
+        Random random = new Random();
+
+        int dice = random.nextInt(6) + 1;  // 1 ~ 6
+        System.out.println(dice);
+    }
+}
+```
+
+```
+3
+```
+
+---
+
+## 13. 배열
 
 배열은 같은 타입의 값을 순서대로 묶어 보관하는 자료구조입니다. 선언할 때 크기가 고정됩니다.
 
@@ -975,7 +1039,7 @@ public class ArrayLoopExample {
 
 ---
 
-## 13. 다차원 배열
+## 14. 다차원 배열
 
 배열의 원소가 다시 배열인 구조입니다. 행(row)과 열(column)로 데이터를 표현할 때 사용합니다.
 
@@ -1038,7 +1102,7 @@ public class TwoDimLoopExample {
 
 ---
 
-## 14. 메서드
+## 15. 메서드
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
