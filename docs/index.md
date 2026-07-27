@@ -34,6 +34,14 @@ C, Java를 비롯한 프로그래밍 언어에 대한 내용을 직접 정리한
 
     [:octicons-arrow-right-24: 바로 가기](java/index.md)
 
+-   :fontawesome-brands-python: **Python**
+
+    ---
+
+    문법, 자료구조, 객체지향 등 Python 핵심 개념
+
+    [:octicons-arrow-right-24: 바로 가기](python/index.md)
+
 </div>
 
 ### 연습 문제
