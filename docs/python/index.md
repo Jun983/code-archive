@@ -14,7 +14,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 
 | # | 주제 | 설명 |
 |---|------|------|
-| 0 | [개발환경 설정](setup.md) | pyenv, VSCode, Python 설치 및 프로젝트 생성 |
+| 0 | [개발환경 설정](setup.md) | Winget, Miniconda, VSCode, Python 설치 및 프로젝트 생성 |
 | 1 | [기본 문법](syntax.md) | 변수, 타입, 연산자, 제어문 |
 | 2 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
 | 3 | [자료구조](data-structures.md) | list, tuple, dict, set |
