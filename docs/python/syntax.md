@@ -20,9 +20,6 @@ print("Hello, World!")  # 파일을 저장하고 바로 실행합니다
 Hello, World!
 ```
 
-!!! info "참고"
-    함수로 코드를 묶고 재사용하는 방법은 [함수](function.md)를 참고하세요.
-
 ---
 
 ## 2. 출력
