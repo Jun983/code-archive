@@ -1,6 +1,6 @@
 ---
 hide:
-  - toc
+  - navigation
 ---
 
 # 쿠버네티스의 역사

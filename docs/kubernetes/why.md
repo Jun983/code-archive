@@ -1,6 +1,6 @@
 ---
 hide:
-  - toc
+  - navigation
 ---
 
 # 쿠버네티스를 사용하는 이유
