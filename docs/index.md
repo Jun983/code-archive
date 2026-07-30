@@ -44,6 +44,20 @@ C, Java를 비롯한 프로그래밍 언어에 대한 내용을 직접 정리한
 
 </div>
 
+### 인프라
+
+<div class="grid cards" markdown>
+
+-   :material-kubernetes: **Kubernetes**
+
+    ---
+
+    컨테이너 오케스트레이션과 쿠버네티스 핵심 개념
+
+    [:octicons-arrow-right-24: 바로 가기](kubernetes/index.md)
+
+</div>
+
 ### 연습 문제
 
 <div class="grid cards" markdown>
