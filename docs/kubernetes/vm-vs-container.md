@@ -1,6 +1,6 @@
 ---
 hide:
-  - toc
+  - navigation
 ---
 
 # VM과 Container의 차이
