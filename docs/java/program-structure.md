@@ -27,12 +27,11 @@ public class Hello {  // 클래스 이름은 파일명(Hello.java)과 반드시 
 }
 ```
 
-!!! summary "요약"
-    Java 코드는 반드시 `class` 안에 작성하며, `public class`의 이름은 파일명과 일치해야 합니다.
-
 ## 2. main 메서드
 
 `main` 메서드는 JVM이 프로그램을 실행할 때 가장 먼저 호출하는 진입점입니다. 아래 형태를 반드시 지켜야 JVM이 이를 진입점으로 인식합니다.
+
+- 메서드: 클래스 안에 정의되어 특정 동작을 수행하는 코드 블록입니다.
 
 ```java
 public class App {
@@ -44,9 +43,6 @@ public class App {
 
 !!! info "참고"
     `public`, `static`, `void`, `String[] args`의 의미는 이후 문서에서 다룹니다.
-
-!!! summary "요약"
-    `main` 메서드는 `public static void main(String[] args)` 형태로 선언해야 JVM이 진입점으로 인식하고 실행합니다.
 
 ## 3. 주석
 
@@ -73,6 +69,3 @@ public class CommentExample {
 
 !!! info "참고"
     문서화 주석은 이후 문서에서 자세히 다룹니다.
-
-!!! summary "요약"
-    주석은 `//`, `/* */`, `/** */` 세 가지 형태로 작성하며, 실행 결과에는 영향을 주지 않습니다.
