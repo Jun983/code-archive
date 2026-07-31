@@ -21,3 +21,4 @@ hide:
 | 7 | [Volume과 데이터 저장 방식](volume.md) | emptyDir, hostPath, PV/PVC로 데이터를 유지하는 방법 |
 | 8 | [ConfigMap과 설정 관리](configmap.md) | ConfigMap, Secret, Env, Mount로 설정 값을 관리하는 방법 |
 | 9 | [Namespace와 자원 제한](namespace.md) | Namespace, ResourceQuota, LimitRange로 자원을 관리하는 방법 |
+| 10 | [ReplicaSet과 Pod 복제](replicaset.md) | Template, Replicas, Selector로 Pod 개수를 유지하는 방법 |
