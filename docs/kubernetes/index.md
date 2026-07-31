@@ -24,3 +24,5 @@ hide:
 | 10 | [ReplicaSet과 Pod 복제](replicaset.md) | Template, Replicas, Selector로 Pod 개수를 유지하는 방법 |
 | 11 | [Deployment와 배포 전략](deployment.md) | Recreate, RollingUpdate, Blue/Green, Canary로 버전을 교체하는 방법 |
 | 12 | [DaemonSet, Job, CronJob과 워크로드 실행 방식](workload-controllers.md) | Node 상시 실행, 일회성 완료, 일정 반복이라는 서로 다른 목적의 Controller |
+| 13 | [StatefulSet과 상태 저장 워크로드](statefulset.md) | 고정 식별자, 순차적 생성과 삭제, 독립된 Volume으로 Pod의 정체성을 유지하는 방법 |
+| 14 | [HPA와 자동 확장](hpa.md) | 지표 기반 판단, Replicas 조정, 최소·최대 범위로 Pod 수를 자동 조절하는 방법 |
