@@ -23,3 +23,4 @@ hide:
 | 9 | [Namespace와 자원 제한](namespace.md) | Namespace, ResourceQuota, LimitRange로 자원을 관리하는 방법 |
 | 10 | [ReplicaSet과 Pod 복제](replicaset.md) | Template, Replicas, Selector로 Pod 개수를 유지하는 방법 |
 | 11 | [Deployment와 배포 전략](deployment.md) | Recreate, RollingUpdate, Blue/Green, Canary로 버전을 교체하는 방법 |
+| 12 | [DaemonSet, Job, CronJob과 워크로드 실행 방식](workload-controllers.md) | Node 상시 실행, 일회성 완료, 일정 반복이라는 서로 다른 목적의 Controller |
