@@ -18,13 +18,18 @@ Java는 JVM 위에서 실행되는 정적 타입 객체지향 언어로, "한 �
 | 2 | [개발환경 설정](setup.md) | VSCode, OpenJDK 17 설치 및 프로젝트 생성 |
 | 3 | [프로그램 구조](program-structure.md) | 클래스와 파일, main 메서드, 주석 |
 | 4 | [출력](output.md) | println과 print, 다양한 타입 출력 |
-| 5 | [기본 문법](syntax.md) | 변수, 타입, 연산자, 제어문 |
-| 6 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어자 |
-| 7 | [상속과 다형성](inheritance.md) | extends, 오버라이딩, 업캐스팅 |
-| 8 | [인터페이스와 추상 클래스](interface.md) | interface vs abstract class |
-| 9 | [예외 처리](exception.md) | try-catch, checked/unchecked 예외 |
-| 10 | [제네릭](generics.md) | 타입 파라미터, 와일드카드, 경계 |
-| 11 | [컬렉션](collections.md) | List, Set, Map, Queue |
-| 12 | [람다와 스트림](lambda-stream.md) | 함수형 인터페이스, Stream API |
-| 13 | [JVM](jvm.md) | 클래스 로딩, 메모리 구조, GC |
-| 14 | [동시성](concurrency.md) | Thread, synchronized, java.util.concurrent |
+| 5 | [타입](type.md) | 기본 타입, 참조 타입 |
+| 6 | [변수와 상수](variable.md) | 변수의 속성, 선언과 초기화, 명명 규칙 |
+| 7 | [타입 캐스팅](casting.md) | 묵시적 변환(Widening), 명시적 변환(Narrowing) |
+| 8 | [String 클래스](string.md) | 선언, 주요 메서드 |
+| 9 | [래퍼 클래스](wrapper.md) | 오토박싱과 언박싱, 주요 메서드 |
+| 10 | [기본 문법](syntax.md) | 입력, 연산자, 조건문, 반복문, 배열 |
+| 11 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어자 |
+| 12 | [상속과 다형성](inheritance.md) | extends, 오버라이딩, 업캐스팅 |
+| 13 | [인터페이스와 추상 클래스](interface.md) | interface vs abstract class |
+| 14 | [예외 처리](exception.md) | try-catch, checked/unchecked 예외 |
+| 15 | [제네릭](generics.md) | 타입 파라미터, 와일드카드, 경계 |
+| 16 | [컬렉션](collections.md) | List, Set, Map, Queue |
+| 17 | [람다와 스트림](lambda-stream.md) | 함수형 인터페이스, Stream API |
+| 18 | [JVM](jvm.md) | 클래스 로딩, 메모리 구조, GC |
+| 19 | [동시성](concurrency.md) | Thread, synchronized, java.util.concurrent |
