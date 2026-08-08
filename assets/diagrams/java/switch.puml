@@ -1,0 +1,22 @@
+@startuml switch
+!theme plain
+skinparam DefaultFontSize 13
+skinparam ActivityBackgroundColor #E8EDF8
+skinparam ActivityBorderColor #5C78C8
+skinparam ArrowColor #333333
+skinparam DiamondBackgroundColor #E8EDF8
+skinparam DiamondBorderColor #5C78C8
+
+start
+switch (day?)
+case (1)
+  :월요일 출력;
+case (2)
+  :화요일 출력;
+case (3)
+  :수요일 출력;
+case (default)
+  :그 외 출력;
+endswitch
+stop
+@enduml

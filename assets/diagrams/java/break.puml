@@ -1,0 +1,23 @@
+@startuml break
+!theme plain
+skinparam DefaultFontSize 13
+skinparam ActivityBackgroundColor #E8EDF8
+skinparam ActivityBorderColor #5C78C8
+skinparam ArrowColor #333333
+skinparam DiamondBackgroundColor #E8EDF8
+skinparam DiamondBorderColor #5C78C8
+
+start
+:i = 0;
+while (i < 5?) is (true)
+  if (i == 3?) then (yes)
+    :break;
+    note right: 반복문 즉시 종료
+    stop
+  else (no)
+    :출력: i;
+  endif
+  :i++;
+endwhile (false)
+stop
+@enduml

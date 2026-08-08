@@ -1,0 +1,16 @@
+@startuml while-loop
+!theme plain
+skinparam DefaultFontSize 13
+skinparam ActivityBackgroundColor #E8EDF8
+skinparam ActivityBorderColor #5C78C8
+skinparam ArrowColor #333333
+skinparam DiamondBackgroundColor #E8EDF8
+skinparam DiamondBorderColor #5C78C8
+
+start
+while (count < 3? (조건)) is (true)
+  :코드 실행;
+  :count++;
+endwhile (false)
+stop
+@enduml

@@ -1,0 +1,20 @@
+.md-content img {
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+.md-content img:hover {
+  border-color: #3f51b5;
+  box-shadow: 0 0 8px rgba(63, 81, 181, 0.4);
+}
+
+.md-content a.glightbox:focus,
+.md-content a.glightbox:focus-visible {
+  outline: none;
+}
+
+.gslide-image img {
+  transition: transform 0.1s ease;
+}
