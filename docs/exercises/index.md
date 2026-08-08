@@ -17,6 +17,7 @@ hide:
 | 1 | [영수증 계산기](receipt-calculator.md) | 구매한 상품의 결제 금액과 영수증 출력 |
 | 2 | [은행 잔액 관리](bank-balance.md) | 계좌의 입출금과 잔액 관리 |
 | 3 | [온도 변환기](temperature-converter.md) | 섭씨 온도를 화씨로 변환 |
+| 4 | [아르바이트 급여 계산기](part-time-pay-calculator.md) | 시급과 근무시간으로 급여 계산, 야간수당 적용 |
 
 ## Level 2
 
