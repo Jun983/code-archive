@@ -42,7 +42,7 @@ public class App {
 ```
 
 !!! info "참고"
-    `public`, `static`, `void`, `String[] args`의 의미는 이후 문서에서 다룹니다.
+    `public`, `static`, `void`, `String[] args`의 의미는 나중에 다룹니다.
 
 ## 3. 주석
 
@@ -68,4 +68,4 @@ public class CommentExample {
 ```
 
 !!! info "참고"
-    문서화 주석은 이후 문서에서 자세히 다룹니다.
+    문서화 주석은 나중에 다룹니다.

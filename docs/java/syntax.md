@@ -7,328 +7,11 @@ hide:
 
 [← Java로 돌아가기](index.md)
 
-## 1. 타입
-
-타입은 저장할 수 있는 값의 종류와 크기를 정의합니다. Java의 타입은 **기본 타입**과 **참조 타입**으로 구분됩니다.
-
-### 1.1 기본 타입 (Primitive Type)
-
-값 자체를 직접 저장하는 8가지 타입입니다.
-
-| 타입 | 종류 | 크기 | 기본값 | 범위 |
-|------|------|------|--------|------|
-| `byte` | 정수 | 1 byte | `0` | -128 ~ 127 |
-| `short` | 정수 | 2 byte | `0` | -32,768 ~ 32,767 |
-| `int` | 정수 | 4 byte | `0` | 약 -21억 ~ 21억 |
-| `long` | 정수 | 8 byte | `0L` | 약 -922경 ~ 922경 |
-| `float` | 실수 | 4 byte | `0.0f` | 소수점 약 7자리 |
-| `double` | 실수 | 8 byte | `0.0` | 소수점 약 15자리 |
-| `char` | 문자 | 2 byte | `'\0'` | 0 ~ 65,535 (유니코드) |
-| `boolean` | 논리 | 1 byte | `false` | true / false |
-
-> 접미사가 없으면 정수는 `int`, 실수는 `double`로 처리됩니다. `long`은 `L`, `float`은 `f`를 붙여 구분합니다 (예: `100L`, `3.14f`).
-
-- **유니코드(Unicode)** — 전 세계 문자를 하나의 숫자 번호로 표현하는 국제 표준입니다. 예: `'A'`=65, `'가'`=44032.
-
-### 1.2 참조 타입 (Reference Type)
-
-객체를 가리키는 타입입니다. 기본 타입이 값 자체를 저장하는 것과 달리, 참조 타입은 객체가 있는 메모리 위치(주소)를 저장합니다. `null`을 가질 수 있습니다.
-
-| 개념 | 설명 |
-|------|------|
-| **객체** | 데이터와 기능을 하나로 묶은 단위입니다. |
-| **메모리** | 프로그램 실행 중 데이터를 저장하는 공간입니다. |
-| **`null`** | 아무것도 가리키지 않는 상태입니다. 기본 타입은 `null`을 가질 수 없습니다. |
-
-!!! info "참고"
-    객체를 직접 정의하고 생성하는 방법은 [클래스와 객체](class-object.md)를 참고하세요.
-
----
-
-## 2. 변수
-
-변수는 값을 저장하는 메모리 공간에 붙인 이름입니다. 선언 시 타입을 명시합니다.
-
-### 2.1 변수의 속성
-
-변수는 세 가지 속성을 가집니다.
-
-| 속성 | 설명 |
-|------|------|
-| **값(Value)** | 변수에 저장된 실제 데이터입니다. |
-| **크기(Size)** | 타입마다 차지하는 메모리 크기가 다릅니다. |
-| **주소(Address)** | 값이 저장된 메모리 위치입니다. 참조 타입에서 중요하게 쓰입니다. |
-
-### 2.2 변수의 선언과 초기화
-
-선언은 타입과 변수명을 지정해 메모리 공간을 확보하고, 초기화는 선언된 변수에 처음 값을 할당하는 것입니다.
-
-```java
-public class VariableExample {
-    public static void main(String[] args) {
-        // 선언: 타입과 변수명만 지정
-        int age;
-
-        // 초기화: 선언 후 값 할당
-        age = 30;
-
-        // 선언 및 초기화: 선언과 동시에 값 할당
-        int count = 0;
-        double pi = 3.14159;
-        long population = 8_000_000_000L;  // L: long 접미사 (int 범위 초과 시 필수), _는 숫자 가독성을 위한 구분자
-        char grade = 'A';
-        boolean isActive = true;
-
-        System.out.println(age);         // 30
-        System.out.println(count);       // 0
-        System.out.println(pi);          // 3.14159
-        System.out.println(population);  // 8000000000
-        System.out.println(grade);       // A
-        System.out.println(isActive);    // true
-    }
-}
-```
-
-```
-30
-0
-3.14159
-8000000000
-A
-true
-```
-
-코드에 직접 쓴 값(예: `30`, `3.14159`, `'A'`)을 **리터럴**이라고 합니다.
-
-!!! info "참고"
-    선언한 변수로 값을 계산하고 조합하는 방법은 [8. 연산자](#8-연산자)를 참고하세요.
-
-### 2.3 변수의 명명 규칙
-
-변수명은 **camelCase**로 작성합니다. 첫 글자는 소문자이며, 이후 단어의 첫 글자를 대문자로 씁니다.
-
-```java
-public class NamingExample {
-    public static void main(String[] args) {
-        int maxRetryCount = 3;
-        boolean isActive = true;
-
-        System.out.println(maxRetryCount);
-        System.out.println(isActive);
-    }
-}
-```
-
-```
-3
-true
-```
-
----
-
-## 3. String 클래스
-
-`String`은 문자열을 저장하는 **참조 타입**입니다.
-
-### 3.1 선언
-
-큰따옴표(`"`)로 감싼 문자열을 `String` 변수에 저장합니다.
-
-```java
-public class StringDeclareExample {
-    public static void main(String[] args) {
-        String name = "홍길동";
-        String greeting = "안녕하세요";
-        String empty = "";      // 빈 문자열
-        String nothing = null;  // 아무것도 가리키지 않는 상태
-
-        System.out.println(name);      // 홍길동
-        System.out.println(greeting);  // 안녕하세요
-    }
-}
-```
-
-```
-홍길동
-안녕하세요
-```
-
-### 3.2 주요 메서드
-
-`String`은 문자열을 다루는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
-
-!!! info "참고"
-    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
-
-| 메서드 | 반환 타입 | 설명 |
-|--------|-----------|------|
-| `length()` | `int` | 문자열 길이를 반환합니다. |
-| `charAt(index)` | `char` | 특정 위치의 문자를 반환합니다. 인덱스는 0부터 시작합니다. |
-| `substring(start, end)` | `String` | `start`부터 `end` 직전까지의 부분 문자열을 반환합니다. |
-| `toUpperCase()` | `String` | 모든 문자를 대문자로 변환합니다. |
-| `toLowerCase()` | `String` | 모든 문자를 소문자로 변환합니다. |
-| `contains(str)` | `boolean` | 특정 문자열이 포함되면 `true`를 반환합니다. |
-
-```java
-public class StringMethodExample {
-    public static void main(String[] args) {
-        String word = "Hello";
-
-        System.out.println(word.length());         // 5
-        System.out.println(word.charAt(0));        // H
-        System.out.println(word.substring(1, 3));  // el
-        System.out.println(word.toUpperCase());    // HELLO
-        System.out.println(word.toLowerCase());    // hello
-    }
-}
-```
-
-```
-5
-H
-el
-HELLO
-hello
-```
-
-!!! info "참고"
-    `+`를 이용한 문자열 연결과 `equals()`를 이용한 비교는 [8. 연산자](#8-연산자)를 참고하세요.
-
----
-
-## 4. 래퍼 클래스 (Wrapper Class)
-
-래퍼 클래스는 기본 타입 값을 객체로 다루기 위해 감싸는 참조 타입입니다. 각 기본 타입마다 대응하는 래퍼 클래스가 있습니다.
-
-| 기본 타입 | 래퍼 클래스 |
-|-----------|-------------|
-| `byte` | `Byte` |
-| `short` | `Short` |
-| `int` | `Integer` |
-| `long` | `Long` |
-| `float` | `Float` |
-| `double` | `Double` |
-| `char` | `Character` |
-| `boolean` | `Boolean` |
-
-### 4.1 오토박싱과 언박싱
-
-기본 타입과 래퍼 클래스는 자동으로 서로 변환됩니다. 기본 타입을 래퍼 클래스로 변환하는 것을 오토박싱(Autoboxing), 래퍼 클래스를 기본 타입으로 변환하는 것을 언박싱(Unboxing)이라고 합니다.
-
-```java
-public class BoxingExample {
-    public static void main(String[] args) {
-        Integer boxed = 10;        // 오토박싱: int -> Integer
-        int unboxed = boxed;       // 언박싱: Integer -> int
-
-        System.out.println(boxed);    // 10
-        System.out.println(unboxed);  // 10
-    }
-}
-```
-
-```
-10
-10
-```
-
-### 4.2 주요 메서드
-
-래퍼 클래스는 문자열 변환, 문자 판별 등 기본 타입만으로는 할 수 없는 기능을 정적 메서드로 제공합니다.
-
-| 메서드 | 반환 타입 | 설명 |
-|--------|-----------|------|
-| `Integer.parseInt(str)` | `int` | 문자열을 정수로 변환합니다. |
-| `Double.parseDouble(str)` | `double` | 문자열을 실수로 변환합니다. |
-| `Character.isDigit(c)` | `boolean` | 문자가 숫자면 `true`를 반환합니다. |
-| `Integer.valueOf(str)` | `Integer` | 문자열을 `Integer` 객체로 변환합니다. |
-| `Integer.MAX_VALUE` / `MIN_VALUE` | `int` | `int`의 최댓값/최솟값 상수입니다. |
-| `Integer.compare(a, b)` | `int` | 두 값을 비교합니다. |
-| `Character.isLetter(c)` | `boolean` | 문자가 알파벳이면 `true`를 반환합니다. |
-| `Character.isUpperCase(c)` / `isLowerCase(c)` | `boolean` | 대문자/소문자 여부를 반환합니다. |
-| `Character.toUpperCase(c)` / `toLowerCase(c)` | `char` | 대소문자를 변환합니다. |
-| `Boolean.parseBoolean(str)` | `boolean` | 문자열을 `boolean`으로 변환합니다. |
-
-```java
-public class WrapperExample {
-    public static void main(String[] args) {
-        System.out.println(Integer.parseInt("10"));       // 10
-        System.out.println(Double.parseDouble("3.14"));   // 3.14
-        System.out.println(Character.isDigit('7'));       // true
-    }
-}
-```
-
-```
-10
-3.14
-true
-```
-
----
-
-## 5. 상수
-
-상수는 `final` 키워드로 선언한 변수로, 최초 초기화 이후 값을 변경할 수 없습니다.
-
-### 5.1 선언과 초기화
-
-변수 선언 앞에 `final`을 붙이면 상수가 됩니다. 선언과 동시에 초기화해야 하며, 이후 재할당을 시도하면 오류가 발생합니다.
-
-```java
-public class ConstantExample {
-    public static void main(String[] args) {
-        final int MAX_SIZE = 100;
-        final double PI = 3.14159;
-        final String APP_NAME = "MyApp";
-
-        System.out.println(MAX_SIZE);   // 100
-        System.out.println(PI);         // 3.14159
-        System.out.println(APP_NAME);   // MyApp
-    }
-}
-```
-
-```
-100
-3.14159
-MyApp
-```
-
-!!! info "참고"
-    `static final`을 사용한 클래스 범위 상수는 [클래스와 객체](class-object.md)를 참고하세요.
-
-### 5.2 명명 규칙
-
-상수명은 **UPPER_SNAKE_CASE**로 작성합니다. 변수의 camelCase와 구분하기 위해 모든 글자를 대문자로 쓰고, 단어 사이는 언더스코어(`_`)로 구분합니다.
-
-```java
-public class ConstantNamingExample {
-    public static void main(String[] args) {
-        final int MAX_RETRY_COUNT = 3;
-        final double DEFAULT_TIMEOUT = 30.0;
-        final String BASE_URL = "https://api.example.com";
-
-        System.out.println(MAX_RETRY_COUNT);   // 3
-        System.out.println(DEFAULT_TIMEOUT);   // 30.0
-        System.out.println(BASE_URL);          // https://api.example.com
-    }
-}
-```
-
-```
-3
-30.0
-https://api.example.com
-```
-
----
-
-## 6. 입력
+## 1. 입력
 
 키보드로 입력받으려면 `Scanner`를 사용합니다.
 
-### 6.1 선언과 사용
+### 1.1 선언과 사용
 
 `new Scanner(System.in)`으로 Scanner를 만든 뒤, 타입에 맞는 메서드로 값을 읽습니다.
 
@@ -353,12 +36,12 @@ public class InputExample {
 안녕, 홍길동
 ```
 
-### 6.2 주요 메서드
+### 1.2 주요 메서드
 
 `Scanner`는 입력을 읽는 메서드를 제공합니다. `변수명.메서드명()` 형태로 호출합니다.
 
 !!! info "참고"
-    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [8. 메서드](#8-메서드)를 참고하세요.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -370,65 +53,11 @@ public class InputExample {
 
 ---
 
-## 7. 타입 캐스팅
-
-타입 캐스팅은 하나의 타입을 다른 타입으로 변환하는 것입니다. **묵시적 변환(widening)**과 **명시적 변환(narrowing)**으로 구분됩니다.
-
-### 7.1 묵시적 변환 (Widening)
-
-작은 타입에서 큰 타입으로 자동 변환됩니다. 데이터 손실이 없으므로 별도 문법 없이 컴파일러가 처리합니다.
-
-![widening cast diagram](../assets/images/java/widening-cast.svg){ width="600" }
-
-```java
-public class WideningExample {
-    public static void main(String[] args) {
-        int intValue = 100;
-        long longValue = intValue;      // 자동 변환
-        double doubleValue = intValue;  // 자동 변환
-
-        System.out.println(longValue);    // 100
-        System.out.println(doubleValue);  // 100.0
-    }
-}
-```
-
-```
-100
-100.0
-```
-
-### 7.2 명시적 변환 (Narrowing)
-
-큰 타입에서 작은 타입으로 변환할 때는 데이터 손실 가능성이 있으므로 변환할 타입을 `(타입명)` 형태로 직접 명시해야 합니다. 이를 **캐스트 연산자**라고 합니다.
-
-```java
-public class NarrowingExample {
-    public static void main(String[] args) {
-        double doubleValue = 9.99;
-        int intValue = (int) doubleValue;  // (int): double → int로 변환
-
-        int big = 300;
-        byte byteValue = (byte) big;  // (byte): int → byte로 변환
-
-        System.out.println(intValue);   // 9
-        System.out.println(byteValue);  // 44
-    }
-}
-```
-
-```
-9
-44
-```
-
----
-
-## 8. 연산자
+## 2. 연산자
 
 연산자는 값을 계산하거나 비교·조합할 때 사용하는 기호입니다.
 
-### 8.1 산술 연산자
+### 2.1 산술 연산자
 
 두 수를 계산해 결과값을 반환합니다.
 
@@ -470,7 +99,7 @@ public class ArithmeticExample {
 ```
 
 
-### 8.2 대입 연산자
+### 2.2 대입 연산자
 
 변수에 값을 할당합니다.
 
@@ -514,7 +143,7 @@ public class AssignmentExample {
 2
 ```
 
-### 8.3 비교 연산자
+### 2.3 비교 연산자
 
 두 값을 비교해 `boolean`을 반환합니다.
 
@@ -552,7 +181,7 @@ false
 true
 ```
 
-### 8.4 논리 연산자
+### 2.4 논리 연산자
 
 두 `boolean` 값을 조합해 하나의 `boolean`을 반환합니다.
 
@@ -583,7 +212,7 @@ true
 false
 ```
 
-### 8.5 증감 연산자
+### 2.5 증감 연산자
 
 변수의 값을 1씩 증가하거나 감소시킵니다.
 
@@ -609,7 +238,7 @@ public class IncrementExample {
 7
 ```
 
-### 8.6 삼항 연산자
+### 2.6 삼항 연산자
 
 조건에 따라 두 값 중 하나를 반환합니다.
 
@@ -631,7 +260,7 @@ public class TernaryExample {
 합격
 ```
 
-### 8.7 String 연산
+### 2.7 String 연산
 
 `String`은 숫자 타입과 달리 `+`로 이어 붙이고, 내용 비교에는 `equals()`를 사용합니다.
 
@@ -686,11 +315,11 @@ false
 
 ---
 
-## 9. 조건문
+## 3. 조건문
 
 조건식의 결과에 따라 실행할 코드 블록을 선택합니다.
 
-### 9.1 if / else if / else
+### 3.1 if / else if / else
 
 조건이 `true`인 블록을 순서대로 찾아 실행하고, 나머지는 건너뜁니다.
 
@@ -724,7 +353,7 @@ public class IfExample {
 C
 ```
 
-### 9.2 switch
+### 3.2 switch
 
 하나의 값을 여러 `case`와 비교하여 일치하는 블록을 실행합니다.
 
@@ -766,11 +395,11 @@ public class SwitchExample {
 
 ---
 
-## 10. 반복문
+## 4. 반복문
 
 조건이 만족되는 동안 코드 블록을 반복 실행합니다.
 
-### 10.1 for
+### 4.1 for
 
 반복 횟수가 정해진 경우에 사용합니다. `for` 뒤 괄호 안에 초기화·조건·증감식을 한 줄로 작성합니다.
 
@@ -800,7 +429,7 @@ public class ForExample {
 4
 ```
 
-### 10.2 while
+### 4.2 while
 
 조건이 `true`인 동안 반복합니다. 반복 횟수를 사전에 알 수 없을 때 사용합니다.
 
@@ -828,7 +457,7 @@ public class WhileExample {
 2
 ```
 
-### 10.3 break와 continue
+### 4.3 break와 continue
 
 반복문 실행 중 흐름을 제어합니다.
 
@@ -882,11 +511,11 @@ public class ContinueExample {
 
 ---
 
-## 11. 랜덤 라이브러리
+## 5. 랜덤 라이브러리
 
 무작위 값이 필요할 때는 `Math.random()` 또는 `Random` 클래스를 사용합니다.
 
-### 11.1 Math.random()
+### 5.1 Math.random()
 
 `Math.random()`은 `0.0` 이상 `1.0` 미만의 `double` 값을 무작위로 반환합니다. 원하는 정수 범위로 바꾸려면 곱하고 더한 뒤 `(int)`로 캐스팅합니다.
 
@@ -913,12 +542,12 @@ public class MathRandomExample {
 7392
 ```
 
-### 11.2 Random 클래스
+### 5.2 Random 클래스
 
 `Random`은 무작위 값을 생성하는 객체입니다. `new Random()`으로 만든 뒤, 타입에 맞는 메서드로 값을 뽑습니다.
 
 !!! info "참고"
-    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [14. 메서드](#14-메서드)를 참고하세요.
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 [8. 메서드](#8-메서드)를 참고하세요.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -946,11 +575,11 @@ public class RandomExample {
 
 ---
 
-## 12. 배열
+## 6. 배열
 
 배열은 같은 타입의 값을 순서대로 묶어 보관하는 자료구조입니다. 선언할 때 크기가 고정됩니다.
 
-### 12.1 선언과 초기화
+### 6.1 선언과 초기화
 
 타입 뒤에 `[]`를 붙여 선언하며, `new` 키워드로 크기를 지정하거나 중괄호로 초기값을 직접 지정합니다.
 
@@ -977,7 +606,7 @@ public class ArrayExample {
 월
 ```
 
-### 12.2 원소 접근과 수정
+### 6.2 원소 접근과 수정
 
 배열에 담긴 각 값을 **원소**라 하며, **인덱스**로 접근합니다.
 
@@ -1010,7 +639,7 @@ public class ArrayAccessExample {
 75
 ```
 
-### 12.3 배열 순회
+### 6.3 배열 순회
 
 인덱스 기반 `for`문 또는 `for-each`문으로 모든 원소를 순회합니다. `for-each`는 `for (타입 변수 : 배열)` 형태로, 인덱스 없이 값만 꺼낼 때 사용합니다.
 
@@ -1052,11 +681,11 @@ public class ArrayLoopExample {
 
 ---
 
-## 13. 다차원 배열
+## 7. 다차원 배열
 
 배열의 원소가 다시 배열인 구조입니다. 행(row)과 열(column)로 데이터를 표현할 때 사용합니다.
 
-### 13.1 2차원 배열 선언과 초기화
+### 7.1 2차원 배열 선언과 초기화
 
 `타입[][] 변수명` 형태로 선언하고, 중첩 중괄호로 초기화합니다.
 
@@ -1084,7 +713,7 @@ public class TwoDimArrayExample {
 3
 ```
 
-### 13.2 2차원 배열 순회
+### 7.2 2차원 배열 순회
 
 중첩 `for`문으로 행과 열을 순서대로 접근합니다.
 
@@ -1115,11 +744,11 @@ public class TwoDimLoopExample {
 
 ---
 
-## 14. 메서드
+## 8. 메서드
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
-### 14.1 선언과 호출
+### 8.1 선언과 호출
 
 선언은 `반환 타입 → 이름 → 매개변수` 순으로 작성합니다. 반환할 값이 없으면 반환 타입으로 `void`를 씁니다. 호출은 이름 뒤에 `()`를 붙입니다.
 
@@ -1144,7 +773,7 @@ public class MethodExample {
 !!! info "참고"
     `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. 자세한 내용은 [클래스와 객체](class-object.md)를 참고하세요.
 
-### 14.2 매개변수
+### 8.2 매개변수
 
 **매개변수**는 메서드를 선언할 때 지정하는 변수 이름이고, **인수**는 호출할 때 실제로 전달하는 값입니다. 여러 개는 `,`로 구분합니다.
 
@@ -1166,7 +795,7 @@ public class ParamExample {
 민준님은 30살입니다.
 ```
 
-### 14.3 반환값
+### 8.3 반환값
 
 값을 돌려줄 때는 반환 타입을 지정하고 `return`으로 값을 반환합니다.
 
@@ -1191,4 +820,3 @@ public class ReturnExample {
 ```
 7
 ```
-
