@@ -7,273 +7,11 @@ hide:
 
 [← Java로 돌아가기](index.md)
 
-## 1. 연산자
-
-연산자는 값을 계산하거나 비교·조합할 때 사용하는 기호입니다.
-
-### 1.1 산술 연산자
-
-두 수를 계산해 결과값을 반환합니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `+` | 왼쪽 값과 오른쪽 값을 더한 값을 반환합니다. |
-| `-` | 왼쪽 값에서 오른쪽 값을 뺀 값을 반환합니다. |
-| `*` | 왼쪽 값과 오른쪽 값을 곱한 값을 반환합니다. |
-| `/` | 왼쪽 값을 오른쪽 값으로 나눈 몫을 반환합니다. 정수끼리는 소수점을 버립니다. |
-| `%` | 왼쪽 값을 오른쪽 값으로 나눈 나머지를 반환합니다. |
-
-```java
-public class ArithmeticExample {
-    public static void main(String[] args) {
-        int number1 = 10;
-        int number2 = 3;
-
-        int sum       = number1 + number2;
-        int diff      = number1 - number2;
-        int product   = number1 * number2;
-        int quotient  = number1 / number2;
-        int remainder = number1 % number2;
-
-        System.out.println(sum);        // 13
-        System.out.println(diff);       // 7
-        System.out.println(product);    // 30
-        System.out.println(quotient);   // 3
-        System.out.println(remainder);  // 1
-    }
-}
-```
-
-```
-13
-7
-30
-3
-1
-```
-
-
-### 1.2 대입 연산자
-
-변수에 값을 할당합니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `=` | 오른쪽 값을 왼쪽 변수에 할당합니다. |
-| `+=` | 변수에 오른쪽 값을 더한 뒤 할당합니다. |
-| `-=` | 변수에서 오른쪽 값을 뺀 뒤 할당합니다. |
-| `*=` | 변수에 오른쪽 값을 곱한 뒤 할당합니다. |
-| `/=` | 변수를 오른쪽 값으로 나눈 몫을 할당합니다. |
-| `%=` | 변수를 오른쪽 값으로 나눈 나머지를 할당합니다. |
-
-```java
-public class AssignmentExample {
-    public static void main(String[] args) {
-        int count = 10;
-
-        count += 5;
-        System.out.println(count);  // 15
-
-        count -= 3;
-        System.out.println(count);  // 12
-
-        count *= 2;
-        System.out.println(count);  // 24
-
-        count /= 4;
-        System.out.println(count);  // 6
-
-        count %= 4;
-        System.out.println(count);  // 2
-    }
-}
-```
-
-```
-15
-12
-24
-6
-2
-```
-
-### 1.3 비교 연산자
-
-두 값을 비교해 `boolean`을 반환합니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `==` | 두 값이 같으면 `true`를 반환합니다. |
-| `!=` | 두 값이 다르면 `true`를 반환합니다. |
-| `<` | 왼쪽 값이 오른쪽 값보다 작으면 `true`를 반환합니다. |
-| `>` | 왼쪽 값이 오른쪽 값보다 크면 `true`를 반환합니다. |
-| `<=` | 왼쪽 값이 오른쪽 값보다 작거나 같으면 `true`를 반환합니다. |
-| `>=` | 왼쪽 값이 오른쪽 값보다 크거나 같으면 `true`를 반환합니다. |
-
-```java
-public class ComparisonExample {
-    public static void main(String[] args) {
-        int number1 = 10;
-        int number2 = 3;
-
-        System.out.println(number1 == number2);  // false
-        System.out.println(number1 != number2);  // true
-        System.out.println(number1 < number2);   // false
-        System.out.println(number1 > number2);   // true
-        System.out.println(number1 <= number2);  // false
-        System.out.println(number1 >= number2);  // true
-    }
-}
-```
-
-```
-false
-true
-false
-true
-false
-true
-```
-
-### 1.4 논리 연산자
-
-두 `boolean` 값을 조합해 하나의 `boolean`을 반환합니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `&&` | 두 값이 모두 `true`이면 `true`를 반환합니다. |
-| `\|\|` | 두 값 중 하나라도 `true`이면 `true`를 반환합니다. |
-| `!` | `true`는 `false`로, `false`는 `true`로 반환합니다. |
-
-`&&`는 왼쪽이 `false`이면 오른쪽을 확인하지 않고, `||`는 왼쪽이 `true`이면 오른쪽을 확인하지 않습니다.
-
-```java
-public class LogicalExample {
-    public static void main(String[] args) {
-        boolean a = true;
-        boolean b = false;
-
-        System.out.println(a && b);  // false
-        System.out.println(a || b);  // true
-        System.out.println(!a);      // false
-    }
-}
-```
-
-```
-false
-true
-false
-```
-
-### 1.5 증감 연산자
-
-변수의 값을 1씩 증가하거나 감소시킵니다.
-
-| 연산자 | 의미 |
-|--------|------|
-| `++x` | 변수를 1 증가시킨 뒤 값을 반환합니다. |
-| `x++` | 현재 값을 반환한 뒤 변수를 1 증가시킵니다. |
-| `--x` | 변수를 1 감소시킨 뒤 값을 반환합니다. |
-| `x--` | 현재 값을 반환한 뒤 변수를 1 감소시킵니다. |
-
-```java
-public class IncrementExample {
-    public static void main(String[] args) {
-        int x = 5;
-        System.out.println(x++);  // 5 (현재 값 출력 후 증가 → x = 6)
-        System.out.println(++x);  // 7 (증가 후 출력 → x = 7)
-    }
-}
-```
-
-```
-5
-7
-```
-
-### 1.6 삼항 연산자
-
-조건에 따라 두 값 중 하나를 반환합니다.
-
-| 형태 | 의미 |
-|------|------|
-| `조건 ? A : B` | 조건이 `true`이면 `A`, `false`이면 `B`를 반환합니다. |
-
-```java
-public class TernaryExample {
-    public static void main(String[] args) {
-        int score = 75;
-        String result = (score >= 60) ? "합격" : "불합격";
-        System.out.println(result);
-    }
-}
-```
-
-```
-합격
-```
-
-### 1.7 String 연산
-
-`String`은 숫자 타입과 달리 `+`로 이어 붙이고, 내용 비교에는 `equals()`를 사용합니다.
-
-#### 문자열 연결
-
-| 형태 | 의미 |
-|------|------|
-| `+` | 두 문자열을 이어 붙입니다. 다른 타입과 연결하면 자동으로 문자열로 변환됩니다. |
-
-```java
-public class StringConcatExample {
-    public static void main(String[] args) {
-        String name = "지수";
-        int age = 25;
-
-        System.out.println("이름: " + name);
-        System.out.println("나이: " + age);
-        System.out.println(name + "님은 " + age + "살");
-    }
-}
-```
-
-```
-이름: 지수
-나이: 25
-지수님은 25살
-```
-
-#### 문자열 비교
-
-| 형태 | 의미 |
-|------|------|
-| `a.equals(b)` | 두 문자열의 **내용**이 같은지 비교합니다. |
-| `a == b` | 두 변수가 같은 **객체**를 가리키는지 비교합니다. 내용이 같아도 `false`가 나올 수 있습니다. |
-
-```java
-public class StringEqualsExample {
-    public static void main(String[] args) {
-        String a = "hello";
-        String b = new String("hello");
-
-        System.out.println(a.equals(b));
-        System.out.println(a == b);
-    }
-}
-```
-
-```
-true
-false
-```
-
----
-
-## 2. 조건문
+## 1. 조건문
 
 조건식의 결과에 따라 실행할 코드 블록을 선택합니다.
 
-### 2.1 if / else if / else
+### 1.1 if / else if / else
 
 조건이 `true`인 블록을 순서대로 찾아 실행하고, 나머지는 건너뜁니다.
 
@@ -307,7 +45,7 @@ public class IfExample {
 C
 ```
 
-### 2.2 switch
+### 1.2 switch
 
 하나의 값을 여러 `case`와 비교하여 일치하는 블록을 실행합니다.
 
@@ -349,11 +87,11 @@ public class SwitchExample {
 
 ---
 
-## 3. 반복문
+## 2. 반복문
 
 조건이 만족되는 동안 코드 블록을 반복 실행합니다.
 
-### 3.1 for
+### 2.1 for
 
 반복 횟수가 정해진 경우에 사용합니다. `for` 뒤 괄호 안에 초기화·조건·증감식을 한 줄로 작성합니다.
 
@@ -383,7 +121,7 @@ public class ForExample {
 4
 ```
 
-### 3.2 while
+### 2.2 while
 
 조건이 `true`인 동안 반복합니다. 반복 횟수를 사전에 알 수 없을 때 사용합니다.
 
@@ -411,7 +149,7 @@ public class WhileExample {
 2
 ```
 
-### 3.3 break와 continue
+### 2.3 break와 continue
 
 반복문 실행 중 흐름을 제어합니다.
 
@@ -465,11 +203,11 @@ public class ContinueExample {
 
 ---
 
-## 4. 랜덤 라이브러리
+## 3. 랜덤 라이브러리
 
 무작위 값이 필요할 때는 `Math.random()` 또는 `Random` 클래스를 사용합니다.
 
-### 4.1 Math.random()
+### 3.1 Math.random()
 
 `Math.random()`은 `0.0` 이상 `1.0` 미만의 `double` 값을 무작위로 반환합니다. 원하는 정수 범위로 바꾸려면 곱하고 더한 뒤 `(int)`로 캐스팅합니다.
 
@@ -496,7 +234,7 @@ public class MathRandomExample {
 7392
 ```
 
-### 4.2 Random 클래스
+### 3.2 Random 클래스
 
 `Random`은 무작위 값을 생성하는 객체입니다. `new Random()`으로 만든 뒤, 타입에 맞는 메서드로 값을 뽑습니다.
 
@@ -529,11 +267,11 @@ public class RandomExample {
 
 ---
 
-## 5. 배열
+## 4. 배열
 
 배열은 같은 타입의 값을 순서대로 묶어 보관하는 자료구조입니다. 선언할 때 크기가 고정됩니다.
 
-### 5.1 선언과 초기화
+### 4.1 선언과 초기화
 
 타입 뒤에 `[]`를 붙여 선언하며, `new` 키워드로 크기를 지정하거나 중괄호로 초기값을 직접 지정합니다.
 
@@ -560,7 +298,7 @@ public class ArrayExample {
 월
 ```
 
-### 5.2 원소 접근과 수정
+### 4.2 원소 접근과 수정
 
 배열에 담긴 각 값을 **원소**라 하며, **인덱스**로 접근합니다.
 
@@ -593,7 +331,7 @@ public class ArrayAccessExample {
 75
 ```
 
-### 5.3 배열 순회
+### 4.3 배열 순회
 
 인덱스 기반 `for`문 또는 `for-each`문으로 모든 원소를 순회합니다. `for-each`는 `for (타입 변수 : 배열)` 형태로, 인덱스 없이 값만 꺼낼 때 사용합니다.
 
@@ -635,11 +373,11 @@ public class ArrayLoopExample {
 
 ---
 
-## 6. 다차원 배열
+## 5. 다차원 배열
 
 배열의 원소가 다시 배열인 구조입니다. 행(row)과 열(column)로 데이터를 표현할 때 사용합니다.
 
-### 6.1 2차원 배열 선언과 초기화
+### 5.1 2차원 배열 선언과 초기화
 
 `타입[][] 변수명` 형태로 선언하고, 중첩 중괄호로 초기화합니다.
 
@@ -667,7 +405,7 @@ public class TwoDimArrayExample {
 3
 ```
 
-### 6.2 2차원 배열 순회
+### 5.2 2차원 배열 순회
 
 중첩 `for`문으로 행과 열을 순서대로 접근합니다.
 
@@ -698,11 +436,11 @@ public class TwoDimLoopExample {
 
 ---
 
-## 7. 메서드
+## 6. 메서드
 
 메서드는 이름이 붙은 코드 블록입니다. 한 번 선언하면 여러 곳에서 반복 호출할 수 있어 코드 중복을 줄입니다.
 
-### 7.1 선언과 호출
+### 6.1 선언과 호출
 
 선언은 `반환 타입 → 이름 → 매개변수` 순으로 작성합니다. 반환할 값이 없으면 반환 타입으로 `void`를 씁니다. 호출은 이름 뒤에 `()`를 붙입니다.
 
@@ -727,7 +465,7 @@ public class MethodExample {
 !!! info "참고"
     `main`과 같은 클래스에서 객체 없이 직접 호출하려면 `static`이어야 합니다. 자세한 내용은 [클래스와 객체](class-object.md)를 참고하세요.
 
-### 7.2 매개변수
+### 6.2 매개변수
 
 **매개변수**는 메서드를 선언할 때 지정하는 변수 이름이고, **인수**는 호출할 때 실제로 전달하는 값입니다. 여러 개는 `,`로 구분합니다.
 
@@ -749,7 +487,7 @@ public class ParamExample {
 민준님은 30살입니다.
 ```
 
-### 7.3 반환값
+### 6.3 반환값
 
 값을 돌려줄 때는 반환 타입을 지정하고 `return`으로 값을 반환합니다.
 

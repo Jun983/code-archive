@@ -23,13 +23,14 @@ Java는 JVM 위에서 실행되는 정적 타입 객체지향 언어로, "한 �
 | 7 | [타입 캐스팅](casting.md) | 묵시적 변환(Widening), 명시적 변환(Narrowing) |
 | 8 | [String 클래스](string.md) | 선언, 주요 메서드 |
 | 9 | [입력](input.md) | Scanner, 주요 메서드 |
-| 10 | [기본 문법](syntax.md) | 연산자, 조건문, 반복문, 배열 |
-| 11 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어자 |
-| 12 | [상속과 다형성](inheritance.md) | extends, 오버라이딩, 업캐스팅 |
-| 13 | [인터페이스와 추상 클래스](interface.md) | interface vs abstract class |
-| 14 | [예외 처리](exception.md) | try-catch, checked/unchecked 예외 |
-| 15 | [제네릭](generics.md) | 타입 파라미터, 와일드카드, 경계 |
-| 16 | [컬렉션](collections.md) | List, Set, Map, Queue |
-| 17 | [람다와 스트림](lambda-stream.md) | 함수형 인터페이스, Stream API |
-| 18 | [JVM](jvm.md) | 클래스 로딩, 메모리 구조, GC |
-| 19 | [동시성](concurrency.md) | Thread, synchronized, java.util.concurrent |
+| 10 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 증감, 삼항, String 연산 |
+| 11 | [기본 문법](syntax.md) | 조건문, 반복문, 배열 |
+| 12 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어자 |
+| 13 | [상속과 다형성](inheritance.md) | extends, 오버라이딩, 업캐스팅 |
+| 14 | [인터페이스와 추상 클래스](interface.md) | interface vs abstract class |
+| 15 | [예외 처리](exception.md) | try-catch, checked/unchecked 예외 |
+| 16 | [제네릭](generics.md) | 타입 파라미터, 와일드카드, 경계 |
+| 17 | [컬렉션](collections.md) | List, Set, Map, Queue |
+| 18 | [람다와 스트림](lambda-stream.md) | 함수형 인터페이스, Stream API |
+| 19 | [JVM](jvm.md) | 클래스 로딩, 메모리 구조, GC |
+| 20 | [동시성](concurrency.md) | Thread, synchronized, java.util.concurrent |
