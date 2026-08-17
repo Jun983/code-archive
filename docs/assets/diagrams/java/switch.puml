@@ -8,15 +8,14 @@ skinparam DiamondBackgroundColor #E8EDF8
 skinparam DiamondBorderColor #5C78C8
 
 start
-switch (day?)
-case (1)
+if (day == 1?) then (true)
   :월요일 출력;
-case (2)
+elseif (day == 2?) then (true)
   :화요일 출력;
-case (3)
+elseif (day == 3?) then (true)
   :수요일 출력;
-case (default)
+else (false)
   :그 외 출력;
-endswitch
+endif
 stop
 @enduml
