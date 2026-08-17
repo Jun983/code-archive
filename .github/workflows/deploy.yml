@@ -1,9 +1,8 @@
 name: Deploy MkDocs to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 permissions:
   contents: write
@@ -28,3 +27,22 @@ jobs:
 
       - name: Deploy
         run: mkdocs gh-deploy --force
+
+      - name: Notify Discord
+        if: success()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+        run: |
+          jq -n \
+            --arg content "**${RELEASE_NAME:-$RELEASE_TAG}** 배포 완료 ($RELEASE_TAG)" \
+            --arg url "$RELEASE_URL" \
+            --arg body "${RELEASE_BODY:-내용 없음}" \
+            '{
+              content: $content,
+              embeds: [{title: "릴리즈 노트", url: $url, description: $body}]
+            }' > payload.json
+          curl -sf -H "Content-Type: application/json" -d @payload.json "$DISCORD_WEBHOOK_URL"
