@@ -1,0 +1,50 @@
+@startuml vm-vs-container
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 40
+skinparam DefaultFontName "Apple SD Gothic Neo"
+skinparam DefaultFontSize 13
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam ArrowColor #5C78C8
+skinparam rectangleBackgroundColor #F8F9FC
+skinparam rectangleBorderColor #5C78C8
+skinparam rectangle {
+  FontColor #333333
+}
+skinparam frame {
+  FontColor #333333
+  FontStyle bold
+  BorderColor #999999
+}
+
+frame "VM" as VM #FFF8F0 {
+  rectangle "하드웨어" as VMHW #ECEFF1
+  rectangle "운영체제" as VMOS #ECEFF1
+  rectangle "가상화 소프트웨어" as VMHV #FFF3E0
+  rectangle "운영체제 A" as VMOS1 #E3F2FD
+  rectangle "운영체제 B" as VMOS2 #E3F2FD
+  rectangle "프로그램 A" as VMApp1 #E8F5E9
+  rectangle "프로그램 B" as VMApp2 #E8F5E9
+
+  VMHW -up-> VMOS
+  VMOS -up-> VMHV
+  VMHV -up-> VMOS1
+  VMHV -up-> VMOS2
+  VMOS1 -up-> VMApp1
+  VMOS2 -up-> VMApp2
+}
+
+frame "Container" as C #F0F5FF {
+  rectangle "하드웨어" as CHW #ECEFF1
+  rectangle "운영체제" as COS #ECEFF1
+  rectangle "프로그램 A" as CApp1 #E8F5E9
+  rectangle "프로그램 B" as CApp2 #E8F5E9
+
+  CHW -up-> COS
+  COS -up-> CApp1
+  COS -up-> CApp2
+}
+
+VM -[hidden]right-> C
+@enduml
