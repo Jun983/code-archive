@@ -9,6 +9,14 @@ hide:
 
 조건이 만족되는 동안 코드 블록을 반복 실행합니다.
 
+| 구성 요소 | 설명 |
+|---|---|
+| for | 반복 횟수가 정해진 경우 사용 |
+| while | 조건이 `true`인 동안 반복 |
+| do-while | 블록을 최소 1회 실행한 뒤 조건 검사 |
+
+---
+
 ## 1. for
 
 반복 횟수가 정해진 경우에 사용합니다. `for` 뒤 괄호 안에 초기화·조건·증감식을 한 줄로 작성합니다.
@@ -47,6 +55,11 @@ public class ForExample {
 4
 ```
 
+!!! info "참고"
+    배열이나 컬렉션의 모든 원소를 순회할 때 인덱스 없이 간결하게 작성할 수 있는 **향상된 for(for-each)** 문법도 있습니다. 배열은 이후 문서에서 다룹니다.
+
+---
+
 ## 2. while
 
 조건이 `true`인 동안 반복합니다. 반복 횟수를 사전에 알 수 없을 때 사용합니다.
@@ -82,7 +95,41 @@ public class WhileExample {
 2
 ```
 
-## 3. break와 continue
+---
+
+## 3. do-while
+
+`while`과 달리 조건을 블록 실행 **후**에 검사하므로, 조건이 처음부터 `false`여도 최소 1회는 실행됩니다.
+
+```mermaid
+flowchart TD
+    Start([시작]) --> Body[코드 실행]
+    Body --> C1{count < 3? 조건}
+    C1 -->|true| Body
+    C1 -->|false| End([종료])
+```
+
+```java
+public class DoWhileExample {
+    public static void main(String[] args) {
+        int count = 0;
+        do {
+            System.out.println(count);
+            count++;
+        } while (count < 3);
+    }
+}
+```
+
+```
+0
+1
+2
+```
+
+---
+
+## 4. break와 continue
 
 반복문 실행 중 흐름을 제어합니다.
 
