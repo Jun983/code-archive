@@ -18,7 +18,6 @@ hide:
 | 2 | [은행 잔액 관리](bank-balance.md) | 계좌의 입출금과 잔액 관리 |
 | 3 | [온도 변환기](temperature-converter.md) | 섭씨 온도를 화씨로 변환 |
 | 4 | [아르바이트 급여 계산기](part-time-pay-calculator.md) | 시급과 근무시간으로 급여 계산, 야간수당 적용 |
-| 5 | [BMI 계산기](bmi-calculator.md) | 키와 몸무게로 체질량지수 계산 |
 
 ## Level 2
 
