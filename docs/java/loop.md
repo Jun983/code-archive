@@ -19,7 +19,15 @@ hide:
 | 조건 | 매 반복 전에 확인하며, `false`가 되면 반복을 멈춥니다. (예: `i < 5`) |
 | 증감식 | 매 반복이 끝난 뒤 실행됩니다. (예: `i++`) |
 
-![for-loop diagram](../assets/images/java/for-loop.svg){ width="350" }
+```mermaid
+flowchart TD
+    Start([시작]) --> Init[i = 0 초기화]
+    Init --> C1{i < 5? 조건}
+    C1 -->|true| Body[코드 실행]
+    Body --> Inc[i++ 증감]
+    Inc --> C1
+    C1 -->|false| End([종료])
+```
 
 ```java
 public class ForExample {
@@ -47,7 +55,14 @@ public class ForExample {
 |-----------|------|
 | 조건 | 매 반복 전에 확인하며, `false`가 되면 반복을 멈춥니다. (예: `count < 3`) |
 
-![while-loop diagram](../assets/images/java/while-loop.svg){ width="350" }
+```mermaid
+flowchart TD
+    Start([시작]) --> C1{count < 3? 조건}
+    C1 -->|true| Body[코드 실행]
+    Body --> Inc[count++]
+    Inc --> C1
+    C1 -->|false| End([종료])
+```
 
 ```java
 public class WhileExample {
@@ -78,7 +93,18 @@ public class WhileExample {
 
 **break 예시** — `i`가 3이 되는 순간 반복문을 종료합니다.
 
-![break diagram](../assets/images/java/break.svg){ width="350" }
+```mermaid
+flowchart TD
+    Start([시작]) --> Init[i = 0]
+    Init --> C1{i < 5?}
+    C1 -->|true| C2{i == 3?}
+    C1 -->|false| End([종료])
+    C2 -->|yes| Break["break (반복문 즉시 종료)"]
+    Break --> End
+    C2 -->|no| Print[출력: i]
+    Print --> Inc[i++]
+    Inc --> C1
+```
 
 ```java
 public class BreakExample {
@@ -99,7 +125,18 @@ public class BreakExample {
 
 **continue 예시** — `i`가 3일 때만 건너뛰고 나머지는 출력합니다.
 
-![continue diagram](../assets/images/java/continue.svg){ width="350" }
+```mermaid
+flowchart TD
+    Start([시작]) --> Init[i = 0]
+    Init --> C1{i < 5?}
+    C1 -->|true| C2{i == 3?}
+    C1 -->|false| End([종료])
+    C2 -->|yes| Skip["i++ (이번 반복 건너뜀)"]
+    Skip --> C1
+    C2 -->|no| Print[출력: i]
+    Print --> Inc[i++]
+    Inc --> C1
+```
 
 ```java
 public class ContinueExample {

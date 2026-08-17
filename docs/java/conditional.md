@@ -28,7 +28,20 @@ hide:
 
 `else if`와 `else`는 필요할 때만 붙이며, 생략할 수 있습니다.
 
-![if-else diagram](../assets/images/java/if-else.svg){ width="600" }
+```mermaid
+flowchart TD
+    Start([시작]) --> C1{score >= 90?}
+    C1 -->|true| A[A 출력]
+    C1 -->|false| C2{score >= 80?}
+    C2 -->|true| B[B 출력]
+    C2 -->|false| C3{score >= 70?}
+    C3 -->|true| C[C 출력]
+    C3 -->|false| F[F 출력]
+    A --> End([종료])
+    B --> End
+    C --> End
+    F --> End
+```
 
 ```java
 public class IfExample {
@@ -54,7 +67,16 @@ C
 
 `if` 블록 안에 다시 `if`를 작성하는 것을 중첩 `if`라고 합니다.
 
-![nested-if diagram](../assets/images/java/nested-if.svg){ width="450" }
+```mermaid
+flowchart TD
+    Start([시작]) --> C1{score >= 80?}
+    C1 -->|true| C2{isAttended?}
+    C1 -->|false| End([종료])
+    C2 -->|true| A[우수 출석 출력]
+    C2 -->|false| B[우수 성적 출력]
+    A --> End
+    B --> End
+```
 
 ```java
 public class NestedIfExample {
@@ -89,7 +111,14 @@ public class NestedIfExample {
 
 > `break`를 생략하면 다음 `case`까지 실행이 계속됩니다(fall-through).
 
-![fall-through diagram](../assets/images/java/fall-through.svg){ width="450" }
+```mermaid
+flowchart TD
+    Start([시작]) --> C1{1 <= day <= 5?}
+    C1 -->|true| A[평일 출력]
+    C1 -->|false| B[주말 출력]
+    A --> End([종료])
+    B --> End
+```
 
 ```java
 public class FallThroughExample {
@@ -117,7 +146,20 @@ public class FallThroughExample {
 평일
 ```
 
-![switch diagram](../assets/images/java/switch.svg){ width="600" }
+```mermaid
+flowchart TD
+    Start([시작]) --> C1{day == 1?}
+    C1 -->|true| M[월요일 출력]
+    C1 -->|false| C2{day == 2?}
+    C2 -->|true| T[화요일 출력]
+    C2 -->|false| C3{day == 3?}
+    C3 -->|true| W[수요일 출력]
+    C3 -->|false| D[그 외 출력]
+    M --> End([종료])
+    T --> End
+    W --> End
+    D --> End
+```
 
 ```java
 public class SwitchExample {
