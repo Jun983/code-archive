@@ -26,7 +26,7 @@ Java는 JVM 위에서 실행되는 정적 타입 객체지향 언어로, "한 �
 | 10 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 증감, 삼항, String 연산 |
 | 11 | [조건문](conditional.md) | if / else if / else, switch |
 | 12 | [반복문](loop.md) | for, while, break와 continue |
-| 13 | [랜덤 라이브러리](random.md) | Math.random(), Random 클래스 |
+| 13 | [Random 클래스](random.md) | 생성, 주요 메서드 |
 | 14 | [배열](array.md) | 선언과 초기화, 원소 접근과 수정, 배열 순회 |
 | 15 | [다차원 배열](multi-array.md) | 2차원 배열 선언과 초기화, 순회 |
 | 16 | [메서드](method.md) | 선언과 호출, 매개변수, 반환값 |

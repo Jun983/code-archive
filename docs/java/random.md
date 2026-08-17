@@ -3,45 +3,39 @@ hide:
   - navigation
 ---
 
-# 랜덤 라이브러리
+# Random 클래스
 
 [← Java로 돌아가기](index.md)
 
-무작위 값이 필요할 때는 `Math.random()` 또는 `Random` 클래스를 사용합니다.
+무작위 값이 필요할 때는 `Random` 클래스를 사용합니다.
 
-## 1. Math.random()
+| 구성 요소 | 설명 |
+|---|---|
+| 생성 | `new Random()`으로 객체 생성 |
+| 주요 메서드 | 타입에 맞는 무작위 값을 반환하는 메서드 |
 
-`Math.random()`은 `0.0` 이상 `1.0` 미만의 `double` 값을 무작위로 반환합니다. 원하는 정수 범위로 바꾸려면 곱하고 더한 뒤 `(int)`로 캐스팅합니다.
+---
 
-| 형태 | 의미 |
-|------|------|
-| `Math.random()` | `0.0` 이상 `1.0` 미만의 `double`을 반환합니다. |
-| `(int) (Math.random() * n)` | `0` 이상 `n` 미만의 정수를 반환합니다. |
-| `(int) (Math.random() * n) + start` | `start` 이상 `start + n` 미만의 정수를 반환합니다. |
+## 1. 생성
+
+`new Random()`으로 무작위 값을 생성하는 객체를 만듭니다.
 
 ```java
-public class MathRandomExample {
-    public static void main(String[] args) {
-        int dice = (int) (Math.random() * 6) + 1;        // 1 ~ 6
-        int fourDigit = (int) (Math.random() * 9000) + 1000;  // 1000 ~ 9999
+import java.util.Random; // Random을 사용하기 위해 필요한 선언
 
-        System.out.println(dice);
-        System.out.println(fourDigit);
+public class RandomCreateExample {
+    public static void main(String[] args) {
+        Random random = new Random();
     }
 }
 ```
 
-```
-4
-7392
-```
+## 2. 주요 메서드
 
-## 2. Random 클래스
-
-`Random`은 무작위 값을 생성하는 객체입니다. `new Random()`으로 만든 뒤, 타입에 맞는 메서드로 값을 뽑습니다.
+생성한 `Random` 객체의 메서드로 타입에 맞는 무작위 값을 뽑습니다. `변수명.메서드명()` 형태로 호출합니다.
 
 !!! info "참고"
-    메서드는 나중에 다룹니다.
+    지금은 호출 형태만 익히고, 메서드에 대한 자세한 내용은 나중에 다룹니다.
 
 | 메서드 | 반환 타입 | 설명 |
 |--------|-----------|------|
@@ -51,9 +45,9 @@ public class MathRandomExample {
 | `nextBoolean()` | `boolean` | 무작위로 `true` 또는 `false`를 반환합니다. |
 
 ```java
-import java.util.Random; // Random을 사용하기 위해 필요한 선언
+import java.util.Random;
 
-public class RandomExample {
+public class RandomMethodExample {
     public static void main(String[] args) {
         Random random = new Random();
 
@@ -66,3 +60,6 @@ public class RandomExample {
 ```
 3
 ```
+
+!!! info "참고"
+    `Math.random()`으로도 무작위 `double` 값을 얻을 수 있습니다. `(int) (Math.random() * n) + start` 형태로 정수 범위를 만들 수 있지만, 이 문서에서는 `Random` 클래스 사용을 기준으로 합니다.
