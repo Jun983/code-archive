@@ -23,10 +23,9 @@ hide:
 
 | # | 주제 | 설명 |
 |---|------|------|
-| 1 | [BMI 계산기](bmi-calculator.md) | 키와 몸무게로 체질량지수 계산 |
-| 2 | [문자열 마스킹 처리](string-masking.md) | 이름과 전화번호의 개인정보 마스킹 |
-| 3 | [구구단 출력기](multiplication-table.md) | 입력한 단의 구구단 출력 |
-| 4 | [주차장 남은 자리 관리](parking-lot-tracker.md) | 입차와 출차에 따른 주차장 남은 자리 관리 |
-| 5 | [카페 주문 금액 합산기](cafe-order-total.md) | 여러 메뉴 가격을 합산해 총 주문 금액 계산 |
+| 1 | [문자열 마스킹 처리](string-masking.md) | 이름과 전화번호의 개인정보 마스킹 |
+| 2 | [구구단 출력기](multiplication-table.md) | 입력한 단의 구구단 출력 |
+| 3 | [주차장 남은 자리 관리](parking-lot-tracker.md) | 입차와 출차에 따른 주차장 남은 자리 관리 |
+| 4 | [카페 주문 금액 합산기](cafe-order-total.md) | 여러 메뉴 가격을 합산해 총 주문 금액 계산 |
+| 5 | [회문 판별기](palindrome-checker.md) | 문자열이 회문인지 판별 |
 | 6 | [로그인 시도 제한기](login-attempt-limiter.md) | 최대 시도 횟수 내 비밀번호 확인 |
-| 7 | [회문 판별기](palindrome-checker.md) | 문자열이 회문인지 판별 |

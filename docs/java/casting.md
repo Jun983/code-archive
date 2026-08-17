@@ -20,7 +20,11 @@ hide:
 
 작은 타입에서 큰 타입으로 자동 변환됩니다. 데이터 손실이 없으므로 별도 문법 없이 컴파일러가 처리합니다.
 
-![widening cast diagram](../assets/images/java/widening-cast.svg){ width="600" }
+```mermaid
+flowchart LR
+    byte --> short --> int --> long --> float --> double
+    char --> float
+```
 
 ```java
 public class WideningExample {
