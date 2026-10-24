@@ -18,7 +18,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | 2 | [개발환경 설정](setup.md) | Winget, Miniconda, VSCode, Python 설치 및 프로젝트 생성 |
 | 3 | [프로그램 구조](program-structure.md) | 첫 프로그램, 실행 순서, 주석, 들여쓰기 |
 | 4 | [출력](output.md) | print, 이스케이프 문자, sep, end |
-| 5 | [타입](type.md) | 기본 타입, 동적 타입 |
+| 5 | [타입](type.md) | 내장 타입, 동적 타입 |
 | 6 | [변수](variable.md) | 선언과 초기화, 다중 할당, 명명 규칙 |
 | 7 | [문자열](string.md) | 선언, 주요 메서드, f-string |
 | 8 | [형변환](casting.md) | int, float, str 변환 |
