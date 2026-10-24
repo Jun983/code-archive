@@ -16,13 +16,22 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 |---|------|------|
 | 1 | [Python 개요](overview.md) | 소스 코드, 인터프리터, 바이트코드, PVM 등 Python의 실행 과정 |
 | 2 | [개발환경 설정](setup.md) | Winget, Miniconda, VSCode, Python 설치 및 프로젝트 생성 |
-| 3 | [기본 문법](syntax.md) | 변수, 타입, 연산자, 제어문 |
-| 4 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
-| 5 | [자료구조](data-structures.md) | list, tuple, dict, set |
-| 6 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어 |
-| 7 | [상속과 다형성](inheritance.md) | 상속, 메서드 오버라이딩, 다중 상속 |
-| 8 | [예외 처리](exception.md) | try-except, 사용자 정의 예외 |
-| 9 | [이터레이터와 제너레이터](iterator-generator.md) | iter, next, yield |
-| 10 | [데코레이터](decorator.md) | 함수 데코레이터, 클래스 데코레이터 |
-| 11 | [모듈과 패키지](module-package.md) | import, 패키지 구조 |
-| 12 | [동시성](concurrency.md) | threading, multiprocessing, asyncio |
+| 3 | [프로그램 구조](program-structure.md) | 첫 프로그램, 실행 순서, 주석, 들여쓰기, 문장과 줄 |
+| 4 | [출력](output.md) | print, 이스케이프 문자, 여러 값 출력, sep, end |
+| 5 | [타입](type.md) | 타입이란, 내장 타입, 타입 확인 |
+| 6 | [변수](variable.md) | 선언과 초기화, 다중 할당, 명명 규칙, 동적 타입 |
+| 7 | [문자열](string.md) | 선언, 길이와 인덱싱, 주요 메서드, raw string, f-string |
+| 8 | [형변환](casting.md) | 형변환이란, int, float, str 변환, 변환 실패 |
+| 9 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 멤버십, 삼항 |
+| 10 | [조건문](conditional.md) | if / elif / else, match |
+| 11 | [반복문](loop.md) | for, while, break와 continue |
+| 12 | [입력](input.md) | input, 숫자 입력 |
+| 13 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
+| 14 | [자료구조](data-structures.md) | list, tuple, dict, set |
+| 15 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어 |
+| 16 | [상속과 다형성](inheritance.md) | 상속, 메서드 오버라이딩, 다중 상속 |
+| 17 | [예외 처리](exception.md) | try-except, 사용자 정의 예외 |
+| 18 | [이터레이터와 제너레이터](iterator-generator.md) | iter, next, yield |
+| 19 | [데코레이터](decorator.md) | 함수 데코레이터, 클래스 데코레이터 |
+| 20 | [모듈과 패키지](module-package.md) | import, 패키지 구조 |
+| 21 | [동시성](concurrency.md) | threading, multiprocessing, asyncio |
