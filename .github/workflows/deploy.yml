@@ -32,6 +32,7 @@ jobs:
         if: success()
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL_2: ${{ secrets.DISCORD_WEBHOOK_URL_2 }}
           RELEASE_NAME: ${{ github.event.release.name }}
           RELEASE_TAG: ${{ github.event.release.tag_name }}
           RELEASE_URL: ${{ github.event.release.html_url }}
@@ -45,4 +46,6 @@ jobs:
               content: $content,
               embeds: [{title: "릴리즈 노트", url: $url, description: $body}]
             }' > payload.json
-          curl -sf -H "Content-Type: application/json" -d @payload.json "$DISCORD_WEBHOOK_URL"
+          for url in "$DISCORD_WEBHOOK_URL" "$DISCORD_WEBHOOK_URL_2"; do
+            curl -sf -H "Content-Type: application/json" -d @payload.json "$url"
+          done
