@@ -21,7 +21,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | 5 | [타입](type.md) | 타입이란, 내장 타입, 타입 확인 |
 | 6 | [변수](variable.md) | 선언과 초기화, 다중 할당, 명명 규칙, 동적 타입 |
 | 7 | [문자열](string.md) | 선언, 길이와 인덱싱, 주요 메서드, raw string, f-string |
-| 8 | [형변환](casting.md) | int, float, str 변환 |
+| 8 | [형변환](casting.md) | 형변환이란, int, float, str 변환, 변환 실패 |
 | 9 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 멤버십, 삼항 |
 | 10 | [조건문](conditional.md) | if / elif / else, match |
 | 11 | [반복문](loop.md) | for, while, break와 continue |
