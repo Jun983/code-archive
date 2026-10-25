@@ -23,7 +23,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | 7 | [문자열](string.md) | 선언, 길이와 인덱싱, 주요 메서드, raw string, f-string |
 | 8 | [형변환](casting.md) | 형변환이란, int, float, str 변환, 변환 실패 |
 | 9 | [연산자](operator.md) | 연산자란, 산술, 문자열, 대입, 비교, 논리, 멤버십, 우선순위 |
-| 10 | [조건문](conditional.md) | if / elif / else, match, 삼항 표현식 |
+| 10 | [조건문](conditional.md) | 조건문이란, if / elif / else, match, 삼항 표현식 |
 | 11 | [반복문](loop.md) | for, while, break와 continue |
 | 12 | [입력](input.md) | input, 숫자 입력 |
 | 13 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
