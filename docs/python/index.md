@@ -25,7 +25,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | 9 | [연산자](operator.md) | 연산자란, 산술, 문자열, 대입, 비교, 논리, 멤버십, 우선순위 |
 | 10 | [조건문](conditional.md) | 조건문이란, if / elif / else, match, 삼항 표현식 |
 | 11 | [반복문](loop.md) | 반복문이란, for, while, break와 continue |
-| 12 | [입력](input.md) | input, 숫자 입력 |
+| 12 | [입력](input.md) | 입력이란, 숫자 입력, 입력 오류 |
 | 13 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
 | 14 | [자료구조](data-structures.md) | list, tuple, dict, set |
 | 15 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어 |
