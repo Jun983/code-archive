@@ -15,7 +15,7 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | # | 주제 | 설명 |
 |---|------|------|
 | 1 | [Python 개요](overview.md) | 소스 코드, 인터프리터, 바이트코드, PVM 등 Python의 실행 과정 |
-| 2 | [개발환경 설정](setup.md) | Winget, Miniconda, VSCode, Python 설치 및 프로젝트 생성 |
+| 2 | [개발환경 설정](setup.md) | Homebrew/Winget, Miniconda, VSCode 설치 및 프로젝트 생성 (macOS, Windows) |
 | 3 | [프로그램 구조](program-structure.md) | 첫 프로그램, 실행 순서, 주석, 들여쓰기, 문장과 줄 |
 | 4 | [출력](output.md) | print, 이스케이프 문자, 여러 값 출력, sep, end |
 | 5 | [타입](type.md) | 타입이란, 내장 타입, 타입 확인 |
