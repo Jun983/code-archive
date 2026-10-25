@@ -1,0 +1,84 @@
+@startuml history
+skinparam linetype ortho
+skinparam nodesep 90
+skinparam ranksep 100
+skinparam DefaultFontName "Apple SD Gothic Neo"
+skinparam DefaultFontSize 13
+skinparam rectangleBackgroundColor #F8F9FC
+skinparam rectangleBorderColor #5C78C8
+skinparam ArrowColor #5C78C8
+skinparam shadowing false
+skinparam roundcorner 12
+skinparam rectangle {
+  FontColor #333333
+}
+
+!define DEVICONS2 https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/main/icons/devicons2
+!includeurl https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/main/icons/common.puml
+!includeurl DEVICONS2/linux.puml
+!includeurl DEVICONS2/vsphere.puml
+!includeurl DEVICONS2/openstack_original.puml
+!includeurl DEVICONS2/docker.puml
+!includeurl DEVICONS2/amazonwebservices_wordmark.puml
+!includeurl DEVICONS2/rancher_original.puml
+!includeurl DEVICONS2/nomad_original.puml
+!includeurl DEVICONS2/kubernetes.puml
+!includeurl DEVICONS2/googlecloud.puml
+!includeurl DEVICONS2/redhat.puml
+!includeurl DEVICONS2/azure.puml
+
+rectangle "**1991**\n자원 격리 기술" as S1 #ECEFF1 {
+  DEV2_LINUX(linux, "Linux")
+  rectangle "   " as s1p1 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  rectangle "   \n   \n   \n   " as s1p2 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  rectangle "   \n   \n   \n   " as s1p3 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  linux -[hidden]right-> s1p1
+  linux -[hidden]down-> s1p2
+  s1p1 -[hidden]down-> s1p3
+}
+
+rectangle "**2010.7**\n가상화 기술" as S2 #FFF3E0 {
+  DEV2_VSPHERE(vmware, "VMware")
+  DEV2_OPENSTACK_ORIGINAL(openstack, "OpenStack")
+  rectangle "   \n   \n   \n   " as s2p1 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  rectangle "   \n   \n   \n   " as s2p2 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  vmware -[hidden]right-> openstack
+  vmware -[hidden]down-> s2p1
+  openstack -[hidden]down-> s2p2
+}
+
+rectangle "**2014.6**\n컨테이너 기술" as S3 #E3F2FD {
+  DEV2_DOCKER(docker, "Docker")
+  rectangle "   " as s3p1 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  rectangle "   \n   \n   \n   " as s3p2 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  rectangle "   \n   \n   \n   " as s3p3 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  docker -[hidden]right-> s3p1
+  docker -[hidden]down-> s3p2
+  s3p1 -[hidden]down-> s3p3
+}
+
+rectangle "**2015.7**\n컨테이너 오케스트레이션" as S4 #E8F5E9 {
+  DEV2_AMAZONWEBSERVICES_WORDMARK(aws, "Amazon ECS")
+  DEV2_RANCHER_ORIGINAL(rancher, "Rancher")
+  DEV2_NOMAD_ORIGINAL(nomad, "HashiCorp Nomad")
+  rectangle "   " as s4p1 #FFFFFF00;line:FFFFFF00;text:FFFFFF00
+  aws -[hidden]right-> rancher
+  aws -[hidden]down-> nomad
+  rancher -[hidden]down-> s4p1
+}
+
+rectangle "**Today**\n클라우드 서비스" as S5 #EDE7F6 {
+  DEV2_KUBERNETES(k8s, "Kubernetes")
+  DEV2_GOOGLECLOUD(gcp, "Google Cloud")
+  DEV2_AZURE(azure, "Azure")
+  DEV2_REDHAT(redhat, "Red Hat")
+  k8s -[hidden]right-> gcp
+  k8s -[hidden]down-> azure
+  gcp -[hidden]down-> redhat
+}
+
+S1 -right-> S2
+S2 -right-> S3
+S3 -right-> S4
+S4 -right-> S5
+@enduml

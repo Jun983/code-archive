@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" width="700" height="330" font-family="'Apple SD Gothic Neo'">
+  <rect x="10" y="10" width="680" height="310" rx="8" ry="8" fill="#F0F5FF" stroke="#999999" stroke-width="1"/>
+  <text x="24" y="34" font-size="15" font-weight="700" fill="#333333">Cluster</text>
+
+  <rect x="34" y="52" width="300" height="248" rx="6" ry="6" fill="#FFF8F0" stroke="#999999" stroke-width="1"/>
+  <text x="48" y="76" font-size="13" font-weight="700" fill="#333333">Node</text>
+
+  <rect x="366" y="52" width="300" height="248" rx="6" ry="6" fill="#FFF8F0" stroke="#999999" stroke-width="1"/>
+  <text x="380" y="76" font-size="13" font-weight="700" fill="#333333">Node</text>
+
+  <rect x="58" y="92" width="252" height="90" rx="6" ry="6" fill="#E3F2FD" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="72" y="114" font-size="12" fill="#333333">Pod</text>
+  <rect x="82" y="128" width="90" height="38" rx="6" ry="6" fill="#E8F5E9" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="97" y="152" font-size="12" fill="#333333">Container</text>
+
+  <rect x="58" y="196" width="252" height="90" rx="6" ry="6" fill="#E3F2FD" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="72" y="218" font-size="12" fill="#333333">Pod</text>
+  <rect x="82" y="232" width="90" height="38" rx="6" ry="6" fill="#E8F5E9" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="97" y="256" font-size="12" fill="#333333">Container</text>
+
+  <rect x="390" y="92" width="252" height="90" rx="6" ry="6" fill="#E3F2FD" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="404" y="114" font-size="12" fill="#333333">Pod</text>
+  <rect x="414" y="128" width="90" height="38" rx="6" ry="6" fill="#E8F5E9" stroke="#5C78C8" stroke-width="0.5"/>
+  <text x="429" y="152" font-size="12" fill="#333333">Container</text>
+</svg>
