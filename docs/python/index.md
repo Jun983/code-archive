@@ -22,12 +22,12 @@ Python은 간결한 문법과 동적 타입 시스템을 갖춘 인터프리터 
 | 6 | [변수](variable.md) | 선언과 초기화, 다중 할당, 명명 규칙, 동적 타입 |
 | 7 | [문자열](string.md) | 선언, 길이와 인덱싱, 주요 메서드, raw string, f-string |
 | 8 | [형변환](casting.md) | 형변환이란, int, float, str 변환, 변환 실패 |
-| 9 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 멤버십, 삼항 |
-| 10 | [조건문](conditional.md) | if / elif / else, match |
-| 11 | [반복문](loop.md) | for, while, break와 continue |
-| 12 | [입력](input.md) | input, 숫자 입력 |
-| 13 | [함수](function.md) | 정의, 인수, 기본값, 가변 인수 |
-| 14 | [자료구조](data-structures.md) | list, tuple, dict, set |
+| 9 | [연산자](operator.md) | 연산자란, 산술, 문자열, 대입, 비교, 논리, 멤버십, 우선순위 |
+| 10 | [조건문](conditional.md) | 조건문이란, if / elif / else, match, 삼항 표현식 |
+| 11 | [반복문](loop.md) | 반복문이란, for, while, break와 continue |
+| 12 | [입력](input.md) | 입력이란, 숫자 입력, 입력 오류 |
+| 13 | [함수](function.md) | 함수란, 매개변수와 인수, 반환값, 기본값, 가변 인수 |
+| 14 | [자료구조](data-structures.md) | 자료구조란, list, tuple, dict, set |
 | 15 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어 |
 | 16 | [상속과 다형성](inheritance.md) | 상속, 메서드 오버라이딩, 다중 상속 |
 | 17 | [예외 처리](exception.md) | try-except, 사용자 정의 예외 |
