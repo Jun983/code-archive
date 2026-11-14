@@ -42,8 +42,17 @@ Figma 변수는 값의 종류(타입)별로 만들 수 있습니다. 디자인 �
 
 모드는 같은 이름의 변수에 값만 바꿔 넣는 구조이므로, 모드가 필요한 변수(색상)와 필요 없는 변수(간격)는 컬렉션을 나누어 둡니다.
 
-!!! warning "확인 필요"
-    플랜별 모드 개수와 컬렉션 개수 제한은 아직 확인하지 않았습니다. 확인되는 대로 이 절을 보완합니다.
+컬렉션당 만들 수 있는 모드 수는 플랜에 따라 다릅니다.
+
+| 플랜 | 컬렉션당 모드 수 |
+|---|---|
+| Starter | 확인 필요 (공식 플랜 비교 문서에 수치 없음) |
+| Professional | 최대 10개 |
+| Organization | 최대 20개 |
+| Enterprise | 제한 없음 (확장 컬렉션 사용) |
+
+- 컬렉션 하나에 만들 수 있는 변수는 최대 5,000개입니다.
+- 플랜별 컬렉션 개수 제한은 공식 문서에서 찾지 못했습니다.
 
 ### 원시 값과 의미 기반 값
 
@@ -135,5 +144,8 @@ flowchart LR
 
 ## 참고
 
-!!! warning "확인 필요"
-    Figma 변수 관련 공식 문서 URL은 아직 확인하지 않았습니다. 확인되는 대로 이 절에 추가합니다.
+2026-11-14 기준으로 직접 열어 확인한 Figma 공식 도움말입니다.
+
+- [Guide to variables in Figma](https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma)
+- [Overview of variables, collections, and modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes)
+- [Figma plans and features](https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features)
