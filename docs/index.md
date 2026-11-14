@@ -56,6 +56,14 @@ C, Java를 비롯한 프로그래밍 언어에 대한 내용을 직접 정리한
 
     [:octicons-arrow-right-24: 바로 가기](kubernetes/index.md)
 
+-   :material-palette: **디자인 시스템**
+
+    ---
+
+    Figma 디자인 시스템을 디자인 토큰과 컴포넌트 라이브러리로 옮기는 흐름
+
+    [:octicons-arrow-right-24: 바로 가기](design-system/index.md)
+
 </div>
 
 ### 연습 문제
