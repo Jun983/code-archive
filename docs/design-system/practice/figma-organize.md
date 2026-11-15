@@ -42,15 +42,23 @@ hide:
 ### 1-1. 컬렉션 만들기
 
 1. **작업**:
-    1. 캔버스의 빈 곳을 클릭해 선택을 해제하고, 오른쪽 패널의 **Variables** 항목에서 **Open variables**를 엽니다.
-    2. 기본 컬렉션 이름을 `primitive`로 바꿉니다.
-    3. 컬렉션을 하나 더 만들어 `semantic`, `spacing`, `radius`로 이름을 지정합니다.
-2. **기대 결과**: 컬렉션 `primitive`, `semantic`, `spacing`, `radius`가 보입니다.
-3. **확인 방법**: 왼쪽 컬렉션 목록에 네 개가 모두 있고, 컬렉션마다 모드가 하나(`Mode 1`)이면 정상입니다.
+    1. 왼쪽 사이드바 맨 아래의 **Variables**(육각형 아이콘)를 눌러 변수 화면을 엽니다.
+    2. 왼쪽 **Collections** 제목 오른쪽의 `+` 버튼을 눌러 컬렉션을 만들고 이름을 `primitive`로 지정합니다.
+    3. 같은 `+` 버튼으로 컬렉션을 추가해 `semantic`, `spacing`, `radius`로 이름을 지정합니다.
+2. **기대 결과**: 컬렉션 `primitive`, `semantic`, `spacing`, `radius`가 보입니다. 목록은 이름순으로 정렬되어 `primitive`, `radius`, `semantic`, `spacing` 순서로 보이며, 변수가 없어 개수는 모두 `0`입니다.
+
+    ![primitive, radius, semantic, spacing 컬렉션이 보이는 Variables 화면](../../assets/images/design-system/practice/figma-collections-created.png){ width="100%" }
+
+3. **확인 방법**: 왼쪽 컬렉션 목록에 네 개가 모두 있으면 정상입니다.
 
 ### 1-2. 원시 값 변수 만들기
 
-1. **작업**: `primitive` 컬렉션에 Color 변수를 아래 이름과 값으로 만듭니다. 이름의 슬래시(`/`)가 그룹으로 묶입니다.
+1. **작업**:
+    1. 왼쪽 컬렉션 목록에서 `primitive`를 선택합니다.
+    2. 화면 아래의 `+ Create variable`을 눌러 **Color** 변수를 만듭니다.
+    3. 이름 칸에 `color/white`처럼 슬래시(`/`)까지 입력합니다. 슬래시 앞부분이 그룹으로 묶입니다.
+    4. 값 칸의 색상 스와치를 눌러 Hex 값(`FFFFFF`)을 입력합니다.
+    5. 아래 표의 변수를 같은 방법으로 모두 만듭니다.
 
     | 변수 이름 | 값 |
     |---|---|
@@ -61,12 +69,19 @@ hide:
     | `color/gray/400` | `9CA3AF` |
     | `color/red/500` | `EF4444` |
 
-2. **기대 결과**: 변수 6개가 `color` 그룹 아래 `white`, `blue`, `gray`, `red`로 묶여 보입니다.
+2. **기대 결과**: `primitive` 컬렉션 개수가 `6`이 되고, 변수가 `color` 그룹 아래 `white`와 `blue`, `gray`, `red` 하위 그룹으로 묶여 보입니다. `white`는 `color` 바로 아래에 있고, 나머지는 `color / blue`, `color / gray`, `color / red` 그룹에 있습니다.
+
+    ![color 그룹 아래 변수 6개가 만들어진 primitive 컬렉션](../../assets/images/design-system/practice/figma-primitive-variables.png){ width="100%" }
+
 3. **확인 방법**: 각 변수의 값이 표와 같고, 모두 Color 타입이면 정상입니다.
 
 ### 1-3. 의미 기반 변수 만들기
 
-1. **작업**: `semantic` 컬렉션에 Color 변수를 만들고, 값 칸에서 직접 입력하지 않고 **원시 값 변수를 참조**하게 합니다.
+1. **작업**:
+    1. 왼쪽 컬렉션 목록에서 `semantic`을 선택합니다.
+    2. 화면 아래의 `+ Create variable`을 눌러 **Color** 변수를 만들고, 이름을 `color/bg/primary/default`처럼 입력합니다.
+    3. 값 칸을 눌러 색상 선택 창을 열고, **Variables** 탭에서 `primitive` 컬렉션의 변수를 고릅니다. HEX를 직접 입력하지 않습니다.
+    4. 아래 표의 변수를 같은 방법으로 모두 만듭니다.
 
     | 변수 이름 | 참조하는 원시 값 |
     |---|---|
@@ -79,12 +94,18 @@ hide:
     | `color/border/input/error` | `color/red/500` |
     | `color/border/card/default` | `color/gray/200` |
 
-2. **기대 결과**: 의미 기반 변수 8개가 보이고, 값 칸에 HEX가 아니라 원시 값 변수 이름이 표시됩니다.
-3. **확인 방법**: 값 칸을 눌렀을 때 `primitive` 컬렉션의 변수가 연결되어 있으면 정상입니다. HEX가 직접 입력된 변수가 있으면 참조로 바꿉니다.
+2. **기대 결과**: `semantic` 컬렉션 개수가 `8`이 됩니다. 마지막 이름(`default`, `focus`, `error`)이 변수 이름이고, 앞부분은 `color / bg / primary`처럼 그룹 제목으로 보입니다. 값 칸에는 HEX가 아니라 `color/blue/500` 같은 원시 값 변수 이름이 표시됩니다.
+
+    ![원시 값 변수를 참조하는 semantic 컬렉션의 변수 8개](../../assets/images/design-system/practice/figma-semantic-variables.png){ width="100%" }
+
+3. **확인 방법**: 값 칸의 이름이 표와 같으면 정상입니다. HEX가 직접 입력된 변수가 있으면 참조로 바꿉니다.
 
 ### 1-4. 간격과 모서리 반경 변수 만들기
 
-1. **작업**: Number 변수를 아래처럼 만듭니다.
+1. **작업**:
+    1. 왼쪽 컬렉션 목록에서 `spacing`을 선택합니다.
+    2. 화면 아래의 `+ Create variable`을 눌러 **Number** 변수를 만들고, 이름과 값을 아래 표대로 입력합니다.
+    3. `radius` 컬렉션도 같은 방법으로 만듭니다.
 
     | 컬렉션 | 변수 이름 | 값 |
     |---|---|---|
@@ -95,11 +116,16 @@ hide:
     | `radius` | `radius/md` | `6` |
     | `radius` | `radius/lg` | `12` |
 
-2. **기대 결과**: `spacing` 컬렉션에 4개, `radius` 컬렉션에 2개의 변수가 보입니다.
-3. **확인 방법**: `7`, `13`에 해당하는 변수가 없으면 정상입니다. 어중간한 값은 `6`, `12`로 합쳤기 때문입니다.
+2. **기대 결과**: `spacing` 컬렉션 개수가 `4`, `radius` 컬렉션 개수가 `2`가 됩니다. 슬래시 앞부분(`spacing`, `radius`)은 그룹 제목으로 보이고, 변수 이름에는 `8`, `md`처럼 마지막 이름만 표시됩니다.
+
+    ![spacing 컬렉션의 Number 변수 4개](../../assets/images/design-system/practice/figma-spacing-variables.png){ width="100%" }
+
+    ![radius 컬렉션의 Number 변수 2개](../../assets/images/design-system/practice/figma-radius-variables.png){ width="100%" }
+
+3. **확인 방법**: 값이 표와 같고 `7`, `13`에 해당하는 변수가 없으면 정상입니다. 어중간한 값은 `6`, `12`로 합쳤기 때문입니다.
 
 !!! note "모드"
-    이 실습의 색상 변수는 모드를 `Mode 1` 하나만 씁니다. 라이트/다크 같은 모드 추가는 이 실습의 범위가 아닙니다.
+    이 실습의 변수는 모든 컬렉션이 모드를 하나만 씁니다. 모드가 하나면 값 열 이름이 `Value`로 표시됩니다. 라이트/다크 같은 모드 추가는 이 실습의 범위가 아닙니다.
 
 ---
 
@@ -109,7 +135,11 @@ hide:
 
 ### 2-1. Button 치환
 
-1. **작업**: `Components` 페이지에서 `Button` 컴포넌트를 선택하고 각 항목의 변수(육각형 모양의 **Apply variable**) 아이콘을 눌러 연결합니다.
+1. **작업**:
+    1. `Components` 페이지에서 `Button` 컴포넌트를 선택합니다.
+    2. 오른쪽 Design 패널의 **Fill** 줄에서 점 4개 아이콘(**Apply styles and variables**)을 누르고, **Variables** 탭에서 변수를 선택합니다.
+    3. **Corner radius**, **Padding** 칸은 마우스를 올리면 나타나는 변수 아이콘을 눌러 변수를 선택합니다.
+    4. 왼쪽 레이어에서 안쪽 텍스트(`T` 아이콘)를 따로 선택하고, 글자색 Fill도 같은 방법으로 연결합니다.
 
     | 위치 | 항목 | 연결할 변수 |
     |---|---|---|
@@ -119,12 +149,19 @@ hide:
     | 프레임 | Padding 가로 | `spacing/12` |
     | 텍스트 | Fill | `color/text/on-primary/default` |
 
-2. **기대 결과**: 겉모습이 치환 전과 같고, 각 항목 옆에 변수 이름이 표시됩니다.
-3. **확인 방법**: 선택했을 때 오른쪽 패널의 Fill, Corner radius, Padding에 HEX나 숫자 대신 변수 이름이 보이면 정상입니다.
+2. **기대 결과**: 겉모습이 치환 전과 같고, 연결한 칸이 변수 표시로 바뀝니다. Fill에는 변수 이름이 나오고, Corner radius와 Padding의 숫자는 네모로 감싸져 표시됩니다.
+
+    ![변수가 연결된 Button 컴포넌트](../../assets/images/design-system/practice/figma-button-variables-applied.png){ width="100%" }
+
+3. **확인 방법**: 네모로 감싸진 칸을 눌렀을 때 선택 창에서 해당 변수(`radius/md`, `spacing/10`, `spacing/12`)가 선택돼 있으면 정상입니다. 숫자 칸은 변수의 마지막 이름(`10`, `12`)이나 값이 보일 수 있습니다.
 
 ### 2-2. Input 치환
 
-1. **작업**: `Input` 컴포넌트 세트 안의 Variant별로 연결합니다. 컴포넌트 세트가 아니라 `default`, `focus`, `error` Variant를 각각 선택합니다.
+1. **작업**:
+    1. 왼쪽 레이어에서 `Input` 안의 `default` Variant를 선택합니다(컴포넌트 세트가 아니라 Variant를 각각 선택).
+    2. 2-1과 같은 방법으로 **Fill**, **Stroke**는 점 4개 아이콘(**Apply styles and variables**)의 **Variables** 탭에서, **Corner radius**, **Padding**은 칸에 마우스를 올리면 나타나는 변수 아이콘으로 연결합니다.
+    3. 안쪽 `Placeholder` 텍스트 레이어를 따로 선택해 글자색 Fill을 연결합니다.
+    4. `focus`, `error` Variant도 같은 방법으로 반복합니다.
 
     | 위치 | 항목 | 연결할 변수 |
     |---|---|---|
@@ -138,22 +175,34 @@ hide:
     | 텍스트 | Fill | `color/text/placeholder/default` |
 
 2. **기대 결과**: 모서리가 `6`, 가로 패딩이 `12`로 바뀌어 크기가 `240 × 40`으로 유지되는지 확인합니다. 세 Variant의 테두리 색은 그대로 회색, 파란색, 빨간색입니다.
-3. **확인 방법**: 세 Variant를 차례로 선택했을 때 Stroke에 각각 `color/border/input/default`, `focus`, `error` 변수가 연결되어 있으면 정상입니다.
+
+    ![변수가 연결된 Input default Variant](../../assets/images/design-system/practice/figma-input-default-variables.png){ width="100%" }
+
+    ![변수가 연결된 Input focus Variant](../../assets/images/design-system/practice/figma-input-focus-variables.png){ width="100%" }
+
+    ![변수가 연결된 Input error Variant](../../assets/images/design-system/practice/figma-input-error-variables.png){ width="100%" }
+
+3. **확인 방법**: 세 Variant를 차례로 선택했을 때 Stroke에 각각 `color/border/input/default`, `focus`, `error` 변수가 연결되어 있으면 정상입니다. 오른쪽 패널 아래 **Selection colors**에 `color/text/placeholder...`, `color/border/input/...`, `color/bg/surface/...` 세 개가 보이면 색 연결이 모두 된 것입니다.
 
 ### 2-3. Card 치환
 
-1. **작업**: `Card` 컴포넌트를 선택해 연결합니다.
+1. **작업**:
+    1. `Components` 페이지의 레이어에서 `Card`를 선택합니다.
+    2. Fill과 Stroke는 네 개의 점 모양 **Apply styles and variables** 아이콘 → **Variables** 탭에서, Corner radius와 Padding, Gap은 값 칸에 마우스를 올리면 나타나는 변수 아이콘으로 아래 변수를 연결합니다.
 
-    | 항목 | 연결할 변수 |
-    |---|---|
-    | Fill | `color/bg/surface/default` |
-    | Stroke | `color/border/card/default` |
-    | Corner radius | `radius/lg` |
-    | Padding (가로·세로) | `spacing/16` |
-    | Gap | `spacing/8` |
+        | 항목 | 연결할 변수 |
+        |---|---|
+        | Fill | `color/bg/surface/default` |
+        | Stroke | `color/border/card/default` |
+        | Corner radius | `radius/lg` |
+        | Padding (가로·세로) | `spacing/16` |
+        | Gap | `spacing/8` |
 
-2. **기대 결과**: 겉모습이 치환 전과 같습니다.
-3. **확인 방법**: 크기가 `280 × 78 Hug` 그대로이고, 위 항목마다 변수 이름이 표시되면 정상입니다.
+2. **기대 결과**: 겉모습이 치환 전과 같습니다. 연결된 숫자 값은 박스로 감싸져 표시됩니다.
+
+    ![Card에 변수를 연결한 화면](../../assets/images/design-system/practice/figma-card-variables.png){ width="100%" }
+
+3. **확인 방법**: 크기가 `280 × 78 Hug` 그대로이고, 위 항목마다 변수 이름이 표시되면 정상입니다. Selection colors에 `color/border/card/...`, `color/bg/surface/...`가 보이면 색상이 연결된 것입니다. 남는 `000000`은 텍스트 색이며 2-4에서 확인합니다.
 
 ### 2-4. 남은 하드코딩 확인
 
@@ -174,16 +223,19 @@ hide:
 
 1. **작업**:
     1. 텍스트 레이어를 선택하고 오른쪽 패널 Typography 항목의 **Styles** 아이콘(점 네 개)을 누른 뒤 **+** 로 스타일을 만듭니다.
-    2. 아래 이름으로 세 개를 만들고, 해당하는 텍스트 레이어에 연결합니다.
+    2. **Create new text style** 창에서 **Name**에 스타일 이름을, **Description**에 용도 설명을 입력하고 **Create style**을 누릅니다.
+    3. 아래 세 개를 만들고, 해당하는 텍스트 레이어에 연결합니다.
 
-        | 스타일 이름 | 글꼴 | 굵기 | 크기 | 연결할 레이어 |
-        |---|---|---|---|---|
-        | `text/body/default` | `Inter` | Regular | `14` | `Placeholder`, `Card description` |
-        | `text/label/default` | `Inter` | Medium | `14` | `Button` 텍스트 |
-        | `text/heading/default` | `Inter` | Medium | `16` | `Card title` |
+        | 스타일 이름 | 설명 | 글꼴 | 굵기 | 크기 | 연결할 레이어 |
+        |---|---|---|---|---|---|
+        | `text/body/default` | 본문 텍스트 | `Inter` | Regular | `14` | `Placeholder`, `Card description` |
+        | `text/label/default` | 버튼 등 라벨 텍스트 | `Inter` | Medium | `14` | `Button` 텍스트 |
+        | `text/heading/default` | 카드 제목 텍스트 | `Inter` | Medium | `16` | `Card title` |
 
 2. **기대 결과**: 세 텍스트 스타일이 `text` 그룹 아래 `body`, `label`, `heading`으로 묶여 보입니다.
 3. **확인 방법**: 텍스트 레이어를 선택했을 때 Typography에 스타일 이름이 표시되면 정상입니다.
+
+    ![텍스트 스타일이 연결된 Card title](../../assets/images/design-system/practice/figma-text-style-applied.png){ width="100%" }
 
 !!! note "Cover 페이지 텍스트"
     `Cover` 페이지의 제목(Medium 32)과 설명(Regular 16)은 컴포넌트가 아니라 파일 안내용 텍스트이므로 스타일을 만들지 않습니다.
@@ -220,16 +272,9 @@ hide:
 
 ### 4-1. 레이어와 컴포넌트 이름 정리
 
-1. **작업**: Layers를 펼쳐 `Frame 12`, `button copy`처럼 기본 이름이나 일관되지 않은 이름이 남아 있으면 규칙에 맞게 바꿉니다. 컴포넌트와 property 이름은 다음 표를 따릅니다.
-
-    | 대상 | 이름 |
-    |---|---|
-    | 컴포넌트 | `Button`, `Input`, `Card` |
-    | Input property | `State` |
-    | Input property 값 | `default`, `focus`, `error` |
-
+1. **작업**: Layers를 펼쳐 `Frame 12`, `button copy`처럼 기본 이름이나 일관되지 않은 이름이 남아 있으면 규칙에 맞게 바꿉니다. 컴포넌트와 property 이름은 [3-2](#3-2-컴포넌트-구조-점검)의 표를 기준으로 합니다.
 2. **기대 결과**: Layers에 기본 이름(`Frame N`, `Rectangle N`)이 남아 있지 않습니다.
-3. **확인 방법**: Layers 검색창에 `Frame`을 입력해 결과가 없으면 정상입니다.
+3. **확인 방법**: 왼쪽 패널 **Pages** 줄 오른쪽의 돋보기 아이콘을 눌러 `Frame`을 입력하고, 결과가 없으면 정상입니다.
 
 ### 4-2. 네이밍 체크리스트
 
@@ -240,11 +285,8 @@ hide:
 - [ ] 이름이 큰 분류에서 작은 분류 순서이다(카테고리 → 용도 → 상태).
 - [ ] 상태(`default`, `focus`, `error`)가 이름 끝 하위 계층으로 분리되어 있다.
 - [ ] 상태가 없는 의미 기반 변수에도 `default` 계층이 있다.
-- [ ] `bg`, `btn` 같은 약어 외에 줄임말을 쓰지 않았다.
+- [ ] 허용 약어(`bg`) 외에 줄임말을 쓰지 않았다.
 - [ ] 같은 의미의 변수가 이름만 달리 중복되어 있지 않다.
-
-!!! warning "확인 필요"
-    `bg`는 개념 문서의 예시(`color/bg/primary/default`)를 따라 그대로 썼습니다. 개념 문서의 "약어 사용 안 함" 규칙과 충돌하는지는 네이밍 규칙 확정 시 함께 확인합니다.
 
 ---
 
