@@ -39,21 +39,32 @@ hide:
 | 도구 | 역할 | 이름·버전 | 공식 문서 |
 |---|---|---|---|
 | 토큰 변환 도구 | Figma 토큰을 코드용 형식으로 변환 | Style Dictionary 5.8.0, `@tokens-studio/sd-transforms` 2.0.3 | [Style Dictionary](https://styledictionary.com/) |
-| AI 자동화 도구 | 토큰 추출·정리 같은 반복 작업을 자동화 | Claude Code + Figma MCP 서버 (버전 표기 없음) | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) |
+| AI 자동화 도구 | 토큰 추출·정리 같은 반복 작업을 자동화 | Codex + Figma MCP 서버 (버전 표기 없음) | [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/) |
 
 토큰 변환 도구의 설치와 사용법은 [디자인 토큰 추출·발행](design-tokens.md)에서 다룹니다.
 
 ### Figma MCP 서버 연결
 
-Figma MCP 서버는 Figma 파일의 변수와 스타일을 AI 도구가 읽을 수 있게 해 줍니다. 원격 서버(`https://mcp.figma.com/mcp`)를 권장하며, Claude Code에는 아래 명령으로 추가합니다. 추가한 뒤 새 세션에서 `/mcp`로 figma를 선택해 인증합니다.
+Figma MCP 서버는 Figma 파일의 변수와 스타일을 AI 도구가 읽을 수 있게 해 줍니다. 원격 서버(`https://mcp.figma.com/mcp`)를 권장하며, Codex CLI에는 아래 명령으로 추가합니다. 명령을 실행하면 나타나는 안내에 따라 Figma에 로그인하고 접근을 허용합니다. 로그인이 이어지지 않으면 `codex mcp login figma`로 다시 인증합니다.
 
 ```bash
-claude mcp add --transport http figma https://mcp.figma.com/mcp
+codex mcp add figma --url https://mcp.figma.com/mcp
+```
+
+Codex 앱에서는 Plugins 화면에서 Figma 옆의 **+** → **Install Figma**를 선택하고 **Allow access**로 접근을 허용합니다. 앱 방식은 Figma 스킬도 함께 설치하고, CLI 방식은 스킬을 설치하지 않습니다.
+
+설정 파일에 직접 등록할 때는 `~/.codex/config.toml`에 아래 항목을 추가합니다.
+
+```toml
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
 ```
 
 변수 읽기에는 `get_variable_defs` 도구를 씁니다. 선택 영역에서 쓰인 변수와 스타일을 반환합니다.
 
 !!! warning "확인 필요"
+    Codex 버전별 MCP 지원 범위와 최소 버전은 OpenAI 문서에서 확인하지 못했습니다. Codex에서 `get_variable_defs`가 실제로 동작하는지도 직접 실행해 확인해야 합니다.
+
     Figma 공식 문서에는 MCP 서버의 버전 번호와 변수 도구의 호출 횟수 제한이 나와 있지 않습니다. 데스크톱 서버는 Dev 또는 Full 시트가 필요하지만, 원격 서버의 요금제별 제약은 이 문서 작성 시점에 확인하지 못했습니다. Figma의 "Plans, access, and permissions" 문서에서 확인합니다.
 
 ---
@@ -66,4 +77,4 @@ claude mcp add --transport http figma https://mcp.figma.com/mcp
 - [ ] 터미널에서 Node.js와 `npm`의 버전이 출력된다.
 - [ ] 코드 에디터에서 프로젝트 폴더를 열 수 있다.
 - [ ] `npm ls style-dictionary @tokens-studio/sd-transforms`로 토큰 변환 도구의 버전이 출력된다.
-- [ ] Claude Code의 `/mcp` 화면에서 figma가 연결됨으로 표시된다.
+- [ ] `codex mcp list`에 figma가 표시되고, Codex의 `/mcp` 화면에서 figma가 활성 서버로 보인다.
