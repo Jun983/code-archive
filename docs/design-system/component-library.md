@@ -19,11 +19,10 @@ hide:
     [디자인 토큰 추출·발행](design-tokens.md)의 산출물인 CSS 변수 파일(`variables.css`)을 입력으로 전제합니다. 토큰 이름이 바뀌면 컴포넌트 스타일이 함께 깨지므로, 토큰 이름은 컴포넌트가 의존하는 계약으로 다룹니다.
 
 !!! warning "확인 필요"
-    도구의 버전과 요구 사항은 바뀔 수 있습니다. 이 문서의 수치는 2026-11-15 기준 `npm view`로 확인한 값이며, 아래 항목은 확인하지 못했습니다. 사용 전에 [참고](#참고)의 공식 문서에서 다시 확인합니다.
+    도구의 버전과 요구 사항은 바뀔 수 있습니다. 이 문서의 수치는 2026-11-15 기준 `npm view`로 확인한 값입니다. 사용 전에 [참고](#참고)의 공식 문서에서 다시 확인합니다.
 
-    - 각 도구의 공식 문서 URL(참고 절의 주소는 직접 열어 확인하지 않은 값)
-    - Storybook 10의 Node.js 요구 버전
-    - 아래 폴더 구조와 설정 예시의 실제 빌드 동작(이 문서 작성 환경에서 실행하지 않음)
+    - 확인한 것: [참고](#참고)의 URL 5개가 열리는 것(HTTP 200), Storybook 설치 문서의 Node.js 20 이상 요구, 아래 폴더 구조의 Button 하나를 Vite 라이브러리 모드로 빌드해 다른 프로젝트에서 import한 것
+    - 확인하지 못한 것: Storybook 실행과 카탈로그 빌드, Input 등 나머지 컴포넌트의 빌드
 
 ---
 
@@ -34,13 +33,13 @@ hide:
 | 역할 | 제안 | 확인한 버전 | 선정 이유 |
 |---|---|---|---|
 | UI 라이브러리 | React | 19.3.1 | 가장 널리 쓰이는 선택지 |
-| 언어 | TypeScript | 5.1.2 | props 타입이 곧 컴포넌트 사용 명세가 됨 |
+| 언어 | TypeScript | 7.0.2 | props 타입이 곧 컴포넌트 사용 명세가 됨 |
 | 빌드 도구 | Vite (라이브러리 모드) | 8.3.8 | 설정이 짧고 라이브러리 모드를 기본 제공 |
-| 타입 선언 생성 | vite-plugin-dts | 6.3.0 | 빌드 시 `.d.ts`를 함께 출력 |
+| 타입 선언 생성 | vite-plugin-dts | 5.1.2 | 빌드 시 `.d.ts`를 함께 출력 |
 | 문서화 도구 | Storybook (`@storybook/react-vite`) | 10.6.7 | 컴포넌트 카탈로그의 사실상 표준이며 Vite와 같은 설정을 공유 |
 
 !!! note "버전 요구 사항"
-    Vite 8.3.8은 Node.js `^20.19.0 || >=22.12.0`을 요구합니다. TypeScript는 `npm view`로 조회된 5.1.2를 적었으나 최신 버전과 차이가 있을 수 있어 도입 시 다시 확인합니다.
+    Vite 8.3.8은 Node.js `^20.19.0 || >=22.12.0`을 요구합니다. Storybook 설치 문서는 Node.js 20 이상을 요구한다고 안내합니다. TypeScript의 최신 버전은 7.0.2이지만 이 문서의 빌드 검증은 6.0.3(vite-plugin-dts가 함께 설치한 버전)에서 했고 7.x에서는 실행하지 않았습니다.
 
 이 선정은 제안이며 팀의 기존 스택이 있으면 그 스택을 우선합니다. 선정 기준은 두 가지입니다.
 
@@ -191,8 +190,26 @@ flowchart LR
 
 `package.json`의 `exports`, `types`, `files` 필드로 진입점과 배포 대상 파일을 지정합니다.
 
+```json title="package.json (발췌)"
+{
+  "files": ["dist"],
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/my-ui.js" },
+    "./style.css": "./dist/my-ui.css"
+  },
+  "sideEffects": ["*.css"]
+}
+```
+
+최소 프로젝트(Button 하나)를 이 구성으로 빌드해 다른 프로젝트에 설치한 결과는 다음과 같습니다.
+
+- `import { Button } from 'my-ui'`가 동작하고, `my-ui/style.css`가 컴포넌트 CSS 파일로 해석됩니다.
+- 빌드 결과 JS에는 `react/jsx-runtime`만 import로 남고 React 본체는 포함되지 않습니다.
+- 토큰 `variables.css`는 빌드 결과(`dist`)에 자동으로 들어가지 않습니다. 별도 파일로 제공하려면 빌드 후 `dist`로 복사하고 `exports`에 경로를 추가해야 합니다.
+- 컴포넌트에서 `import './Button.css'`를 쓰면 TypeScript 6에서 TS2882 오류가 났습니다. `tsconfig.json`의 `types`에 `vite/client`를 추가하면 사라집니다.
+
 !!! warning "확인 필요"
-    `exports` 필드의 세부 작성법(조건부 export, CSS 파일 노출 경로)은 이 문서에서 검증하지 않았습니다. 빌드 결과물을 다른 프로젝트에 설치해 import가 되는지 직접 확인한 뒤 보완합니다.
+    CommonJS 출력과 조건부 export의 추가 조건(`require`, `default`)은 검증하지 않았습니다. 사용 환경이 정해지면 그에 맞춰 확인합니다.
 
 ### 버전과 배포 방식 개요
 
@@ -255,4 +272,4 @@ flowchart LR
 - [vite-plugin-dts](https://github.com/qmhc/vite-plugin-dts)
 - [Storybook for React & Vite](https://storybook.js.org/docs/get-started/frameworks/react-vite)
 - [Semantic Versioning](https://semver.org/lang/ko/)
-- `npm view`로 확인한 `react` 19.3.1, `vite` 8.3.8, `storybook`·`@storybook/react-vite` 10.6.7, `vite-plugin-dts` 6.3.0, `typescript` 5.1.2
+- `npm view`로 확인한 `react` 19.3.1, `vite` 8.3.8, `storybook`·`@storybook/react-vite` 10.6.7, `vite-plugin-dts` 5.1.2, `typescript` 7.0.2
