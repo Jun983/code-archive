@@ -41,3 +41,4 @@ flowchart LR
 | 3 | [디자인 토큰 추출·발행](design-tokens.md) | Figma의 스타일과 변수를 코드용 토큰 파일로 내보내는 방법 |
 | 4 | [React 컴포넌트 라이브러리 구축](component-library.md) | 토큰을 사용하는 React 컴포넌트 라이브러리를 만드는 방법 |
 | 5 | [개발 전달 산출물 정리](handoff.md) | 개발자가 바로 쓸 수 있는 문서와 사용 가이드를 정리하는 방법 |
+| 6 | [실습편](practice/index.md) | 개념 문서를 샘플 Figma 파일로 직접 따라 해 보는 실습 자료 |
