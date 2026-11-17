@@ -71,7 +71,68 @@ Main.java:3: error: ';' expected
 ```
 
 - 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
-- 반면 컴파일은 통과했지만 실행 중에 발생하는 오류는 런타임 예외라 하며, [예외 처리](exception.md)에서 자세히 다룹니다.
+
+### 실행 중 오류
+
+컴파일은 통과했지만 실행 중에 발생하는 오류는 런타임 예외라 합니다. 문법은 맞아도 실행 시점의 값이 잘못되면 JVM이 예외를 던지고 프로그램이 멈춥니다.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = new int[3];
+        System.out.println(numbers[5]);
+    }
+}
+```
+
+```text
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3
+	at Main.main(Main.java:4)
+```
+
+| 구분 | 발생 시점 | 결과 |
+|---|---|---|
+| 컴파일 오류 | `javac` 실행 시 | `.class` 파일이 만들어지지 않음 |
+| 런타임 예외 | `java` 실행 중 | 예외가 발생한 지점에서 프로그램이 멈춤 |
+
+- 존재하지 않는 클래스를 실행하면 `Error: Could not find or load main class ...`가 출력됩니다. 클래스 이름이나 실행 위치를 확인합니다.
+- 런타임 예외의 종류와 처리 방법은 [예외 처리](exception.md)에서 자세히 다룹니다.
+
+### javap로 바이트코드 확인
+
+`javap`는 JDK에 포함된 도구로, `.class` 파일에 담긴 바이트코드를 사람이 읽을 수 있는 형태로 보여줍니다. `-c` 옵션을 붙이면 메서드의 명령어까지 출력합니다.
+
+```bash
+javac Main.java
+javap -c Main
+```
+
+```text
+Compiled from "Main.java"
+public class Main {
+  public Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #13                 // String Hello
+       5: invokevirtual #15                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
+```
+
+| 용어 | 설명 |
+|---|---|
+| `javap` | `.class` 파일을 역어셈블해 보여주는 JDK 도구 |
+| 명령어(`getstatic`, `invokevirtual` 등) | JVM이 한 줄씩 해석하는 바이트코드 명령 |
+
+- `public Main();`은 직접 작성하지 않았는데도 컴파일러가 자동으로 추가한 기본 생성자입니다.
+- 상수 풀 번호(`#7`, `#13`)와 출력 형식은 JDK 버전에 따라 다를 수 있습니다.
+- JVM이 이 명령어를 실행하는 내부 구조는 [JVM](jvm.md)에서 자세히 다룹니다.
 
 !!! summary "요약"
     javac는 소스 코드를 운영체제에 종속되지 않는 중간 형태인 바이트코드로 변환하는 첫 단계입니다.

@@ -14,15 +14,15 @@ Java는 JVM 위에서 실행되는 정적 타입 객체지향 언어로, "한 �
 
 | # | 주제 | 설명 |
 |---|------|------|
-| 1 | [Java 개요](overview.md) | 소스 코드, 바이트코드, JVM, JDK/JRE 등 Java의 기본 구성 단위 |
-| 2 | [개발환경 설정](setup.md) | VSCode, OpenJDK 17 설치 및 프로젝트 생성 |
-| 3 | [프로그램 구조](program-structure.md) | 클래스와 파일, main 메서드, 주석 |
+| 1 | [Java 개요](overview.md) | 소스 코드, 바이트코드, JVM, JDK/JRE, 컴파일·런타임 오류, `javap` |
+| 2 | [개발환경 설정](setup.md) | VSCode, OpenJDK 17 설치, `JAVA_HOME`·`PATH` 설정, 터미널 컴파일·실행, 프로젝트 생성 |
+| 3 | [프로그램 구조](program-structure.md) | 클래스와 파일, main 메서드, 주석, 실행 순서, 문장과 블록 |
 | 4 | [출력](output.md) | println과 print, printf, 이스케이프 문자, 텍스트 블록 |
 | 5 | [타입](type.md) | 기본 타입, 참조 타입, 오버플로, var, 타입 확인 |
-| 6 | [변수와 상수](variable.md) | 변수의 속성, 선언과 초기화, 명명 규칙 |
+| 6 | [변수와 상수](variable.md) | 변수의 속성, 선언과 초기화, 대입, 범위, 상수, 명명 규칙 |
 | 7 | [타입 캐스팅](casting.md) | 묵시적 변환(Widening), 명시적 변환(Narrowing), 문자열·래퍼 클래스 변환 |
 | 8 | [String 클래스](string.md) | 선언, 주요 메서드, 불변성, 문자열 비교, StringBuilder |
-| 9 | [입력](input.md) | Scanner, 주요 메서드 |
+| 9 | [입력](input.md) | Scanner, 주요 메서드, 버퍼 문제, 반복·여러 값 입력, BufferedReader |
 | 10 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 증감, 삼항, String 연산 |
 | 11 | [조건문](conditional.md) | if / else if / else, switch |
 | 12 | [반복문](loop.md) | for, while, break와 continue |
