@@ -10,7 +10,7 @@ hide:
 !!! tip "초보자를 위한 안내"
     처음에는 2차원 배열을 선언하고 `[행][열]`로 값을 읽는 방법, 중첩 `for`문으로 순회하는 방법만 익히면 충분합니다. 가변 길이 배열은 이런 것이 있다는 정도만 훑어보고, 필요할 때 다시 찾아보면 됩니다. 먼저 [배열](array.md)을 학습하면 훨씬 쉽게 이해됩니다.
 
-다차원 배열은 배열의 원소가 다시 배열인 구조이며, 이 문서에서는 가장 많이 쓰이는 2차원 배열을 기준으로 선언과 초기화, 순회, 인덱스 범위 오류를 다룹니다.
+다차원 배열은 배열의 원소가 다시 배열인 구조이며, 이 문서에서는 가장 많이 쓰이는 2차원 배열을 기준으로 선언과 초기화, 순회, 인덱스 범위 오류, 출력과 비교, 얕은 복사와 깊은 복사, 활용 예시를 다룹니다.
 
 ---
 
@@ -131,6 +131,36 @@ Exception in thread "main" java.lang.NullPointerException: Cannot read the array
 - `rows[0] = new int[3];`처럼 행을 먼저 만든 뒤 사용합니다.
 - 오류 메시지의 세부 표시는 Java 버전과 컴파일 옵션에 따라 다를 수 있습니다.
 
+### 선언 오류
+
+`new`로 만들 때는 행의 크기를 생략할 수 없습니다. 행은 비워 둘 수 있지만 열만 지정할 수는 없습니다.
+
+```java
+int[][] grid = new int[][3];
+```
+
+```text
+Main.java:3: error: ']' expected
+        int[][] grid = new int[][3];
+                                 ^
+```
+
+행에는 배열을 대입해야 하며, 값을 대입하면 컴파일 오류가 발생합니다.
+
+```java
+int[][] grid = new int[2][2];
+grid[1] = 5;
+```
+
+```text
+Main.java:5: error: incompatible types: int cannot be converted to int[]
+        grid[1] = 5;
+                  ^
+```
+
+- `grid[0]`은 `int[]` 한 행을 가리키므로 `grid[0] = new int[3];`처럼 배열을 대입합니다. 이 경우 행마다 길이가 달라집니다.
+- 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
+
 ---
 
 ## 3. 순회
@@ -213,3 +243,191 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out
 - `m[0][2]`처럼 열 인덱스를 벗어나도 같은 오류가 발생하며, 메시지만으로는 행과 열 중 어느 쪽인지 구분되지 않습니다.
 - 행 범위는 `m.length`, 열 범위는 `m[행].length`와 비교해 확인합니다.
 - 오류 메시지의 세부 표시는 Java 버전에 따라 다를 수 있습니다.
+
+---
+
+## 4. 출력과 비교
+
+2차원 배열을 `println`에 그대로 넘기면 내용이 아닌 참조 값이 출력됩니다. `Arrays.toString()`은 한 겹만 문자열로 바꾸므로, 2차원 이상은 `Arrays.deepToString()`을 사용합니다.
+
+```java
+import java.util.Arrays;
+
+public class DeepToStringExample {
+    public static void main(String[] args) {
+        int[][] a = {{1, 2}, {3, 4}};
+        System.out.println(Arrays.deepToString(a));
+        System.out.println(Arrays.toString(a[0]));
+
+        int[][] b = {{1, 2}, {3, 4}};
+        System.out.println(a == b);
+        System.out.println(Arrays.equals(a, b));
+        System.out.println(Arrays.deepEquals(a, b));
+    }
+}
+```
+
+```text
+[[1, 2], [3, 4]]
+[1, 2]
+false
+false
+true
+```
+
+| 용어 | 설명 |
+|---|---|
+| `Arrays.deepToString()` | 다차원 배열의 모든 단계를 문자열로 바꿈 |
+| `Arrays.deepEquals()` | 다차원 배열의 모든 단계의 내용을 비교 |
+
+- `a == b`는 같은 배열인지 비교하므로 내용이 같아도 `false`입니다.
+- `Arrays.equals(a, b)`는 각 행(`int[]`)을 참조로 비교하므로 내용이 같아도 `false`가 됩니다. 2차원 배열의 내용 비교에는 `deepEquals()`를 사용합니다.
+- 1차원 배열의 `Arrays`는 [배열](array.md)에서 다룹니다.
+
+---
+
+## 5. 복사
+
+다차원 배열은 행이 각각 별도의 배열이므로, 복사 방법에 따라 행을 공유하는지가 달라집니다.
+
+| 방식 | 예시 | 결과 |
+|---|---|---|
+| 참조 복사 | `int[][] b = a;` | 전체가 같은 배열 |
+| 얕은 복사 | `int[][] b = a.clone();` | 바깥 배열만 새로 만들고, 행은 `a`와 공유 |
+| 깊은 복사 | 행마다 `clone()` | 모든 행이 새 배열 |
+
+```java
+import java.util.Arrays;
+
+public class CopyExample {
+    public static void main(String[] args) {
+        int[][] original = {{1, 2}, {3, 4}};
+
+        int[][] same = original;
+        same[0][0] = 99;
+        System.out.println(Arrays.deepToString(original));
+
+        int[][] shallow = original.clone();
+        shallow[1][0] = 77;
+        System.out.println(Arrays.deepToString(original));
+        System.out.println(original == shallow);
+        System.out.println(original[1] == shallow[1]);
+
+        int[][] deep = new int[original.length][];
+        for (int i = 0; i < original.length; i++) {
+            deep[i] = original[i].clone();
+        }
+        deep[0][1] = -1;
+        System.out.println(Arrays.deepToString(original));
+        System.out.println(Arrays.deepToString(deep));
+    }
+}
+```
+
+```text
+[[99, 2], [3, 4]]
+[[99, 2], [77, 4]]
+false
+true
+[[99, 2], [77, 4]]
+[[99, -1], [77, 4]]
+```
+
+| 용어 | 설명 |
+|---|---|
+| 얕은 복사 | 바깥 배열만 복사하고 안쪽 배열(행)은 같은 것을 가리키는 복사 |
+| 깊은 복사 | 안쪽 배열까지 모두 새로 만드는 복사 |
+
+- `same`은 `original`과 같은 배열이므로 `same[0][0]`을 바꾸면 `original`도 바뀝니다.
+- `shallow`는 새 바깥 배열이지만 `original[1] == shallow[1]`이 `true`인 것처럼 행은 공유합니다. 그래서 `shallow[1][0] = 77`이 `original`에도 반영됩니다.
+- `deep`은 행마다 `clone()`으로 새 배열을 만들었으므로 `deep[0][1]`을 바꿔도 `original`은 그대로입니다.
+
+---
+
+## 6. 활용
+
+### 행·열 합계와 전치
+
+행 순서로 순회하면 행 합계를, 바깥 반복을 열로 바꾸면 열 합계를 구할 수 있습니다. 행과 열을 맞바꾼 새 배열을 만드는 것을 전치라고 합니다.
+
+```java
+import java.util.Arrays;
+
+public class MatrixExample {
+    public static void main(String[] args) {
+        int[][] m = {{1, 2, 3}, {4, 5, 6}};
+
+        for (int r = 0; r < m.length; r++) {
+            int rowSum = 0;
+            for (int c = 0; c < m[r].length; c++) {
+                rowSum += m[r][c];
+            }
+            System.out.println("행 " + r + ": " + rowSum);
+        }
+
+        for (int c = 0; c < m[0].length; c++) {
+            int colSum = 0;
+            for (int r = 0; r < m.length; r++) {
+                colSum += m[r][c];
+            }
+            System.out.println("열 " + c + ": " + colSum);
+        }
+
+        int[][] t = new int[m[0].length][m.length];
+        for (int r = 0; r < m.length; r++) {
+            for (int c = 0; c < m[r].length; c++) {
+                t[c][r] = m[r][c];
+            }
+        }
+        System.out.println(Arrays.deepToString(t));
+    }
+}
+```
+
+```text
+행 0: 6
+행 1: 15
+열 0: 5
+열 1: 7
+열 2: 9
+[[1, 4], [2, 5], [3, 6]]
+```
+
+| 용어 | 설명 |
+|---|---|
+| 전치 | 행과 열을 맞바꾼 배열 (`t[c][r] = m[r][c]`) |
+
+- 2행 3열 배열의 전치는 3행 2열이므로 `new int[m[0].length][m.length]`로 만듭니다.
+- 열 합계는 바깥 반복이 열, 안쪽 반복이 행입니다. 모든 행의 길이가 같을 때만 `m[0].length`를 열 개수로 쓸 수 있습니다.
+
+### 행 교환
+
+행은 각각 배열을 가리키는 참조이므로, 행 전체를 서로 바꿔도 값이 하나씩 복사되지 않습니다.
+
+```java
+int[][] m = {{4, 5, 6}, {1, 2, 3}};
+int[] temp = m[0];
+m[0] = m[1];
+m[1] = temp;
+System.out.println(java.util.Arrays.deepToString(m));
+```
+
+```text
+[[1, 2, 3], [4, 5, 6]]
+```
+
+### 3차원 배열
+
+`[]`를 하나 더 붙이면 3차원 배열이 됩니다. 행 안의 원소가 다시 배열인 구조입니다.
+
+```java
+int[][][] cube = new int[2][3][4];
+System.out.println(cube.length + " " + cube[0].length + " " + cube[0][0].length);
+```
+
+```text
+2 3 4
+```
+
+- 크기는 바깥쪽부터 차례로 `cube.length`(2), `cube[0].length`(3), `cube[0][0].length`(4)입니다.
+- 3차원 이상은 이해하기 어려우므로 실제로는 2차원까지만 쓰는 경우가 많습니다.
