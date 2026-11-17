@@ -23,13 +23,13 @@ Java는 JVM 위에서 실행되는 정적 타입 객체지향 언어로, "한 �
 | 7 | [타입 캐스팅](casting.md) | 묵시적 변환(Widening), 명시적 변환(Narrowing), 문자열·래퍼 클래스 변환 |
 | 8 | [String 클래스](string.md) | 선언, 주요 메서드, 불변성, 문자열 비교, StringBuilder |
 | 9 | [입력](input.md) | Scanner, 주요 메서드, 버퍼 문제, 반복·여러 값 입력, BufferedReader |
-| 10 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 증감, 삼항, String 연산 |
-| 11 | [조건문](conditional.md) | if / else if / else, switch |
-| 12 | [반복문](loop.md) | for, while, break와 continue |
-| 13 | [Random 클래스](random.md) | 생성, 주요 메서드 |
-| 14 | [배열](array.md) | 선언과 초기화, 원소 접근과 수정, 배열 순회 |
-| 15 | [다차원 배열](multi-array.md) | 2차원 배열 선언과 초기화, 순회 |
-| 16 | [메서드](method.md) | 선언과 호출, 매개변수, 반환값 |
+| 10 | [연산자](operator.md) | 산술, 대입, 비교, 논리, 증감, 비트, 삼항, String 연산, 우선순위 |
+| 11 | [조건문](conditional.md) | if / else if / else, switch, switch 표현식과 yield, 삼항 연산자 |
+| 12 | [반복문](loop.md) | for, while, do-while, break와 continue, 레이블, for-each |
+| 13 | [Random 클래스](random.md) | 생성, 주요 메서드, 범위 만들기, 시드 |
+| 14 | [배열](array.md) | 선언과 초기화, 원소 접근과 수정, 순회, 복사와 비교, Arrays 유틸리티 |
+| 15 | [다차원 배열](multi-array.md) | 2차원 배열 선언과 초기화, 순회, 얕은 복사와 깊은 복사 |
+| 16 | [메서드](method.md) | 선언과 호출, 매개변수, 반환값, 오버로딩, 가변 인수, 변수의 범위, 재귀 |
 | 17 | [클래스와 객체](class-object.md) | 클래스 구조, 생성자, 접근 제어자 |
 | 18 | [상속과 다형성](inheritance.md) | extends, 오버라이딩, 업캐스팅 |
 | 19 | [인터페이스와 추상 클래스](interface.md) | interface vs abstract class |
