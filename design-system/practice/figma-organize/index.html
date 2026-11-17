@@ -1,0 +1,4163 @@
+<!DOCTYPE html><html lang="ko" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="프로그래밍 언어 및 백엔드 개발 원리를 기록하는 개인 기술 저장소">
+      
+      
+      
+        <link rel="canonical" href="https://jun983.github.io/code-archive/design-system/practice/figma-organize/">
+      
+      
+        <link rel="prev" href="../environment/">
+      
+      
+        <link rel="next" href="../sample-file/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Figma 디자인 시스템 정리 실습 - Code Archive</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#figma-디자인-시스템-정리-실습" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="Code Archive" class="md-header__button md-logo" aria-label="Code Archive" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Archive
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Figma 디자인 시스템 정리 실습
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="다크 모드" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="라이트 모드" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Jun983/code-archive" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Jun983/code-archive
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../c/" class="md-tabs__link">
+          
+  
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../java/" class="md-tabs__link">
+          
+  
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/" class="md-tabs__link">
+          
+  
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../kubernetes/" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Design system
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../exercises/" class="md-tabs__link">
+          
+  
+  
+  Exercises
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Code Archive" class="md-nav__button md-logo" aria-label="Code Archive" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Code Archive
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Jun983/code-archive" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    Jun983/code-archive
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1">
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    배열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입 캐스팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/class-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class object
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/conditional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/exception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/inheritance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/jvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jvm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/lambda-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lambda stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    반복문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메서드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/multi-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다차원 배열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연산자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    출력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/program-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로그램 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random 클래스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String 클래스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    변수와 상수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    형변환
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/conditional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/data-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자료구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/decorator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decorator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/exception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    함수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/inheritance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/iterator-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iterator generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    반복문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/module-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연산자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    출력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/program-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로그램 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    문자열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    변수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/configmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ConfigMap과 설정 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment와 배포 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스의 역사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/hpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPA와 자동 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/namespace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace와 자원 제한
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파드와 그 구성 요소
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/replicaset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReplicaSet과 Pod 복제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service와 노출 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minikube로 실습 환경 준비하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/statefulset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StatefulSet과 상태 저장 워크로드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/vm-vs-container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VM과 Container의 차이
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/volume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volume과 데이터 저장 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/why/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스를 사용하는 이유
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/workload-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DaemonSet, Job, CronJob과 워크로드 실행 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design system
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design system
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인 시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 준비
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../figma-organize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figma 디자인 시스템 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인 토큰 추출·발행
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../component-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React 컴포넌트 라이브러리 구축
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발 전달 산출물 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practice
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습편
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    샘플 Figma 파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 체크리스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연습 문제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/bank-balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    은행 잔액 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/cafe-order-total/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    카페 주문 금액 합산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/login-attempt-limiter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    로그인 시도 제한기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/multiplication-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구구단 출력기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/palindrome-checker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    회문 판별기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/parking-lot-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    주차장 남은 자리 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/part-time-pay-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    아르바이트 급여 계산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/receipt-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    영수증 계산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/string-masking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    문자열 마스킹 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/temperature-converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온도 변환기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#정리-대상" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리 대상
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-변수-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 변수 만들기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 변수 만들기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-컬렉션-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-1. 컬렉션 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-원시-값-변수-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-2. 원시 값 변수 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-3-의미-기반-변수-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-3. 의미 기반 변수 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-4-간격과-모서리-반경-변수-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-4. 간격과 모서리 반경 변수 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-하드코딩된-값-치환" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 하드코딩된 값 치환
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 하드코딩된 값 치환">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-1-button-치환" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-1. Button 치환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2-input-치환" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-2. Input 치환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-card-치환" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-3. Card 치환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-4-남은-하드코딩-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-4. 남은 하드코딩 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-스타일과-컴포넌트-정리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 스타일과 컴포넌트 정리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 스타일과 컴포넌트 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-텍스트-스타일-만들기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-1. 텍스트 스타일 만들기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-컴포넌트-구조-점검" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-2. 컴포넌트 구조 점검
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3-변수와-스타일-역할-점검" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-3. 변수와 스타일 역할 점검
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-네이밍-점검" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 네이밍 점검
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 네이밍 점검">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-1-레이어와-컴포넌트-이름-정리" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-1. 레이어와 컴포넌트 이름 정리
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2-네이밍-체크리스트" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-2. 네이밍 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#정리-완료-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        정리 완료 확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="figma-디자인-시스템-정리-실습">Figma 디자인 시스템 정리 실습<a class="headerlink" href="#figma-디자인-시스템-정리-실습" title="Permanent link">¶</a></h1>
+<p><a href="../">← 실습편으로 돌아가기</a></p>
+<p><a href="../sample-file/">샘플 Figma 파일</a>에서 하드코딩된 값을 변수로 치환하고, 스타일과 컴포넌트를 정리하고, 이름을 점검합니다. 개념 설명은 <a href="../../figma-organize/">Figma 디자인 시스템 정리</a>에 있으므로 이 문서에서는 반복하지 않고 작업 순서와 확인 방법만 둡니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력</td>
+<td><a href="../sample-file/">샘플 Figma 파일</a> 20단계까지 마친 정리 전 파일</td>
+</tr>
+<tr>
+<td>산출물</td>
+<td>변수·스타일·컴포넌트·이름이 정돈된 Figma 파일</td>
+</tr>
+<tr>
+<td>다음 단계</td>
+<td>이 산출물이 디자인 토큰 추출 실습의 입력이 됩니다.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">확인 필요</p>
+<ul>
+<li>아래 컬렉션 구성과 변수 개수는 이 실습용으로 정한 값입니다. 공통 준비 이슈에서 확정되는 샘플 파일 기준과 다르면 맞춰 고칩니다.</li>
+<li>Figma UI 개편에 따라 메뉴 이름과 위치가 달라질 수 있습니다. 화면이 다르면 같은 기능의 메뉴를 찾아 진행합니다.</li>
+<li>단계별 기대 결과 스크린샷은 아직 준비하지 않았습니다. 준비되면 각 단계의 기대 결과에 추가합니다.</li>
+</ul>
+</div>
+<hr>
+<h2 id="정리-대상">정리 대상<a class="headerlink" href="#정리-대상" title="Permanent link">¶</a></h2>
+<p>샘플 파일에서 하드코딩된 값을 모두 모으면 아래와 같습니다. 같은 의미인데 값이 조금씩 다른 항목은 하나로 합칩니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>현재 값</th>
+<th>정리 방향</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>채우기 색</td>
+<td><code>3B82F6</code>, <code>FFFFFF</code></td>
+<td>원시 값 → 의미 기반 값</td>
+</tr>
+<tr>
+<td>선 색</td>
+<td><code>D1D5DB</code>, <code>3B82F6</code>, <code>EF4444</code>, <code>E5E7EB</code></td>
+<td>원시 값 → 의미 기반 값</td>
+</tr>
+<tr>
+<td>글자 색</td>
+<td><code>FFFFFF</code>, <code>9CA3AF</code></td>
+<td>원시 값 → 의미 기반 값</td>
+</tr>
+<tr>
+<td>모서리 반경</td>
+<td><code>6</code>, <code>7</code>, <code>12</code></td>
+<td><code>6</code>과 <code>7</code>을 <code>6</code>으로 통일</td>
+</tr>
+<tr>
+<td>패딩·간격</td>
+<td><code>10</code>, <code>12</code>, <code>13</code>, <code>16</code>, Gap <code>8</code></td>
+<td><code>12</code>와 <code>13</code>을 <code>12</code>로 통일</td>
+</tr>
+<tr>
+<td>텍스트</td>
+<td>Medium 14, Regular 14, Medium 16</td>
+<td>텍스트 스타일 3개</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-변수-만들기">1. 변수 만들기<a class="headerlink" href="#1-변수-만들기" title="Permanent link">¶</a></h2>
+<h3 id="1-1-컬렉션-만들기">1-1. 컬렉션 만들기<a class="headerlink" href="#1-1-컬렉션-만들기" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>작업</strong>:<ol>
+<li>왼쪽 사이드바 맨 아래의 <strong>Variables</strong>(육각형 아이콘)를 눌러 변수 화면을 엽니다.</li>
+<li>왼쪽 <strong>Collections</strong> 제목 오른쪽의 <code>+</code> 버튼을 눌러 컬렉션을 만들고 이름을 <code>primitive</code>로 지정합니다.</li>
+<li>같은 <code>+</code> 버튼으로 컬렉션을 추가해 <code>semantic</code>, <code>spacing</code>, <code>radius</code>로 이름을 지정합니다.</li>
+</ol>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 컬렉션 <code>primitive</code>, <code>semantic</code>, <code>spacing</code>, <code>radius</code>가 보입니다. 목록은 이름순으로 정렬되어 <code>primitive</code>, <code>radius</code>, <code>semantic</code>, <code>spacing</code> 순서로 보이며, 변수가 없어 개수는 모두 <code>0</code>입니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-collections-created.png" data-desc-position="bottom"><img alt="primitive, radius, semantic, spacing 컬렉션이 보이는 Variables 화면" src="../../../assets/images/design-system/practice/figma-collections-created.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 왼쪽 컬렉션 목록에 네 개가 모두 있으면 정상입니다.</p>
+</li>
+</ol>
+<h3 id="1-2-원시-값-변수-만들기">1-2. 원시 값 변수 만들기<a class="headerlink" href="#1-2-원시-값-변수-만들기" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li>왼쪽 컬렉션 목록에서 <code>primitive</code>를 선택합니다.</li>
+<li>화면 아래의 <code>+ Create variable</code>을 눌러 <strong>Color</strong> 변수를 만듭니다.</li>
+<li>이름 칸에 <code>color/white</code>처럼 슬래시(<code>/</code>)까지 입력합니다. 슬래시 앞부분이 그룹으로 묶입니다.</li>
+<li>값 칸의 색상 스와치를 눌러 Hex 값(<code>FFFFFF</code>)을 입력합니다.</li>
+<li>아래 표의 변수를 같은 방법으로 모두 만듭니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>변수 이름</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color/white</code></td>
+<td><code>FFFFFF</code></td>
+</tr>
+<tr>
+<td><code>color/blue/500</code></td>
+<td><code>3B82F6</code></td>
+</tr>
+<tr>
+<td><code>color/gray/200</code></td>
+<td><code>E5E7EB</code></td>
+</tr>
+<tr>
+<td><code>color/gray/300</code></td>
+<td><code>D1D5DB</code></td>
+</tr>
+<tr>
+<td><code>color/gray/400</code></td>
+<td><code>9CA3AF</code></td>
+</tr>
+<tr>
+<td><code>color/red/500</code></td>
+<td><code>EF4444</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>primitive</code> 컬렉션 개수가 <code>6</code>이 되고, 변수가 <code>color</code> 그룹 아래 <code>white</code>와 <code>blue</code>, <code>gray</code>, <code>red</code> 하위 그룹으로 묶여 보입니다. <code>white</code>는 <code>color</code> 바로 아래에 있고, 나머지는 <code>color / blue</code>, <code>color / gray</code>, <code>color / red</code> 그룹에 있습니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-primitive-variables.png" data-desc-position="bottom"><img alt="color 그룹 아래 변수 6개가 만들어진 primitive 컬렉션" src="../../../assets/images/design-system/practice/figma-primitive-variables.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 각 변수의 값이 표와 같고, 모두 Color 타입이면 정상입니다.</p>
+</li>
+</ol>
+<h3 id="1-3-의미-기반-변수-만들기">1-3. 의미 기반 변수 만들기<a class="headerlink" href="#1-3-의미-기반-변수-만들기" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li>왼쪽 컬렉션 목록에서 <code>semantic</code>을 선택합니다.</li>
+<li>화면 아래의 <code>+ Create variable</code>을 눌러 <strong>Color</strong> 변수를 만들고, 이름을 <code>color/bg/primary/default</code>처럼 입력합니다.</li>
+<li>값 칸을 눌러 색상 선택 창을 열고, <strong>Variables</strong> 탭에서 <code>primitive</code> 컬렉션의 변수를 고릅니다. HEX를 직접 입력하지 않습니다.</li>
+<li>아래 표의 변수를 같은 방법으로 모두 만듭니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>변수 이름</th>
+<th>참조하는 원시 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>color/bg/primary/default</code></td>
+<td><code>color/blue/500</code></td>
+</tr>
+<tr>
+<td><code>color/bg/surface/default</code></td>
+<td><code>color/white</code></td>
+</tr>
+<tr>
+<td><code>color/text/on-primary/default</code></td>
+<td><code>color/white</code></td>
+</tr>
+<tr>
+<td><code>color/text/placeholder/default</code></td>
+<td><code>color/gray/400</code></td>
+</tr>
+<tr>
+<td><code>color/border/input/default</code></td>
+<td><code>color/gray/300</code></td>
+</tr>
+<tr>
+<td><code>color/border/input/focus</code></td>
+<td><code>color/blue/500</code></td>
+</tr>
+<tr>
+<td><code>color/border/input/error</code></td>
+<td><code>color/red/500</code></td>
+</tr>
+<tr>
+<td><code>color/border/card/default</code></td>
+<td><code>color/gray/200</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>semantic</code> 컬렉션 개수가 <code>8</code>이 됩니다. 마지막 이름(<code>default</code>, <code>focus</code>, <code>error</code>)이 변수 이름이고, 앞부분은 <code>color / bg / primary</code>처럼 그룹 제목으로 보입니다. 값 칸에는 HEX가 아니라 <code>color/blue/500</code> 같은 원시 값 변수 이름이 표시됩니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-semantic-variables.png" data-desc-position="bottom"><img alt="원시 값 변수를 참조하는 semantic 컬렉션의 변수 8개" src="../../../assets/images/design-system/practice/figma-semantic-variables.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 값 칸의 이름이 표와 같으면 정상입니다. HEX가 직접 입력된 변수가 있으면 참조로 바꿉니다.</p>
+</li>
+</ol>
+<h3 id="1-4-간격과-모서리-반경-변수-만들기">1-4. 간격과 모서리 반경 변수 만들기<a class="headerlink" href="#1-4-간격과-모서리-반경-변수-만들기" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li>왼쪽 컬렉션 목록에서 <code>spacing</code>을 선택합니다.</li>
+<li>화면 아래의 <code>+ Create variable</code>을 눌러 <strong>Number</strong> 변수를 만들고, 이름과 값을 아래 표대로 입력합니다.</li>
+<li><code>radius</code> 컬렉션도 같은 방법으로 만듭니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>컬렉션</th>
+<th>변수 이름</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spacing</code></td>
+<td><code>spacing/8</code></td>
+<td><code>8</code></td>
+</tr>
+<tr>
+<td><code>spacing</code></td>
+<td><code>spacing/10</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>spacing</code></td>
+<td><code>spacing/12</code></td>
+<td><code>12</code></td>
+</tr>
+<tr>
+<td><code>spacing</code></td>
+<td><code>spacing/16</code></td>
+<td><code>16</code></td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td><code>radius/md</code></td>
+<td><code>6</code></td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td><code>radius/lg</code></td>
+<td><code>12</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>spacing</code> 컬렉션 개수가 <code>4</code>, <code>radius</code> 컬렉션 개수가 <code>2</code>가 됩니다. 슬래시 앞부분(<code>spacing</code>, <code>radius</code>)은 그룹 제목으로 보이고, 변수 이름에는 <code>8</code>, <code>md</code>처럼 마지막 이름만 표시됩니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-spacing-variables.png" data-desc-position="bottom"><img alt="spacing 컬렉션의 Number 변수 4개" src="../../../assets/images/design-system/practice/figma-spacing-variables.png" width="100%"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-radius-variables.png" data-desc-position="bottom"><img alt="radius 컬렉션의 Number 변수 2개" src="../../../assets/images/design-system/practice/figma-radius-variables.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 값이 표와 같고 <code>7</code>, <code>13</code>에 해당하는 변수가 없으면 정상입니다. 어중간한 값은 <code>6</code>, <code>12</code>로 합쳤기 때문입니다.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">모드</p>
+<p>이 실습의 변수는 모든 컬렉션이 모드를 하나만 씁니다. 모드가 하나면 값 열 이름이 <code>Value</code>로 표시됩니다. 라이트/다크 같은 모드 추가는 이 실습의 범위가 아닙니다.</p>
+</div>
+<hr>
+<h2 id="2-하드코딩된-값-치환">2. 하드코딩된 값 치환<a class="headerlink" href="#2-하드코딩된-값-치환" title="Permanent link">¶</a></h2>
+<p><a href="../../figma-organize/#하드코딩된-값을-변수로-치환하는-순서">개념 문서의 치환 순서</a>대로 1단계(값 수집)와 2~3단계(원시·의미 변수)는 위에서 끝났습니다. 아래는 4~5단계에 해당합니다. 컴포넌트에는 <strong>의미 기반 변수만</strong> 연결합니다.</p>
+<h3 id="2-1-button-치환">2-1. Button 치환<a class="headerlink" href="#2-1-button-치환" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li><code>Components</code> 페이지에서 <code>Button</code> 컴포넌트를 선택합니다.</li>
+<li>오른쪽 Design 패널의 <strong>Fill</strong> 줄에서 점 4개 아이콘(<strong>Apply styles and variables</strong>)을 누르고, <strong>Variables</strong> 탭에서 변수를 선택합니다.</li>
+<li><strong>Corner radius</strong>, <strong>Padding</strong> 칸은 마우스를 올리면 나타나는 변수 아이콘을 눌러 변수를 선택합니다.</li>
+<li>왼쪽 레이어에서 안쪽 텍스트(<code>T</code> 아이콘)를 따로 선택하고, 글자색 Fill도 같은 방법으로 연결합니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>항목</th>
+<th>연결할 변수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프레임</td>
+<td>Fill</td>
+<td><code>color/bg/primary/default</code></td>
+</tr>
+<tr>
+<td>프레임</td>
+<td>Corner radius</td>
+<td><code>radius/md</code></td>
+</tr>
+<tr>
+<td>프레임</td>
+<td>Padding 세로</td>
+<td><code>spacing/10</code></td>
+</tr>
+<tr>
+<td>프레임</td>
+<td>Padding 가로</td>
+<td><code>spacing/12</code></td>
+</tr>
+<tr>
+<td>텍스트</td>
+<td>Fill</td>
+<td><code>color/text/on-primary/default</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 겉모습이 치환 전과 같고, 연결한 칸이 변수 표시로 바뀝니다. Fill에는 변수 이름이 나오고, Corner radius와 Padding의 숫자는 네모로 감싸져 표시됩니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-button-variables-applied.png" data-desc-position="bottom"><img alt="변수가 연결된 Button 컴포넌트" src="../../../assets/images/design-system/practice/figma-button-variables-applied.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 네모로 감싸진 칸을 눌렀을 때 선택 창에서 해당 변수(<code>radius/md</code>, <code>spacing/10</code>, <code>spacing/12</code>)가 선택돼 있으면 정상입니다. 숫자 칸은 변수의 마지막 이름(<code>10</code>, <code>12</code>)이나 값이 보일 수 있습니다.</p>
+</li>
+</ol>
+<h3 id="2-2-input-치환">2-2. Input 치환<a class="headerlink" href="#2-2-input-치환" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li>왼쪽 레이어에서 <code>Input</code> 안의 <code>default</code> Variant를 선택합니다(컴포넌트 세트가 아니라 Variant를 각각 선택).</li>
+<li>2-1과 같은 방법으로 <strong>Fill</strong>, <strong>Stroke</strong>는 점 4개 아이콘(<strong>Apply styles and variables</strong>)의 <strong>Variables</strong> 탭에서, <strong>Corner radius</strong>, <strong>Padding</strong>은 칸에 마우스를 올리면 나타나는 변수 아이콘으로 연결합니다.</li>
+<li>안쪽 <code>Placeholder</code> 텍스트 레이어를 따로 선택해 글자색 Fill을 연결합니다.</li>
+<li><code>focus</code>, <code>error</code> Variant도 같은 방법으로 반복합니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>위치</th>
+<th>항목</th>
+<th>연결할 변수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>세 Variant 공통</td>
+<td>Fill</td>
+<td><code>color/bg/surface/default</code></td>
+</tr>
+<tr>
+<td>세 Variant 공통</td>
+<td>Corner radius</td>
+<td><code>radius/md</code> (<code>7</code>이 <code>6</code>으로 바뀜)</td>
+</tr>
+<tr>
+<td>세 Variant 공통</td>
+<td>Padding 세로</td>
+<td><code>spacing/10</code></td>
+</tr>
+<tr>
+<td>세 Variant 공통</td>
+<td>Padding 가로</td>
+<td><code>spacing/12</code> (<code>13</code>이 <code>12</code>로 바뀜)</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>Stroke</td>
+<td><code>color/border/input/default</code></td>
+</tr>
+<tr>
+<td><code>focus</code></td>
+<td>Stroke</td>
+<td><code>color/border/input/focus</code></td>
+</tr>
+<tr>
+<td><code>error</code></td>
+<td>Stroke</td>
+<td><code>color/border/input/error</code></td>
+</tr>
+<tr>
+<td>텍스트</td>
+<td>Fill</td>
+<td><code>color/text/placeholder/default</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 모서리가 <code>6</code>, 가로 패딩이 <code>12</code>로 바뀌어 크기가 <code>240 × 40</code>으로 유지되는지 확인합니다. 세 Variant의 테두리 색은 그대로 회색, 파란색, 빨간색입니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-input-default-variables.png" data-desc-position="bottom"><img alt="변수가 연결된 Input default Variant" src="../../../assets/images/design-system/practice/figma-input-default-variables.png" width="100%"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-input-focus-variables.png" data-desc-position="bottom"><img alt="변수가 연결된 Input focus Variant" src="../../../assets/images/design-system/practice/figma-input-focus-variables.png" width="100%"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-input-error-variables.png" data-desc-position="bottom"><img alt="변수가 연결된 Input error Variant" src="../../../assets/images/design-system/practice/figma-input-error-variables.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 세 Variant를 차례로 선택했을 때 Stroke에 각각 <code>color/border/input/default</code>, <code>focus</code>, <code>error</code> 변수가 연결되어 있으면 정상입니다. 오른쪽 패널 아래 <strong>Selection colors</strong>에 <code>color/text/placeholder...</code>, <code>color/border/input/...</code>, <code>color/bg/surface/...</code> 세 개가 보이면 색 연결이 모두 된 것입니다.</p>
+</li>
+</ol>
+<h3 id="2-3-card-치환">2-3. Card 치환<a class="headerlink" href="#2-3-card-치환" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li><code>Components</code> 페이지의 레이어에서 <code>Card</code>를 선택합니다.</li>
+<li>
+<p>Fill과 Stroke는 네 개의 점 모양 <strong>Apply styles and variables</strong> 아이콘 → <strong>Variables</strong> 탭에서, Corner radius와 Padding, Gap은 값 칸에 마우스를 올리면 나타나는 변수 아이콘으로 아래 변수를 연결합니다.</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>연결할 변수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fill</td>
+<td><code>color/bg/surface/default</code></td>
+</tr>
+<tr>
+<td>Stroke</td>
+<td><code>color/border/card/default</code></td>
+</tr>
+<tr>
+<td>Corner radius</td>
+<td><code>radius/lg</code></td>
+</tr>
+<tr>
+<td>Padding (가로·세로)</td>
+<td><code>spacing/16</code></td>
+</tr>
+<tr>
+<td>Gap</td>
+<td><code>spacing/8</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 겉모습이 치환 전과 같습니다. 연결된 숫자 값은 박스로 감싸져 표시됩니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-card-variables.png" data-desc-position="bottom"><img alt="Card에 변수를 연결한 화면" src="../../../assets/images/design-system/practice/figma-card-variables.png" width="100%"></a></p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 크기가 <code>280 × 78 Hug</code> 그대로이고, 위 항목마다 변수 이름이 표시되면 정상입니다. Selection colors에 <code>color/border/card/...</code>, <code>color/bg/surface/...</code>가 보이면 색상이 연결된 것입니다. 남는 <code>000000</code>은 텍스트 색이며 2-4에서 확인합니다.</p>
+</li>
+</ol>
+<h3 id="2-4-남은-하드코딩-확인">2-4. 남은 하드코딩 확인<a class="headerlink" href="#2-4-남은-하드코딩-확인" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>작업</strong>:<ol>
+<li><code>Components</code> 페이지에서 캔버스 전체를 선택합니다(<strong>Cmd + A</strong>).</li>
+<li>오른쪽 패널에서 변수가 연결되지 않은 Fill, Stroke, Corner radius, Padding, Gap이 남았는지 확인합니다. 텍스트 색은 텍스트 레이어를 하나씩 확인합니다.</li>
+<li><code>Examples</code> 페이지의 인스턴스도 같은 방법으로 확인합니다.</li>
+</ol>
+</li>
+<li><strong>기대 결과</strong>: 변수가 연결되지 않은 색상·간격·반경 값이 없습니다.</li>
+<li><strong>확인 방법</strong>: <code>Examples</code>의 인스턴스는 컴포넌트에서 값을 가져오므로 따로 치환할 항목이 없어야 합니다. 남은 값이 있으면 해당 단계로 돌아가 연결합니다.</li>
+</ol>
+<hr>
+<h2 id="3-스타일과-컴포넌트-정리">3. 스타일과 컴포넌트 정리<a class="headerlink" href="#3-스타일과-컴포넌트-정리" title="Permanent link">¶</a></h2>
+<h3 id="3-1-텍스트-스타일-만들기">3-1. 텍스트 스타일 만들기<a class="headerlink" href="#3-1-텍스트-스타일-만들기" title="Permanent link">¶</a></h3>
+<p><a href="../../figma-organize/#변수와-스타일의-역할-구분">변수와 스타일의 역할 구분</a>에 따라 글자 속성의 묶음은 스타일로 만듭니다.</p>
+<ol>
+<li>
+<p><strong>작업</strong>:</p>
+<ol>
+<li>텍스트 레이어를 선택하고 오른쪽 패널 Typography 항목의 <strong>Styles</strong> 아이콘(점 네 개)을 누른 뒤 <strong>+</strong> 로 스타일을 만듭니다.</li>
+<li><strong>Create new text style</strong> 창에서 <strong>Name</strong>에 스타일 이름을, <strong>Description</strong>에 용도 설명을 입력하고 <strong>Create style</strong>을 누릅니다.</li>
+<li>
+<p>아래 세 개를 만들고, 해당하는 텍스트 레이어에 연결합니다.</p>
+<table>
+<thead>
+<tr>
+<th>스타일 이름</th>
+<th>설명</th>
+<th>글꼴</th>
+<th>굵기</th>
+<th>크기</th>
+<th>연결할 레이어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text/body/default</code></td>
+<td>본문 텍스트</td>
+<td><code>Inter</code></td>
+<td>Regular</td>
+<td><code>14</code></td>
+<td><code>Placeholder</code>, <code>Card description</code></td>
+</tr>
+<tr>
+<td><code>text/label/default</code></td>
+<td>버튼 등 라벨 텍스트</td>
+<td><code>Inter</code></td>
+<td>Medium</td>
+<td><code>14</code></td>
+<td><code>Button</code> 텍스트</td>
+</tr>
+<tr>
+<td><code>text/heading/default</code></td>
+<td>카드 제목 텍스트</td>
+<td><code>Inter</code></td>
+<td>Medium</td>
+<td><code>16</code></td>
+<td><code>Card title</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 세 텍스트 스타일이 <code>text</code> 그룹 아래 <code>body</code>, <code>label</code>, <code>heading</code>으로 묶여 보입니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 텍스트 레이어를 선택했을 때 Typography에 스타일 이름이 표시되면 정상입니다.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/images/design-system/practice/figma-text-style-applied.png" data-desc-position="bottom"><img alt="텍스트 스타일이 연결된 Card title" src="../../../assets/images/design-system/practice/figma-text-style-applied.png" width="100%"></a></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Cover 페이지 텍스트</p>
+<p><code>Cover</code> 페이지의 제목(Medium 32)과 설명(Regular 16)은 컴포넌트가 아니라 파일 안내용 텍스트이므로 스타일을 만들지 않습니다.</p>
+</div>
+<h3 id="3-2-컴포넌트-구조-점검">3-2. 컴포넌트 구조 점검<a class="headerlink" href="#3-2-컴포넌트-구조-점검" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <a href="../../figma-organize/#컴포넌트-구조화-기준">컴포넌트 구조화 기준</a>에 맞는지 아래 항목을 확인합니다.</p>
+<table>
+<thead>
+<tr>
+<th>점검 항목</th>
+<th>기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Button</td>
+<td>컴포넌트이고, 안에 텍스트 레이어만 있다.</td>
+</tr>
+<tr>
+<td>Input</td>
+<td><code>State</code> property에 <code>default</code>, <code>focus</code>, <code>error</code> 값이 있는 컴포넌트 세트이다.</td>
+</tr>
+<tr>
+<td>Card</td>
+<td>컴포넌트이고, 안에 <code>Card title</code>, <code>Card description</code>이 있다.</td>
+</tr>
+<tr>
+<td>Examples 페이지</td>
+<td>세 컴포넌트가 모두 인스턴스(◇)이다.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 모든 항목이 기준을 만족합니다.</p>
+</li>
+<li><strong>확인 방법</strong>: Layers에서 아이콘을 확인합니다. 기준과 다르면 <a href="../sample-file/">샘플 파일</a>의 해당 단계를 다시 확인합니다.</li>
+</ol>
+<h3 id="3-3-변수와-스타일-역할-점검">3-3. 변수와 스타일 역할 점검<a class="headerlink" href="#3-3-변수와-스타일-역할-점검" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: 아래 표와 실제 파일이 일치하는지 확인합니다.</p>
+<table>
+<thead>
+<tr>
+<th>대상</th>
+<th>관리 수단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>색상, 간격, 모서리 반경</td>
+<td>변수</td>
+</tr>
+<tr>
+<td>글꼴·굵기·크기 조합</td>
+<td>텍스트 스타일</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 텍스트 속성이 변수가 아니라 스타일로만 관리됩니다.</p>
+</li>
+<li><strong>확인 방법</strong>: <code>primitive</code>, <code>semantic</code>, <code>spacing</code>, <code>radius</code> 컬렉션에 글자 크기나 굵기 변수가 없으면 정상입니다.</li>
+</ol>
+<hr>
+<h2 id="4-네이밍-점검">4. 네이밍 점검<a class="headerlink" href="#4-네이밍-점검" title="Permanent link">¶</a></h2>
+<h3 id="4-1-레이어와-컴포넌트-이름-정리">4-1. 레이어와 컴포넌트 이름 정리<a class="headerlink" href="#4-1-레이어와-컴포넌트-이름-정리" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>작업</strong>: Layers를 펼쳐 <code>Frame 12</code>, <code>button copy</code>처럼 기본 이름이나 일관되지 않은 이름이 남아 있으면 규칙에 맞게 바꿉니다. 컴포넌트와 property 이름은 <a href="#3-2-컴포넌트-구조-점검">3-2</a>의 표를 기준으로 합니다.</li>
+<li><strong>기대 결과</strong>: Layers에 기본 이름(<code>Frame N</code>, <code>Rectangle N</code>)이 남아 있지 않습니다.</li>
+<li><strong>확인 방법</strong>: 왼쪽 패널 <strong>Pages</strong> 줄 오른쪽의 돋보기 아이콘을 눌러 <code>Frame</code>을 입력하고, 결과가 없으면 정상입니다.</li>
+</ol>
+<h3 id="4-2-네이밍-체크리스트">4-2. 네이밍 체크리스트<a class="headerlink" href="#4-2-네이밍-체크리스트" title="Permanent link">¶</a></h3>
+<p>변수와 스타일 이름이 <a href="../../figma-organize/#네이밍-규칙">네이밍 규칙</a>을 따르는지 확인합니다.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 모든 변수·스타일 이름의 계층 구분자가 슬래시(<code>/</code>)이다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 모든 이름이 소문자 kebab-case이다(<code>on-primary</code>, <code>bg</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 이름이 큰 분류에서 작은 분류 순서이다(카테고리 → 용도 → 상태).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 상태(<code>default</code>, <code>focus</code>, <code>error</code>)가 이름 끝 하위 계층으로 분리되어 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 상태가 없는 의미 기반 변수에도 <code>default</code> 계층이 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 허용 약어(<code>bg</code>) 외에 줄임말을 쓰지 않았다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 같은 의미의 변수가 이름만 달리 중복되어 있지 않다.</li>
+</ul>
+<hr>
+<h2 id="정리-완료-확인">정리 완료 확인<a class="headerlink" href="#정리-완료-확인" title="Permanent link">¶</a></h2>
+<p>아래 항목을 모두 만족하면 이 실습을 마친 것입니다. 개념 문서의 <a href="../../figma-organize/#정리-확인">정리 확인</a>과 같은 기준입니다.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 변수가 <code>primitive</code>, <code>semantic</code>, <code>spacing</code>, <code>radius</code> 컬렉션으로 나뉘어 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 색상 변수가 원시 값과 의미 기반 값으로 분리되어 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 컴포넌트가 원시 값이 아닌 의미 기반 값만 참조한다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 하드코딩된 색상·간격·반경이 남아 있지 않다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 모든 이름이 같은 구분자와 대소문자 규칙을 따른다.</li>
+</ul>
+<p>정리가 끝난 파일은 다음 실습(디자인 토큰 추출·발행)의 입력입니다. 이름을 이 문서와 동일하게 유지해야 다음 단계에서 변환 결과가 어긋나지 않습니다.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/lightbox-zoom.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
