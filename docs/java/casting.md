@@ -142,6 +142,63 @@ Main.java:5: error: incompatible types: possible lossy conversion from int to by
 - 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
 - `byte sum = (byte) (a + b);`처럼 캐스트하거나 `int` 변수로 받으면 해결됩니다.
 
+### 나눗셈과 캐스트 위치
+
+정수끼리 나눈 뒤에 캐스트하면 이미 소수점이 버려진 값이 변환됩니다. 실수 나눗셈을 하려면 나누기 **전에** 피연산자 하나를 캐스트해야 합니다.
+
+```java
+public class DivisionCastExample {
+    public static void main(String[] args) {
+        int p = 7;
+        int q = 2;
+
+        System.out.println(p / q);
+        System.out.println((double) (p / q));
+        System.out.println((double) p / q);
+    }
+}
+```
+
+```text
+3
+3.0
+3.5
+```
+
+| 식 | 계산 순서 |
+|---|---|
+| `(double) (p / q)` | `7 / 2 = 3`(`int`)을 계산한 뒤 `3.0`으로 변환 |
+| `(double) p / q` | `7`을 `7.0`으로 먼저 변환한 뒤 `double / int`를 `double`로 계산 |
+
+- 캐스트 연산자는 나눗셈보다 우선순위가 높아 `(double) p / q`에서는 `p`에만 적용됩니다. [연산자](operator.md)에서 자세히 다룹니다.
+
+### 숫자 문자와 정수
+
+`'7'`처럼 숫자 모양의 `char`는 숫자 7이 아니라 문자 코드(55)입니다. 숫자값을 얻으려면 `'0'`을 빼고, 반대로 숫자를 문자로 바꾸려면 `'0'`을 더한 뒤 `(char)`로 캐스트합니다.
+
+```java
+public class CharDigitExample {
+    public static void main(String[] args) {
+        char c = '7';
+
+        System.out.println(c + 1);
+        System.out.println(c - '0');
+        System.out.println((char) (c + 1));
+        System.out.println((char) (3 + '0'));
+    }
+}
+```
+
+```text
+56
+7
+8
+3
+```
+
+- `c + 1`은 `int` 연산이므로 문자 `'8'`이 아니라 코드값 `56`이 출력됩니다.
+- 문자열 `"7"`을 숫자로 바꾸는 방법은 4절에서 다룹니다.
+
 ---
 
 ## 3. 명시적 변환 (Narrowing)
@@ -343,6 +400,50 @@ public class BoxingExample {
 
 - 래퍼 객체는 참조 타입이라 `null`을 담을 수 있으며, `null`을 언박싱하면 `NullPointerException`이 발생합니다. 참조 타입과 `null`은 [타입](type.md)에서 다룹니다.
 
+### 래퍼 객체의 비교
+
+래퍼 객체끼리 `==`로 비교하면 값이 아니라 객체가 같은지 비교합니다. `Integer`는 -128~127 범위의 값을 미리 만들어 공유하기 때문에 범위 안에서는 `true`, 밖에서는 `false`가 나올 수 있습니다. 값 비교에는 `equals()`를 사용합니다.
+
+```java
+public class WrapperCompareExample {
+    public static void main(String[] args) {
+        Integer x = 127;
+        Integer y = 127;
+        Integer m = 128;
+        Integer n = 128;
+
+        System.out.println(x == y);
+        System.out.println(m == n);
+        System.out.println(m.equals(n));
+    }
+}
+```
+
+```text
+true
+false
+true
+```
+
+- 래퍼 객체의 `==` 결과는 값의 범위에 따라 달라지므로 값 비교에 사용하지 않습니다.
+- 문자열의 `==`와 `equals()` 차이는 [String 클래스](string.md)에서 다룹니다.
+
+### null 언박싱 오류
+
+`null`인 래퍼 객체를 기본 타입으로 언박싱하면 런타임 예외가 발생합니다.
+
+```java
+Integer z = null;
+int w = z;
+```
+
+```text
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "z" is null
+	at Main.main(Main.java:5)
+```
+
+- 오류 메시지는 JDK 버전과 컴파일 옵션에 따라 다를 수 있습니다.
+
 ### 숫자로 바꿀 수 없는 문자열
 
 ```java
@@ -361,3 +462,39 @@ Exception in thread "main" java.lang.NumberFormatException: For input string: "a
 - 환경에 따라 스택 트레이스의 줄 번호나 경로 표기가 다를 수 있습니다.
 - `"3.14"`처럼 소수점이 있는 문자열을 `parseInt`에 넣어도 같은 예외가 발생합니다. `Double.parseDouble`을 사용합니다.
 - 사용자 입력을 변환할 때는 [입력](input.md)에서 다룹니다.
+
+### 변환 실패의 종류
+
+`parseInt`는 문자열 전체가 숫자 형식이어야 하며, 다음 경우에 모두 `NumberFormatException`이 발생합니다.
+
+| 입력 | 예외 메시지 | 원인 |
+|---|---|---|
+| `""` | `For input string: ""` | 빈 문자열 |
+| `" 12 "` | `For input string: " 12 "` | 앞뒤 공백 포함 |
+| `"3.14"` | `For input string: "3.14"` | 소수점 포함 |
+| `"12abc"` | `For input string: "12abc"` | 숫자가 아닌 문자 포함 |
+| `"2147483648"` | `For input string: "2147483648"` | `int` 범위 초과 |
+| `null` | `Cannot parse null string` | `null` 전달 |
+
+- `Double.parseDouble`도 숫자 형식이 아니면 `NumberFormatException`을 던집니다. 단, 앞뒤 공백은 허용합니다.
+- 앞뒤 공백은 `trim()`으로 제거한 뒤 변환합니다. [String 클래스](string.md)에서 다룹니다.
+- `-5`, `+5`처럼 부호가 붙은 정수는 변환됩니다.
+- 예외 메시지는 JDK 버전에 따라 다를 수 있습니다. 예외의 처리 방법은 [예외 처리](exception.md)에서 자세히 다룹니다.
+
+### 호환되지 않는 객체 캐스트
+
+기본 타입과 `String`뿐 아니라 서로 관련 없는 클래스 사이도 캐스트할 수 없습니다.
+
+```java
+Integer i = 1;
+String s = (String) i;
+```
+
+```text
+Main.java:4: error: incompatible types: Integer cannot be converted to String
+        String s = (String) i;
+                            ^
+```
+
+- 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
+- 객체 사이의 캐스트는 [상속](inheritance.md)에서 자세히 다룹니다.
