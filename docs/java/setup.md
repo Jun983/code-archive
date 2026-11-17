@@ -84,9 +84,6 @@ zsh: command not found: code
 
 - 오류 메시지는 사용하는 셸과 운영체제에 따라 다를 수 있습니다.
 
-!!! summary "요약"
-    macOS는 Homebrew cask로, Windows는 winget으로 VSCode를 설치할 수 있습니다.
-
 ---
 
 ## 3. OpenJDK 17 설치
@@ -157,9 +154,6 @@ The operation couldn't be completed. Unable to locate a Java Runtime.
 | Windows에서 설치 직후 같은 터미널에서 실행함 | 터미널을 새로 엽니다. |
 
 - 오류 메시지는 운영체제와 설치 방식에 따라 다를 수 있습니다.
-
-!!! summary "요약"
-    macOS는 Homebrew로 설치 후 심볼릭 링크를 연결하고, Windows는 winget 설치만으로 OpenJDK 17을 사용할 수 있습니다.
 
 ---
 
@@ -265,9 +259,6 @@ VSCode의 실행 버튼 없이도 터미널에서 `javac`로 컴파일하고 `ja
 - 오류 메시지는 JDK 버전에 따라 다를 수 있습니다.
 - 소스 파일 하나를 컴파일 없이 바로 실행하는 `java Hello.java` 방식도 JDK 11부터 지원하지만, 이 문서에서는 컴파일 단계를 확인하기 위해 두 명령을 나누어 사용합니다.
 
-!!! summary "요약"
-    `javac`는 `.java`를 `.class`로 컴파일하고, `java`는 클래스 이름으로 이를 실행합니다.
-
 ---
 
 ## 6. 프로젝트 생성 및 실행
@@ -322,6 +313,3 @@ VSCode의 실행 버튼 없이도 터미널에서 `javac`로 컴파일하고 `ja
     ```
 
     터미널에서 이 문구가 출력되면 성공입니다.
-
-!!! summary "요약"
-    Extension Pack for Java를 설치하면 VSCode 안에서 프로젝트 생성부터 실행까지 한 번에 처리할 수 있습니다.
