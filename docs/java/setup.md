@@ -7,17 +7,31 @@ hide:
 
 [← Java로 돌아가기](index.md)
 
-Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 OpenJDK 17이 필요합니다. 이 문서에서는 macOS와 Windows로 나누어 두 도구를 모두 터미널 명령으로 설치하고, VSCode에서 Java 프로젝트를 생성·실행하는 방법까지 다룹니다.
+!!! tip "초보자를 위한 안내"
+    처음에는 VSCode와 OpenJDK 17을 설치하고, `Hello, World!`가 출력되는 것까지 확인하면 충분합니다. 심볼릭 링크 연결이나 `PATH` 같은 세부 설정은 이런 것이 있다는 정도만 훑어보고, 오류가 났을 때 다시 찾아보면 훨씬 쉽게 이해됩니다.
 
-| 개념 | 설명 |
-|---|---|
-| VSCode | 코드를 작성·실행하는 편집기 |
-| OpenJDK 17 | 코드를 컴파일·실행하는 JDK 배포판 |
-| 프로젝트 생성 및 실행 | VSCode에서 Java 프로젝트를 만들고 실행하는 것 |
+Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 OpenJDK 17이 필요하며, 이 문서에서는 macOS와 Windows로 나누어 두 도구를 터미널 명령으로 설치하고 VSCode에서 Java 프로젝트를 생성·실행하는 방법을 다룹니다.
 
 ---
 
-## 1. VSCode 설치
+## 1. 개발환경이란
+
+Java 코드를 작성하고 실행하려면 코드를 입력하는 편집기와, 코드를 컴파일하고 실행하는 JDK가 필요합니다. 이 문서는 VSCode와 OpenJDK 17 조합을 사용합니다.
+
+| 용어 | 설명 |
+|---|---|
+| VSCode | 코드를 작성·실행하는 편집기 |
+| OpenJDK 17 | 코드를 컴파일·실행하는 JDK 배포판 |
+| 프로젝트 | 소스 코드와 설정을 모아둔 작업 단위 |
+| `PATH` | 터미널이 명령어를 찾을 때 확인하는 경로 목록 |
+
+- JDK와 JRE의 차이는 [Java 개요](overview.md)에서 다룹니다.
+
+---
+
+## 2. VSCode 설치
+
+### 설치 및 확인
 
 === "macOS"
 
@@ -54,10 +68,29 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
 
         버전 번호가 출력되면 정상입니다.
 
+### 설치 오류
+
+설치 후 터미널에서 `code` 명령을 찾지 못하면 아래와 같은 오류가 출력됩니다.
+
+```text
+zsh: command not found: code
+```
+
+| 상황 | 해결 |
+|---|---|
+| 설치 직후 같은 터미널에서 실행함 | 터미널을 새로 열어 `PATH`를 다시 읽게 합니다. |
+| Windows에서 Add to PATH를 체크하지 않음 | VSCode를 다시 설치하며 옵션을 체크합니다. |
+
+- 오류 메시지는 사용하는 셸과 운영체제에 따라 다를 수 있습니다.
+
 !!! summary "요약"
     macOS는 Homebrew cask로, Windows는 winget으로 VSCode를 설치할 수 있습니다.
 
-## 2. OpenJDK 17 설치
+---
+
+## 3. OpenJDK 17 설치
+
+### 설치 및 확인
 
 === "macOS"
 
@@ -79,7 +112,7 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
         java -version
         ```
 
-        ```
+        ```text
         openjdk version "17.0.15" 2025-04-15
         OpenJDK Runtime Environment (build 17.0.15+6)
         OpenJDK 64-Bit Server VM (build 17.0.15+6, mixed mode, sharing)
@@ -101,7 +134,7 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
         java -version
         ```
 
-        ```
+        ```text
         openjdk version "17.0.15" 2025-04-15
         OpenJDK Runtime Environment (build 17.0.15+6)
         OpenJDK 64-Bit Server VM (build 17.0.15+6, mixed mode, sharing)
@@ -109,10 +142,29 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
 
         `openjdk 17`이 출력되면 정상입니다.
 
+### 설치 오류
+
+`java -version`을 실행했을 때 JDK를 찾지 못하면 아래와 같은 오류가 출력됩니다.
+
+```text
+The operation couldn't be completed. Unable to locate a Java Runtime.
+```
+
+| 상황 | 해결 |
+|---|---|
+| macOS에서 심볼릭 링크를 연결하지 않음 | 2번 단계의 `ln -sfn` 명령을 실행합니다. |
+| Windows에서 설치 직후 같은 터미널에서 실행함 | 터미널을 새로 엽니다. |
+
+- 오류 메시지는 운영체제와 설치 방식에 따라 다를 수 있습니다.
+
 !!! summary "요약"
     macOS는 Homebrew로 설치 후 심볼릭 링크를 연결하고, Windows는 winget 설치만으로 OpenJDK 17을 사용할 수 있습니다.
 
-## 3. VSCode 확장을 이용한 프로젝트 생성 및 실행
+---
+
+## 4. 프로젝트 생성 및 실행
+
+### VSCode 확장으로 프로젝트 만들기
 
 1. Java 프로젝트를 생성하고 실행할 수 있게 해주는 VSCode 확장을 설치합니다.
 
@@ -138,7 +190,7 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
 
     생성되는 기본 구조는 아래와 같습니다.
 
-    ```
+    ```text
     sample-project/
     ├── src/
     │   └── App.java
@@ -157,7 +209,7 @@ Java 실습에는 코드 편집기인 VSCode와, 코드를 컴파일·실행할 
 
 5. `public static void main(String[] args) {` 바로 위의 `▷ Run` 버튼을 클릭해 실행합니다.
 
-    ```
+    ```text
     Hello, World!
     ```
 

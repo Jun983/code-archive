@@ -7,21 +7,43 @@ hide:
 
 [← Java로 돌아가기](index.md)
 
-연산자는 값을 계산하거나 비교·조합할 때 사용하는 기호입니다.
+!!! tip "초보자를 위한 안내"
+    처음에는 산술(`+ - * / %`), 비교(`== != < >`), 논리(`&& || !`) 연산자와 대입 연산자(`=`)만 익히면 충분합니다. 증감, 삼항, 비트 단위에 가까운 세부 동작은 이런 것이 있다는 정도만 훑어보고, 필요할 때 다시 찾아보거나 [조건문](conditional.md)과 [반복문](loop.md)을 학습한 뒤에 다시 읽으면 훨씬 쉽게 이해됩니다.
 
-| 구성 요소 | 설명 |
+연산자는 값을 계산하거나 비교·조합할 때 사용하는 기호이며, 이 문서에서는 산술, 대입, 비교, 논리, 증감, 삼항 연산자와 String 연산을 다룹니다.
+
+---
+
+## 1. 연산자란
+
+연산자는 하나 이상의 값(피연산자)을 계산해 새로운 값을 만드는 기호입니다. 연산자와 피연산자를 합친 것을 식이라 하며, 식은 계산이 끝나면 하나의 값이 됩니다.
+
+```java
+int sum = 10 + 3;
+System.out.println(sum);
+```
+
+```text
+13
+```
+
+| 용어 | 설명 |
 |---|---|
+| 연산자 | 값을 계산하거나 비교·조합하는 기호 |
+| 피연산자 | 연산자가 계산하는 대상 값 (`10 + 3`에서 `10`, `3`) |
+| 식 | 연산자와 피연산자로 이루어져 하나의 값이 되는 코드 |
 | 산술 연산자 | 두 수를 계산하는 연산자 |
 | 대입 연산자 | 변수에 값을 할당하는 연산자 |
 | 비교 연산자 | 두 값을 비교하는 연산자 |
 | 논리 연산자 | 두 `boolean` 값을 조합하는 연산자 |
 | 증감 연산자 | 값을 1씩 증가·감소시키는 연산자 |
 | 삼항 연산자 | 조건에 따라 값을 선택하는 연산자 |
-| String 연산 | 문자열 연결과 비교 |
+
+- 변수에 값을 넣는 방법은 [변수와 상수](variable.md)에서 다룹니다.
 
 ---
 
-## 1. 산술 연산자
+## 2. 산술 연산자
 
 두 수를 계산해 결과값을 반환합니다.
 
@@ -45,16 +67,16 @@ public class ArithmeticExample {
         int quotient  = number1 / number2;
         int remainder = number1 % number2;
 
-        System.out.println(sum);        // 13
-        System.out.println(diff);       // 7
-        System.out.println(product);    // 30
-        System.out.println(quotient);   // 3
-        System.out.println(remainder);  // 1
+        System.out.println(sum);
+        System.out.println(diff);
+        System.out.println(product);
+        System.out.println(quotient);
+        System.out.println(remainder);
     }
 }
 ```
 
-```
+```text
 13
 7
 30
@@ -62,8 +84,27 @@ public class ArithmeticExample {
 1
 ```
 
+- 정수끼리 나누면 소수점 이하가 버려지므로, `10 / 3`의 결과는 `3.33`이 아니라 `3`입니다.
 
-## 2. 대입 연산자
+### 0으로 나누기
+
+정수를 `0`으로 나누거나 나머지를 구하면 런타임 예외가 발생합니다.
+
+```java
+int result = 10 / 0;
+```
+
+```text
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at Main.main(Main.java:3)
+```
+
+- 실수(`double`)를 `0.0`으로 나누면 예외 없이 `Infinity`가 됩니다.
+- 예외의 처리 방법은 [예외 처리](exception.md)에서 자세히 다룹니다.
+
+---
+
+## 3. 대입 연산자
 
 변수에 값을 할당합니다.
 
@@ -82,24 +123,24 @@ public class AssignmentExample {
         int count = 10;
 
         count += 5;
-        System.out.println(count);  // 15
+        System.out.println(count);
 
         count -= 3;
-        System.out.println(count);  // 12
+        System.out.println(count);
 
         count *= 2;
-        System.out.println(count);  // 24
+        System.out.println(count);
 
         count /= 4;
-        System.out.println(count);  // 6
+        System.out.println(count);
 
         count %= 4;
-        System.out.println(count);  // 2
+        System.out.println(count);
     }
 }
 ```
 
-```
+```text
 15
 12
 24
@@ -107,7 +148,9 @@ public class AssignmentExample {
 2
 ```
 
-## 3. 비교 연산자
+---
+
+## 4. 비교 연산자
 
 두 값을 비교해 `boolean`을 반환합니다.
 
@@ -126,17 +169,17 @@ public class ComparisonExample {
         int number1 = 10;
         int number2 = 3;
 
-        System.out.println(number1 == number2);  // false
-        System.out.println(number1 != number2);  // true
-        System.out.println(number1 < number2);   // false
-        System.out.println(number1 > number2);   // true
-        System.out.println(number1 <= number2);  // false
-        System.out.println(number1 >= number2);  // true
+        System.out.println(number1 == number2);
+        System.out.println(number1 != number2);
+        System.out.println(number1 < number2);
+        System.out.println(number1 > number2);
+        System.out.println(number1 <= number2);
+        System.out.println(number1 >= number2);
     }
 }
 ```
 
-```
+```text
 false
 true
 false
@@ -145,7 +188,31 @@ false
 true
 ```
 
-## 4. 논리 연산자
+- 대입(`=`)과 비교(`==`)는 다른 연산자입니다. 이를 헷갈려 `if (a = 3)`처럼 쓰면 조건식이 `boolean`이 아니어서 컴파일 오류가 발생합니다.
+- 비교 연산자는 [조건문](conditional.md)의 조건식에 주로 사용합니다.
+
+### 비교 연산자 오류
+
+조건식 자리에 `=`를 쓰면 컴파일 오류가 발생합니다.
+
+```java
+int a = 3;
+if (a = 3) {
+    System.out.println("같다");
+}
+```
+
+```text
+Main.java:4: error: incompatible types: int cannot be converted to boolean
+        if (a = 3) {
+              ^
+```
+
+- 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
+
+---
+
+## 5. 논리 연산자
 
 두 `boolean` 값을 조합해 하나의 `boolean`을 반환합니다.
 
@@ -163,20 +230,25 @@ public class LogicalExample {
         boolean a = true;
         boolean b = false;
 
-        System.out.println(a && b);  // false
-        System.out.println(a || b);  // true
-        System.out.println(!a);      // false
+        System.out.println(a && b);
+        System.out.println(a || b);
+        System.out.println(!a);
     }
 }
 ```
 
-```
+```text
 false
 true
 false
 ```
 
-## 5. 증감 연산자
+- 논리 연산자는 [조건문](conditional.md)에서 여러 조건을 조합할 때 사용합니다.
+- 짧은 회로 평가 때문에 `&&`, `||`의 오른쪽에 증감 연산 같은 부수 효과가 있는 식을 두면 실행되지 않을 수 있습니다.
+
+---
+
+## 6. 증감 연산자
 
 변수의 값을 1씩 증가하거나 감소시킵니다.
 
@@ -191,18 +263,23 @@ false
 public class IncrementExample {
     public static void main(String[] args) {
         int x = 5;
-        System.out.println(x++);  // 5 (현재 값 출력 후 증가 → x = 6)
-        System.out.println(++x);  // 7 (증가 후 출력 → x = 7)
+        System.out.println(x++);  // 현재 값 출력 후 증가 (x = 6)
+        System.out.println(++x);  // 증가 후 출력 (x = 7)
     }
 }
 ```
 
-```
+```text
 5
 7
 ```
 
-## 6. 삼항 연산자
+- 증감 연산자는 [반복문](loop.md)에서 반복 횟수를 세는 데 자주 사용합니다.
+- `x++`와 `++x`는 단독으로 쓰면 결과가 같지만, 다른 식 안에서 쓰면 반환하는 값이 다릅니다.
+
+---
+
+## 7. 삼항 연산자
 
 조건에 따라 두 값 중 하나를 반환합니다.
 
@@ -220,15 +297,17 @@ public class TernaryExample {
 }
 ```
 
-```
+```text
 합격
 ```
 
-## 7. String 연산
+---
+
+## 8. String 연산
 
 `String`은 숫자 타입과 달리 `+`로 이어 붙이고, 내용 비교에는 `equals()`를 사용합니다.
 
-### 7.1 문자열 연결
+### 문자열 연결
 
 | 형태 | 의미 |
 |------|------|
@@ -247,13 +326,13 @@ public class StringConcatExample {
 }
 ```
 
-```
+```text
 이름: 지수
 나이: 25
 지수님은 25살
 ```
 
-### 7.2 문자열 비교
+### 문자열 비교
 
 | 형태 | 의미 |
 |------|------|
@@ -272,7 +351,28 @@ public class StringEqualsExample {
 }
 ```
 
-```
+```text
 true
 false
 ```
+
+- 문자열의 내용을 비교할 때는 `==`가 아니라 `equals()`를 사용해야 합니다.
+
+### 문자열 연산 오류
+
+`String`에는 `-`, `*` 같은 산술 연산자를 사용할 수 없으며, 사용하면 컴파일 오류가 발생합니다.
+
+```java
+String a = "hello";
+String b = a - "h";
+```
+
+```text
+Main.java:4: error: bad operand types for binary operator '-'
+        String b = a - "h";
+                     ^
+  first type:  String
+  second type: String
+```
+
+- 컴파일 오류 메시지의 세부 표시는 `javac` 버전에 따라 다를 수 있습니다.
