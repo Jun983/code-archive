@@ -7,7 +7,7 @@ hide:
 
 [← 디자인 시스템으로 돌아가기](index.md)
 
-[Figma 디자인 시스템 정리](figma-organize.md)에서 정돈한 변수를 코드가 읽을 수 있는 디자인 토큰으로 바꾸고, 변경이 생길 때마다 다시 발행하는 흐름을 정리합니다.
+[Figma 디자인 시스템 정리](figma-organize.md)에서 정돈한 변수를 코드가 읽을 수 있는 디자인 토큰으로 바꾸고, 변경이 생길 때마다 다시 발행하는 흐름을 정리합니다. 직접 따라 해 보려면 [디자인 토큰 추출·발행 실습](practice/design-tokens.md)을 참고합니다.
 
 | 구분 | 설명 |
 |---|---|
@@ -137,14 +137,22 @@ flowchart LR
 import { register } from '@tokens-studio/sd-transforms';
 import StyleDictionary from 'style-dictionary';
 
-register(StyleDictionary);
+register(StyleDictionary, { excludeParentKeys: true });
+
+StyleDictionary.registerTransformGroup({
+  name: 'css-kebab',
+  transforms: [
+    ...StyleDictionary.hooks.transformGroups['tokens-studio'].filter((t) => t !== 'name/camel'),
+    'name/kebab',
+  ],
+});
 
 const sd = new StyleDictionary({
-  source: ['tokens/**/*.json'],
+  source: ['tokens/tokens.json'],
   preprocessors: ['tokens-studio'],
   platforms: {
     css: {
-      transformGroup: 'tokens-studio',
+      transformGroup: 'css-kebab',
       buildPath: 'build/css/',
       files: [
         {
@@ -163,9 +171,10 @@ await sd.buildAllPlatforms();
 
 | 설정 | 역할 |
 |---|---|
+| `excludeParentKeys: true` | 단일 파일의 최상위 키(토큰 세트 이름)를 토큰 경로에서 제외. 없으면 `{color.blue.500}` 참조를 찾지 못해 오류 발생 |
 | `source` | 입력할 토큰 JSON 경로 |
 | `preprocessors: ['tokens-studio']` | Tokens Studio 형식을 Style Dictionary가 읽도록 사전 처리. 명시해야 함 |
-| `transformGroup: 'tokens-studio'` | 이름 변환(kebab-case)과 값 변환(색상, 크기 등)을 묶은 그룹 |
+| `transformGroup: 'css-kebab'` | `tokens-studio` 그룹의 이름 변환(camelCase)을 kebab-case로 바꾼 그룹. 기본 `tokens-studio` 그룹은 `--colorBlue500` 같은 camelCase 이름을 만듦 |
 | `format: 'css/variables'` | `:root` 블록에 CSS 변수를 출력 |
 | `outputReferences` | `true`이면 참조 관계를 `var(--...)` 형태로 출력에 유지 (기본값 `false`) |
 
@@ -174,12 +183,14 @@ await sd.buildAllPlatforms();
 ```css title="build/css/variables.css"
 :root {
   --color-blue-500: #3b82f6;
-  --color-bg-primary: var(--color-blue-500);
+  --color-bg-primary-default: var(--color-blue-500);
 }
 ```
 
-!!! warning "확인 필요"
-    위 출력은 설정으로부터 예상한 구조입니다. 이 문서 작성 환경에서 실제 변환을 실행해 확인하지는 않았습니다. 색상 값의 표기(대소문자 등)와 변수 이름은 실제 실행 결과와 대조해 보완합니다.
+색상 값은 소문자 HEX로 바뀌고, `dimension` 값에는 `px`가 붙습니다.
+
+!!! note "실행 확인"
+    위 설정과 출력은 Node.js 22.22.2, `style-dictionary` 5.8.0, `@tokens-studio/sd-transforms` 2.0.3에서 실제로 실행해 확인했습니다. 토큰 JSON은 세트 이름(`primitive`, `semantic` 등)을 최상위 키로 가진 단일 파일 형식입니다. 전체 입력·출력 예시는 [실습](practice/design-tokens.md)에 있습니다.
 
 ---
 
