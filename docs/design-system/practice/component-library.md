@@ -119,7 +119,7 @@ hide:
 
 ### 1-2. 폴더 구조와 토큰 파일 준비
 
-1. **작업**: 아래 명령으로 폴더를 만들고, 토큰 실습의 산출물을 복사합니다.
+1. **작업**: `my-ui` 폴더 안에서 아래 명령으로 폴더를 만들고, 토큰 실습의 산출물을 복사합니다.
 
     **명령어**
 
@@ -130,7 +130,7 @@ hide:
 
     **출력 결과**: 없음(출력이 없으면 정상입니다). `cp`에서 `No such file or directory`가 나오면 `../build/css/variables.css`가 없는 것이므로 [토큰 실습의 3단계](design-tokens.md#3-코드용-포맷-변환)를 먼저 마칩니다.
 
-2. `tsconfig.json`을 만들고 아래 내용을 저장합니다.
+2. `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `tsconfig.json`을 만들고 아래 내용을 저장합니다.
 
     ```json title="tsconfig.json"
     {
@@ -177,7 +177,7 @@ hide:
 
 [토큰 적용 원칙](../component-library.md#토큰-적용-원칙)에 따라 색상·간격·반경은 의미 기반 토큰(`--color-bg-primary-default`)만 참조합니다. 원시 토큰(`--color-blue-500`)은 쓰지 않습니다.
 
-1. **작업**: `src/components/Button/Button.css`를 만들고 아래 내용을 저장합니다.
+1. **작업**: `my-ui` 폴더 기준으로 `src/components/Button/Button.css`를 만들고 아래 내용을 저장합니다.
 
     ```css title="src/components/Button/Button.css"
     .btn {
@@ -242,7 +242,7 @@ hide:
 
 ### 3-1. Storybook 설치와 설정
 
-1. **작업**: 아래 명령으로 Storybook을 설치합니다.
+1. **작업**: `my-ui` 폴더에서 아래 명령으로 Storybook을 설치합니다.
 
     **명령어**
 
@@ -271,7 +271,7 @@ hide:
     - `npm audit fix --force`는 실행하지 않습니다. 버전이 바뀌어 이후 단계의 결과가 달라질 수 있습니다.
     - `npm pkg set`은 출력이 없으면 정상입니다.
 
-2. `.storybook` 폴더를 만들고 설정 파일 두 개를 저장합니다.
+2. `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `.storybook` 폴더를 만들고 설정 파일 두 개를 저장합니다.
 
     ```ts title=".storybook/main.ts"
     import type { StorybookConfig } from '@storybook/react-vite';
@@ -285,6 +285,11 @@ hide:
         config.plugins = (config.plugins ?? []).flat().filter(
           (p) => !(p && 'name' in p && String(p.name).includes('dts')),
         );
+        // Storybook이 react를 사전 번들에 넣지 않아 미리보기가 로딩에서 멈추는 문제 방지
+        config.optimizeDeps = {
+          ...config.optimizeDeps,
+          include: [...(config.optimizeDeps?.include ?? []), 'react', 'react-dom'],
+        };
         return config;
       },
     };
@@ -299,7 +304,7 @@ hide:
     | 설정 | 역할 |
     |---|---|
     | `stories` | `src` 아래 모든 `*.stories.tsx`를 카탈로그에 등록 |
-    | `viteFinal` | Storybook은 프로젝트의 `vite.config.ts`를 그대로 읽습니다. 5단계에서 추가할 라이브러리 빌드 설정(`build.lib`)과 `dts` 플러그인이 카탈로그 빌드에 섞이지 않도록 제거합니다. 제거하지 않으면 카탈로그 출력 폴더에 `.d.ts` 파일이 함께 생깁니다. |
+    | `viteFinal` | Storybook은 프로젝트의 `vite.config.ts`를 그대로 읽습니다. 5단계에서 추가할 라이브러리 빌드 설정(`build.lib`)과 `dts` 플러그인이 카탈로그 빌드에 섞이지 않도록 제거합니다. 제거하지 않으면 카탈로그 출력 폴더에 `.d.ts` 파일이 함께 생깁니다. 또 `optimizeDeps.include`에 `react`, `react-dom`을 넣지 않으면 미리보기가 로딩 상태에서 멈추고 브라우저 콘솔에 `does not provide an export named 'default'` 오류가 납니다. |
     | `preview.ts`의 import | 토큰 CSS를 카탈로그 전체에 한 번만 불러와 실제 사용 환경과 같은 조건에서 렌더링 |
 
 ### 3-2. Button story 작성과 화면 확인
@@ -322,7 +327,7 @@ hide:
     export const Primary: Story = { args: { variant: 'primary' } };
     ```
 
-2. 카탈로그를 실행합니다.
+2. `my-ui` 폴더에서 카탈로그를 실행합니다.
 
     **명령어**
 
@@ -449,6 +454,8 @@ hide:
 2. `npm run storybook -- --no-open`을 다시 실행하고(이미 실행 중이면 저장만 하면 목록이 갱신됩니다) 브라우저에서 확인합니다.
 3. **기대 결과**: 왼쪽 목록에 `Input → Default, Invalid`가 추가됩니다. `Default`는 회색 테두리, `Invalid`는 빨간색(`#ef4444`) 테두리의 입력창이고 둘 다 옅은 회색 `Placeholder` 글자가 보입니다.
 
+    ![Storybook에서 Input의 Default story를 연 화면](../../assets/images/design-system/practice/storybook-input-default.png){ width="100%" }
+
     ![Storybook에서 Input의 Invalid story를 연 화면](../../assets/images/design-system/practice/storybook-input-invalid.png){ width="100%" }
 
 4. **확인 방법**: `Default`의 입력창을 클릭하면 테두리가 파란색으로 바뀌어야 합니다(Figma `focus`). 다른 곳을 클릭하면 회색으로 돌아옵니다. 하단 Controls 탭의 `invalid`를 `True`로 바꾸면 빨간 테두리가 됩니다.
@@ -459,7 +466,7 @@ hide:
 
 ### 5-1. 빌드 설정
 
-1. **작업**: 프로젝트 루트에 `src/index.ts`와 `vite.config.ts`를 만듭니다. `src/index.ts`가 라이브러리의 공개 API이며, 여기에 없는 파일은 내부 구현입니다.
+1. **작업**: `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `vite.config.ts`를, `src` 폴더 안에 `src/index.ts`를 만듭니다. `src/index.ts`가 라이브러리의 공개 API이며, 여기에 없는 파일은 내부 구현입니다.
 
     ```ts title="src/index.ts"
     export { Button } from './components/Button';
@@ -495,7 +502,7 @@ hide:
     | `rollupOptions.external` | React를 번들에 넣지 않음 |
     | `dts()` | 빌드 시 `.d.ts` 타입 선언을 함께 출력 |
 
-2. `package.json`에 배포 관련 필드를 추가합니다. 아래 명령으로 한 번에 지정합니다.
+2. `my-ui` 폴더에서 `package.json`에 배포 관련 필드를 추가합니다. 아래 명령으로 한 번에 지정합니다.
 
     **명령어**
 
@@ -536,7 +543,7 @@ hide:
 
 ### 5-2. 빌드 실행
 
-1. **작업**: 아래 명령을 실행합니다.
+1. **작업**: `my-ui` 폴더에서 아래 명령을 실행합니다.
 
     **명령어**
 
@@ -687,11 +694,6 @@ hide:
 
 2. **기대 결과**: 빌드가 오류 없이 끝나고 `dist/assets`에 CSS 파일 하나가 생깁니다.
 3. **확인 방법**: 생성된 CSS 파일을 열어 `.btn`, `.input`과 토큰 변수(`--color-blue-500` 등)가 함께 들어 있으면 컴포넌트 CSS와 토큰 CSS가 모두 적용된 것입니다.
-
-!!! warning "확인하지 못한 항목"
-    - 사용 측 앱을 브라우저에서 실행해 렌더링을 눈으로 확인하지는 않았습니다. 화면 확인은 Storybook(3·4단계)에서 했습니다.
-    - 토큰 파일의 값을 바꿨을 때 컴포넌트를 다시 빌드하지 않아도 화면이 바뀌는지는 확인하지 않았습니다.
-    - CommonJS 출력과 `require` 조건부 export는 검증하지 않았습니다.
 
 ---
 
