@@ -18,3 +18,10 @@
 .gslide-image img {
   transition: transform 0.1s ease;
 }
+
+/* 헤더 사이트 이름 옆 릴리스 버전 */
+.md-header__version {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}

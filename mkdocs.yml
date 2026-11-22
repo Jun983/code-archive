@@ -1,9 +1,6 @@
 site_name: Code Archive
 site_url: https://jun983.github.io/code-archive/
 site_description: 프로그래밍 언어 및 백엔드 개발 원리를 기록하는 개인 기술 저장소
-repo_url: https://github.com/Jun983/code-archive
-repo_name: Jun983/code-archive
-
 docs_dir: docs
 
 extra_css:
@@ -12,8 +9,12 @@ extra_css:
 extra_javascript:
   - javascripts/lightbox-zoom.js
 
+extra:
+  release_version: !ENV [RELEASE_VERSION, ""]
+
 theme:
   name: material
+  custom_dir: overrides
   language: ko
   palette:
     - scheme: default
