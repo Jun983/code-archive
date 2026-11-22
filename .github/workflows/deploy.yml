@@ -26,4 +26,6 @@ jobs:
                       pymdown-extensions==10.21.3
 
       - name: Deploy
+        env:
+          RELEASE_VERSION: ${{ github.event.release.tag_name }}
         run: mkdocs gh-deploy --force
