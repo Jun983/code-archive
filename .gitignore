@@ -2,3 +2,6 @@ site/
 CLAUDE.md
 .claude/
 private-docs/
+AGENTS.md
+.agents/
+.DS_Store
