@@ -5,7 +5,7 @@ hide:
 
 # React 컴포넌트 라이브러리 구축 실습
 
-[← 실습편으로 돌아가기](index.md)
+[← 디자인 시스템으로 돌아가기](../index.md)
 
 [디자인 토큰 추출·발행 실습](design-tokens.md)에서 만든 `variables.css`를 사용하는 Button, Input 컴포넌트를 만들고, 라이브러리로 빌드한 뒤 Storybook 카탈로그에서 확인합니다. 개념 설명은 [React 컴포넌트 라이브러리 구축](../component-library.md)에 있으므로 이 문서에서는 반복하지 않고 작업 순서와 확인 방법만 둡니다.
 
