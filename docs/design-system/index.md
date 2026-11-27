@@ -42,6 +42,8 @@ flowchart LR
 | 4 | [React 컴포넌트 라이브러리 구축](component-library.md) | [컴포넌트 실습](practice/component-library.md) | 토큰을 사용하는 React 컴포넌트 라이브러리를 만드는 방법 |
 | 5 | [개발 전달 산출물 정리](handoff.md) | [개발 전달 실습](practice/handoff.md) | 개발자가 바로 쓸 수 있는 문서와 사용 가이드를 정리하는 방법 |
 
+수동 실습을 모두 마쳤다면 선택 실습으로 [Codex 자동화 실습 환경 구성](practice/codex-automation-setup.md)을 마친 뒤 [Codex 자동화 실습](practice/codex-automation.md)을 이어서 진행할 수 있습니다.
+
 실습 진행 원칙은 다음과 같습니다.
 
 - 개념 설명은 개념 문서에 두고, 실습 문서에는 작업 순서와 확인 방법만 둡니다.
