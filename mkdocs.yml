@@ -8,6 +8,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/lightbox-zoom.js
+  - javascripts/scroll-buttons.js
 
 extra:
   release_version: !ENV [RELEASE_VERSION, ""]
