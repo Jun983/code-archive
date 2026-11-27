@@ -15,8 +15,7 @@ hide:
 | 산출물 | `handoff` 폴더(토큰 파일, 패키지 `.tgz`), `my-ui/README.md`(사용 가이드), `my-ui/CHANGELOG.md`, 갱신된 버전 `0.1.1` |
 | 마지막 실습 | 이 실습이 실습편의 마지막 단계입니다. |
 
-!!! warning "제안임을 밝힙니다"
-    사용 가이드를 패키지 `README.md`에 두고 `CHANGELOG.md`와 함께 패키지에 넣는 구성, 패키지 버전 하나로 토큰과 컴포넌트를 함께 표기하는 방식은 개념 문서의 [제안](../handoff.md)을 따른 것입니다. 실제 전달 대상(백엔드)이 선호하는 전달 형식은 확인하지 못했습니다. 이 실습은 `.tgz` 패키지 파일과 토큰 파일 묶음을 전달하는 것으로 가정하며, 형식이 정해지면 `handoff` 폴더 구성만 바꿉니다.
+실제 전달 대상(백엔드)이 선호하는 전달 형식은 확인하지 못했으므로 이 실습은 `.tgz` 패키지 파일과 토큰 파일 묶음을 전달하는 것으로 가정하며, 형식이 정해지면 `handoff` 폴더 구성만 바꿉니다.
 
 ---
 
@@ -270,6 +269,8 @@ design-system-practice/
     ```text
     export { Button } from './components/Button';
     export { Input } from './components/Input';
+    npm notice 80B dist/components/Button/index.d.ts
+    npm notice 76B dist/components/Input/index.d.ts
     npm notice 200B dist/index.d.ts
     npm notice 689B dist/my-ui.css
     npm notice 583B dist/my-ui.js
@@ -459,7 +460,7 @@ design-system-practice/
 2. **기대 결과**: `handoff`에 `my-ui-0.1.0.tgz`, `my-ui-0.1.1.tgz`와 `tokens` 폴더가 있고, `consumer`의 빌드 결과에 새 값만 있습니다.
 3. **확인 방법**: `#3b82f6`이 함께 출력되면 `consumer`가 이전 패키지를 계속 쓰는 것입니다. `consumer/package.json`의 `my-ui` 항목이 `file:../handoff/my-ui-0.1.1.tgz`인지 확인하고 `npm install`을 다시 실행합니다.
 
-- 이전 버전 파일(`my-ui-0.1.0.tgz`)은 롤백 용도로 남겨 두거나 정리합니다. 어느 쪽이든 전달 시점에는 최신 버전만 넘기는 것을 권장합니다. (제안)
+- 이전 버전 파일(`my-ui-0.1.0.tgz`)은 롤백 용도로 남겨 두거나 정리합니다. 어느 쪽이든 전달 시점에는 최신 버전만 넘기는 것을 권장합니다.
 - 3단계의 체크리스트를 새 버전에 대해 다시 실행합니다. 특히 3-1의 `SAME` 확인이 이 변경의 핵심입니다.
 
 ---
