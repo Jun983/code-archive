@@ -1,0 +1,4668 @@
+<!DOCTYPE html><html lang="ko" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="프로그래밍 언어 및 백엔드 개발 원리를 기록하는 개인 기술 저장소">
+      
+      
+      
+        <link rel="canonical" href="https://jun983.github.io/code-archive/design-system/practice/handoff/">
+      
+      
+        <link rel="prev" href="../figma-organize/">
+      
+      
+        <link rel="next" href="../sample-file/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>개발 전달 산출물 정리 실습 - Code Archive</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#개발-전달-산출물-정리-실습" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="Code Archive" class="md-header__button md-logo" aria-label="Code Archive" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Archive
+            
+              <span class="md-header__version">v0.14.0</span>
+            
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              개발 전달 산출물 정리 실습
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="다크 모드" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="라이트 모드" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../c/" class="md-tabs__link">
+          
+  
+  
+  C
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../java/" class="md-tabs__link">
+          
+  
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/" class="md-tabs__link">
+          
+  
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../kubernetes/" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Design system
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../exercises/" class="md-tabs__link">
+          
+  
+  
+  Exercises
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Code Archive" class="md-nav__button md-logo" aria-label="Code Archive" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Code Archive
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1">
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    배열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입 캐스팅
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/class-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class object
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/conditional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/exception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/generics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/inheritance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/jvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jvm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/lambda-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lambda stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    반복문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    메서드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/multi-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다차원 배열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연산자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    출력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/program-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로그램 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random 클래스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String 클래스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    변수와 상수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    형변환
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/conditional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    조건문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/data-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자료구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/decorator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decorator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/exception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    함수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/inheritance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/iterator-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iterator generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    반복문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/module-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연산자
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    출력
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/program-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로그램 구조
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    문자열
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    타입
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    변수
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/configmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ConfigMap과 설정 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment와 배포 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스의 역사
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/hpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPA와 자동 확장
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/namespace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace와 자원 제한
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    파드와 그 구성 요소
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/replicaset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReplicaSet과 Pod 복제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service와 노출 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    minikube로 실습 환경 준비하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/statefulset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StatefulSet과 상태 저장 워크로드
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/vm-vs-container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VM과 Container의 차이
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/volume/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volume과 데이터 저장 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/why/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쿠버네티스를 사용하는 이유
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/workload-controllers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DaemonSet, Job, CronJob과 워크로드 실행 방식
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design system
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design system
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인 시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발환경 준비
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../figma-organize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figma 디자인 시스템 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인 토큰 추출·발행
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../component-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React 컴포넌트 라이브러리 구축
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개발 전달 산출물 정리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습편
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습편
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    샘플 Figma 파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    환경 체크리스트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    디자인 토큰 추출·발행 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    연습 문제
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/bank-balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    은행 잔액 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/cafe-order-total/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    카페 주문 금액 합산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/login-attempt-limiter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    로그인 시도 제한기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/multiplication-table/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    구구단 출력기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/palindrome-checker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    회문 판별기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/parking-lot-tracker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    주차장 남은 자리 관리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/part-time-pay-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    아르바이트 급여 계산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/receipt-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    영수증 계산기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/string-masking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    문자열 마스킹 처리
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exercises/temperature-converter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    온도 변환기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#실습-범위와-환경" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 범위와 환경
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="실습 범위와 환경">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#범위" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        범위
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#환경" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        환경
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#이전-단계-완성-산출물" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이전 단계 완성 산출물
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-산출물-모으기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 산출물 모으기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 산출물 모으기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-handoff-폴더와-토큰-파일" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-1. handoff 폴더와 토큰 파일
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-전달-묶음-구성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1-2. 전달 묶음 구성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-사용-가이드-작성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 사용 가이드 작성
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 사용 가이드 작성">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-1-readmemd-작성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-1. README.md 작성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2-changelogmd-작성과-패키지에-포함" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-2. CHANGELOG.md 작성과 패키지에 포함
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-3-패키지-만들어-handoff에-넣기" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2-3. 패키지 만들어 handoff에 넣기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-체크리스트-실행" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 체크리스트 실행
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 체크리스트 실행">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-토큰-파일" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-1. 토큰 파일
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-컴포넌트-라이브러리-패키지" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-2. 컴포넌트 라이브러리 패키지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3-다른-프로젝트에서-설치" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-3. 다른 프로젝트에서 설치
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-4-사용-가이드와-일관성" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-4. 사용 가이드와 일관성
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-토큰-값-변경과-변경-이력-갱신" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 토큰 값 변경과 변경 이력 갱신
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 토큰 값 변경과 변경 이력 갱신">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-1-토큰-값-바꾸고-다시-변환" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-1. 토큰 값 바꾸고 다시 변환
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-2-복사본-갱신과-버전변경-이력" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-2. 복사본 갱신과 버전·변경 이력
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-3-패키지-다시-만들고-전달-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-3. 패키지 다시 만들고 전달 확인
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#막혔을-때" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        막혔을 때
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#실습-완료-확인" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실습 완료 확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="개발-전달-산출물-정리-실습">개발 전달 산출물 정리 실습<a class="headerlink" href="#개발-전달-산출물-정리-실습" title="Permanent link">¶</a></h1>
+<p><a href="../../">← 디자인 시스템으로 돌아가기</a></p>
+<p>앞선 실습의 토큰 파일과 <code>my-ui</code> 패키지를 <code>handoff</code> 폴더 한 곳에 모으고, 사용 가이드를 작성한 뒤 전달 체크리스트를 실행합니다. 마지막으로 토큰 값 하나를 바꿔 버전과 변경 이력을 갱신하며 되돌아가기 흐름을 한 번 경험합니다. 개념 설명은 <a href="../../handoff/">개발 전달 산출물 정리</a>에 있으므로 이 문서에서는 반복하지 않고 작업 순서와 확인 방법만 둡니다.</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>입력</td>
+<td><a href="../design-tokens/">토큰 실습</a>의 <code>tokens/tokens.json</code>, <code>build/css/variables.css</code>와 <a href="../component-library/">컴포넌트 라이브러리 실습</a>의 <code>my-ui</code> 프로젝트</td>
+</tr>
+<tr>
+<td>산출물</td>
+<td><code>handoff</code> 폴더(토큰 파일, 패키지 <code>.tgz</code>), <code>my-ui/README.md</code>(사용 가이드), <code>my-ui/CHANGELOG.md</code>, 갱신된 버전 <code>0.1.1</code></td>
+</tr>
+<tr>
+<td>다음 단계</td>
+<td>없음. 이 실습이 실습편의 마지막 단계입니다.</td>
+</tr>
+</tbody>
+</table>
+<p>실제 전달 대상(백엔드)이 선호하는 전달 형식은 확인하지 못했으므로 이 실습은 <code>.tgz</code> 패키지 파일과 토큰 파일 묶음을 전달하는 것으로 가정하며, 형식이 정해지면 <code>handoff</code> 폴더 구성만 바꿉니다.</p>
+<hr>
+<h2 id="실습-범위와-환경">실습 범위와 환경<a class="headerlink" href="#실습-범위와-환경" title="Permanent link">¶</a></h2>
+<h3 id="범위">범위<a class="headerlink" href="#범위" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>이 실습에서 하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>산출물 모으기</td>
+<td>토큰 파일과 패키지를 <code>handoff</code> 폴더로 모음</td>
+</tr>
+<tr>
+<td>사용 가이드</td>
+<td><code>my-ui/README.md</code>를 <a href="../../handoff/#사용-가이드">개념 문서의 세 부분</a>에 맞춰 작성</td>
+</tr>
+<tr>
+<td>체크리스트</td>
+<td>개념 문서의 <a href="../../handoff/#산출물-누락-확인">산출물 누락 확인</a> 항목을 명령어로 실행</td>
+</tr>
+<tr>
+<td>변경 이력</td>
+<td>토큰 값 하나를 바꿔 버전을 올리고 <code>CHANGELOG.md</code>에 기록</td>
+</tr>
+</tbody>
+</table>
+<p>배포 레지스트리에 올리는 일은 하지 않습니다. 레지스트리와 카탈로그 호스팅 위치는 <a href="../../handoff/">개념 문서</a>에서 아직 정해지지 않은 항목입니다.</p>
+<h3 id="환경">환경<a class="headerlink" href="#환경" title="Permanent link">¶</a></h3>
+<p><a href="../component-library/#환경">컴포넌트 라이브러리 실습의 환경</a>과 같습니다. 이 문서의 명령어 출력은 Node.js 22.22.2, npm 10.9.7에서 직접 실행해 확인한 값입니다.</p>
+<h3 id="이전-단계-완성-산출물">이전 단계 완성 산출물<a class="headerlink" href="#이전-단계-완성-산출물" title="Permanent link">¶</a></h3>
+<p>앞 실습을 마치지 못했다면 아래 표에서 해당하는 행의 방법으로 입력을 준비합니다. 별도 압축 파일을 두지 않고 각 실습 문서에 실린 정답 코드를 쓰는 방식입니다.</p>
+<table>
+<thead>
+<tr>
+<th>없는 입력</th>
+<th>준비 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tokens/tokens.json</code></td>
+<td><code>expected/tokens.json</code>을 복사합니다. <code>mkdir -p tokens &amp;&amp; cp expected/tokens.json tokens/tokens.json</code> (<a href="../design-tokens/#2-2-기대-결과-json">토큰 실습 2-2</a>)</td>
+</tr>
+<tr>
+<td><code>build/css/variables.css</code></td>
+<td><code>node build-tokens.js</code>를 실행하거나 <a href="../design-tokens/#3-3-정답-파일과-대조">3-3의 정답 CSS</a>를 저장합니다.</td>
+</tr>
+<tr>
+<td><code>my-ui</code> 프로젝트</td>
+<td><a href="../component-library/">컴포넌트 라이브러리 실습</a>의 단계 코드를 1단계부터 5단계까지 따라 <code>npm run build</code>가 통과하는 상태로 만듭니다. <a href="../component-library/#완성-폴더-구조">완성 폴더 구조</a>와 대조합니다.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-산출물-모으기">1. 산출물 모으기<a class="headerlink" href="#1-산출물-모으기" title="Permanent link">¶</a></h2>
+<h3 id="1-1-handoff-폴더와-토큰-파일">1-1. handoff 폴더와 토큰 파일<a class="headerlink" href="#1-1-handoff-폴더와-토큰-파일" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>design-system-practice</code> 폴더에서 터미널을 열고 아래 명령을 실행합니다. 토큰 파일은 원본(JSON)과 변환 결과(CSS)를 함께 복사합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>handoff/tokens
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>cp<span class="w"> </span>tokens/tokens.json<span class="w"> </span>handoff/tokens/
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>cp<span class="w"> </span>build/css/variables.css<span class="w"> </span>handoff/tokens/
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>handoff/tokens</code>에 <code>tokens.json</code>, <code>variables.css</code>가 있습니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 아래 명령을 실행해 두 파일이 보이는지 확인합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>ls<span class="w"> </span>handoff/tokens
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>tokens.json
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+</ol>
+<h3 id="1-2-전달-묶음-구성">1-2. 전달 묶음 구성<a class="headerlink" href="#1-2-전달-묶음-구성" title="Permanent link">¶</a></h3>
+<p>패키지는 2단계에서 사용 가이드를 넣은 뒤 만들므로 지금은 아래 구성의 빈 자리를 확인만 합니다.</p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>design-system-practice/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>├─ tokens/tokens.json              원본
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>├─ build/css/variables.css         변환 결과
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>├─ my-ui/                          컴포넌트 라이브러리
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>│  ├─ README.md                    사용 가이드 (2단계에서 작성)
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>│  └─ CHANGELOG.md                 변경 이력 (2단계에서 작성)
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>└─ handoff/                        전달 묶음
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>   ├─ tokens/
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>   │  ├─ tokens.json
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a>   │  └─ variables.css
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a>   └─ my-ui-0.1.0.tgz              (2단계에서 생성)
+</span></code></pre></div></td></tr></tbody></table></div>
+<ul>
+<li>전달 묶음에는 <code>handoff</code> 폴더만 넘깁니다. <code>my-ui</code>의 <code>node_modules</code>나 <code>storybook-static</code>은 넣지 않습니다.</li>
+<li>토큰 파일은 <code>tokens</code>·<code>build</code>의 복사본입니다. 원본을 바꾸면 이 복사본도 다시 복사해야 하며, 이 흐름은 4단계에서 직접 해 봅니다.</li>
+</ul>
+<hr>
+<h2 id="2-사용-가이드-작성">2. 사용 가이드 작성<a class="headerlink" href="#2-사용-가이드-작성" title="Permanent link">¶</a></h2>
+<h3 id="2-1-readmemd-작성">2-1. README.md 작성<a class="headerlink" href="#2-1-readmemd-작성" title="Permanent link">¶</a></h3>
+<p>개념 문서의 <a href="../../handoff/#사용-가이드">사용 가이드 구성</a>(설치, 사용법, 컴포넌트 목록)을 그대로 채웁니다. 아래 표는 작성할 때 채워 넣는 템플릿입니다.</p>
+<table>
+<thead>
+<tr>
+<th>부분</th>
+<th>채울 내용</th>
+<th>이 실습의 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>설치</td>
+<td>설치 명령, 요구 환경, CSS 불러오는 순서</td>
+<td><code>npm install my-ui</code>, Node.js·React 버전, 토큰 CSS → 컴포넌트 CSS</td>
+</tr>
+<tr>
+<td>사용법</td>
+<td>import 예시, props 규칙, 테마 조정</td>
+<td>Button·Input 예시, Figma와 같은 props 이름, CSS 변수 덮어쓰기</td>
+</tr>
+<tr>
+<td>컴포넌트 목록</td>
+<td>이름, 주요 props, 상태</td>
+<td>Button, Input</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>my-ui</code> 폴더에 <code>README.md</code>를 만듭니다. 코드 블록 안의 코드 블록이 있으므로 아래 내용을 그대로 저장합니다.</p>
+<div class="language-md highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">my-ui/README.md</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span>
+<span class="normal"><a href="#__codelineno-6-31">31</a></span>
+<span class="normal"><a href="#__codelineno-6-32">32</a></span>
+<span class="normal"><a href="#__codelineno-6-33">33</a></span>
+<span class="normal"><a href="#__codelineno-6-34">34</a></span>
+<span class="normal"><a href="#__codelineno-6-35">35</a></span>
+<span class="normal"><a href="#__codelineno-6-36">36</a></span>
+<span class="normal"><a href="#__codelineno-6-37">37</a></span>
+<span class="normal"><a href="#__codelineno-6-38">38</a></span>
+<span class="normal"><a href="#__codelineno-6-39">39</a></span>
+<span class="normal"><a href="#__codelineno-6-40">40</a></span>
+<span class="normal"><a href="#__codelineno-6-41">41</a></span>
+<span class="normal"><a href="#__codelineno-6-42">42</a></span>
+<span class="normal"><a href="#__codelineno-6-43">43</a></span>
+<span class="normal"><a href="#__codelineno-6-44">44</a></span>
+<span class="normal"><a href="#__codelineno-6-45">45</a></span>
+<span class="normal"><a href="#__codelineno-6-46">46</a></span>
+<span class="normal"><a href="#__codelineno-6-47">47</a></span>
+<span class="normal"><a href="#__codelineno-6-48">48</a></span>
+<span class="normal"><a href="#__codelineno-6-49">49</a></span>
+<span class="normal"><a href="#__codelineno-6-50">50</a></span>
+<span class="normal"><a href="#__codelineno-6-51">51</a></span>
+<span class="normal"><a href="#__codelineno-6-52">52</a></span>
+<span class="normal"><a href="#__codelineno-6-53">53</a></span>
+<span class="normal"><a href="#__codelineno-6-54">54</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="gh"># my-ui</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>React 컴포넌트 라이브러리입니다. 디자인 토큰(CSS 변수)과 컴포넌트를 함께 제공합니다.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="gu">## 설치</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="sb">```bash</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a>npm<span class="w"> </span>install<span class="w"> </span>my-ui
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="sb">```</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a>| 요구 환경 | 버전 |
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a>|---|---|
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a>| Node.js | 20.19.0 이상 또는 22.12.0 이상 |
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a>| react, react-dom | 19 |
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="gu">## 시작하기</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18"></a>토큰 CSS를 컴포넌트 CSS보다 먼저 불러옵니다. 컴포넌트 스타일이 토큰 변수를 참조하므로 순서가 바뀌면 색이 적용되지 않습니다.
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="sb">```tsx</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="k">import</span><span class="w"> </span><span class="s1">'my-ui/tokens.css'</span><span class="p">;</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="k">import</span><span class="w"> </span><span class="s1">'my-ui/style.css'</span><span class="p">;</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Button</span><span class="p">,</span><span class="w"> </span><span class="nx">Input</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'my-ui'</span><span class="p">;</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="w">  </span><span class="p">&lt;&gt;</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">Button</span><span class="p">&gt;</span><span class="nx">저장</span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">Input</span><span class="w"> </span><span class="na">placeholder</span><span class="o">=</span><span class="s">"이름"</span><span class="w"> </span><span class="na">invalid</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="w">  </span><span class="p">&lt;/&gt;</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="p">);</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="sb">```</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32"></a>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="gu">## props 규칙</span>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34"></a>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35"></a>Figma의 variant·property 이름이 props 이름과 같습니다. Figma에서 값을 가진 variant는 문자열 prop으로, 상태(`error` 등)는 불리언 prop으로 대응합니다.
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36"></a>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="gu">## 테마 조정</span>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38"></a>
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="sb">`--color-blue-500`</span> 같은 토큰 변수를 <span class="sb">`:root`</span> 뒤에서 덮어쓰면 값을 바꿀 수 있습니다. 토큰 파일(`variables.css`)은 직접 수정하지 않습니다.
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40"></a>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="sb">```css</span>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="w">  </span><span class="nv">--color-bg-primary-default</span><span class="p">:</span><span class="w"> </span><span class="mh">#2563eb</span><span class="p">;</span>
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="p">}</span>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45"></a><span class="sb">```</span>
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46"></a>
+</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47"></a><span class="gu">## 컴포넌트 목록</span>
+</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48"></a>
+</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49"></a>| 컴포넌트 | 주요 props | 상태 |
+</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50"></a>|---|---|---|
+</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51"></a>| <span class="sb">`Button`</span> | <span class="sb">`variant`</span> (<span class="sb">`'primary'`</span>) | Primary |
+</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52"></a>| <span class="sb">`Input`</span> | <span class="sb">`invalid`</span> | Default, Invalid |
+</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53"></a>
+</span><span id="__span-6-54"><a id="__codelineno-6-54" name="__codelineno-6-54"></a>상태별 모습은 Storybook 카탈로그에서 확인합니다.
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>my-ui/README.md</code>가 생기고 설치, 시작하기, props 규칙, 테마 조정, 컴포넌트 목록 다섯 절이 있습니다.</p>
+</li>
+<li><strong>확인 방법</strong>: 가이드의 코드 예시는 <a href="../component-library/#6-1-설치와-타입-확인">6-1의 <code>consumer/main.tsx</code></a>와 같은 코드여야 합니다. 개념 문서의 "실제 빌드된 패키지에서 동작하는 것만 적는다"는 기준을 3단계에서 <code>consumer</code>로 확인합니다.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">컴포넌트 목록과 상태는 직접 늘리지 않습니다</p>
+<p>목록은 <code>src/index.ts</code>의 공개 export와 같은 항목만 적고, 상태별 모습은 카탈로그로 연결합니다. 목록을 두 곳에서 관리하면 어긋나므로, 컴포넌트가 늘어나면 이 표와 <code>src/index.ts</code>를 함께 고칩니다.</p>
+</div>
+<h3 id="2-2-changelogmd-작성과-패키지에-포함">2-2. CHANGELOG.md 작성과 패키지에 포함<a class="headerlink" href="#2-2-changelogmd-작성과-패키지에-포함" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>my-ui</code> 폴더에 <code>CHANGELOG.md</code>를 만듭니다. 날짜는 작업한 날짜로 바꿉니다.</p>
+<div class="language-md highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">my-ui/CHANGELOG.md</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="gh"># Changelog</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="gu">## 0.1.0 - 2026-11-22</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="gu">### 토큰</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">-</span><span class="w"> </span>추가: 색상·간격·반경 토큰 20개
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="gu">### 컴포넌트</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="k">-</span><span class="w"> </span>추가: Button, Input
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>이어서 <code>README.md</code>와 <code>CHANGELOG.md</code>가 패키지에 들어가도록 <code>files</code>를 고칩니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>my-ui
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>npm<span class="w"> </span>pkg<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--json<span class="w"> </span><span class="nv">files</span><span class="o">=</span><span class="s1">'["dist","README.md","CHANGELOG.md"]'</span>
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>package.json</code>의 <code>files</code>가 <code>["dist", "README.md", "CHANGELOG.md"]</code>입니다.</p>
+</li>
+<li><strong>확인 방법</strong>: 3단계의 패키지 파일 목록에서 두 파일이 보이는지 확인합니다.</li>
+</ol>
+<h3 id="2-3-패키지-만들어-handoff에-넣기">2-3. 패키지 만들어 handoff에 넣기<a class="headerlink" href="#2-3-패키지-만들어-handoff에-넣기" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>my-ui</code> 폴더에서 빌드하고 패키지 파일을 <code>handoff</code> 폴더에 만듭니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>&gt; my-ui@0.1.0 build
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>&gt; tsc --noEmit &amp;&amp; vite build &amp;&amp; cp src/tokens/variables.css dist/variables.css
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>vite v8.3.8 building client environment for production...
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>transforming...
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>✓ 8 modules transformed.
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>rendering chunks...
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>[unplugin:dts] Start generate declaration files...
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>[unplugin:dts] Declaration files built in 584ms.
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>computing gzip size...
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a>dist/my-ui.css  0.68 kB │ gzip: 0.29 kB
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a>dist/my-ui.js   0.58 kB │ gzip: 0.32 kB
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a>✓ built in 596ms
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><a href="../component-library/#5-2-빌드-실행">5-2</a>와 같은 형태입니다. 소요 시간은 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>npm<span class="w"> </span>pack<span class="w"> </span>--pack-destination<span class="w"> </span>../handoff
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>npm notice
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>npm notice 📦  my-ui@0.1.0
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>npm notice Tarball Contents
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a>npm notice 133B CHANGELOG.md
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>npm notice 1.4kB README.md
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>npm notice 300B dist/components/Button/Button.d.ts
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>npm notice 298B dist/components/Button/Button.stories.d.ts
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>npm notice 80B dist/components/Button/index.d.ts
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a>npm notice 76B dist/components/Input/index.d.ts
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>npm notice 276B dist/components/Input/Input.d.ts
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>npm notice 335B dist/components/Input/Input.stories.d.ts
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a>npm notice 200B dist/index.d.ts
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>npm notice 689B dist/my-ui.css
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>npm notice 583B dist/my-ui.js
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a>npm notice 802B dist/variables.css
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a>npm notice 1.2kB package.json
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a>npm notice Tarball Details
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a>npm notice name: my-ui
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a>npm notice version: 0.1.0
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a>npm notice filename: my-ui-0.1.0.tgz
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a>npm notice package size: 3.0 kB
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a>npm notice unpacked size: 6.3 kB
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a>npm notice shasum: de9e9a1c996b3dd063d0b53dd5c1ee77990aa814
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a>npm notice integrity: sha512-SxEgszcaetQPW[...]jon3yuatoQrHg==
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a>npm notice total files: 13
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a>npm notice
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a>my-ui-0.1.0.tgz
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>파일 크기와 해시는 환경에 따라 다를 수 있습니다.</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>handoff/my-ui-0.1.0.tgz</code>가 생깁니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 아래 명령을 순서대로 실행해 <code>my-ui-0.1.0.tgz</code>와 <code>tokens</code>가 보이는지 확인합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a>ls<span class="w"> </span>handoff
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>my-ui-0.1.0.tgz
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>tokens
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+</ol>
+<hr>
+<h2 id="3-체크리스트-실행">3. 체크리스트 실행<a class="headerlink" href="#3-체크리스트-실행" title="Permanent link">¶</a></h2>
+<p>개념 문서의 <a href="../../handoff/#산출물-누락-확인">산출물 누락 확인</a> 항목을 위에서 아래로 실행합니다. <code>design-system-practice</code> 폴더에서 시작합니다.</p>
+<h3 id="3-1-토큰-파일">3-1. 토큰 파일<a class="headerlink" href="#3-1-토큰-파일" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: 토큰 JSON을 다시 변환해 CSS 변수 파일이 현재 JSON의 결과인지, 의미 기반 토큰이 참조로 남아 있는지 확인합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a>node<span class="w"> </span>build-tokens.js
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span>
+<span class="normal"><a href="#__codelineno-18-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a>css
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a>- build/css/variables.css
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a>- build/css
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a>- build
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6"></a>css
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7"></a>✔︎ build/css/variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a>diff<span class="w"> </span>build/css/variables.css<span class="w"> </span>my-ui/src/tokens/variables.css<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SAME
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a>SAME
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a>diff<span class="w"> </span>build/css/variables.css<span class="w"> </span>handoff/tokens/variables.css<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>SAME
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a>SAME
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><code>diff</code>는 차이가 없으면 아무것도 출력하지 않아 <code>&amp;&amp; echo SAME</code>이 실행됩니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a>grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'"\$value": "{'</span><span class="w"> </span>tokens/tokens.json
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a>8
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>숫자 <code>8</code>은 <code>{...}</code> 참조를 가진 의미 기반 토큰 수입니다.</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>SAME</code>이 두 번 나오고, 참조 수가 의미 기반 토큰 수(8)와 같습니다.</p>
+</li>
+<li><strong>확인 방법</strong>: <code>SAME</code>이 나오지 않고 <code>diff</code> 결과가 출력되면 그 파일이 이전 시점의 복사본입니다. 최신 <code>build/css/variables.css</code>를 해당 위치에 다시 복사합니다.</li>
+</ol>
+<h3 id="3-2-컴포넌트-라이브러리-패키지">3-2. 컴포넌트 라이브러리 패키지<a class="headerlink" href="#3-2-컴포넌트-라이브러리-패키지" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: 공개 export, 패키지 파일 목록, 토큰 참조 누락을 확인합니다. <code>design-system-practice</code> 폴더에서 시작합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1"></a>grep<span class="w"> </span><span class="s1">'^export {'</span><span class="w"> </span>my-ui/src/index.ts
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a>export { Button } from './components/Button';
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a>export { Input } from './components/Input';
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nb">cd</span><span class="w"> </span>my-ui
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a>npm<span class="w"> </span>pack<span class="w"> </span>--dry-run<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'variables.css|my-ui.(js|css)|index.d.ts'</span>
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span>
+<span class="normal"><a href="#__codelineno-29-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1"></a>npm notice 80B dist/components/Button/index.d.ts
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2"></a>npm notice 76B dist/components/Input/index.d.ts
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3"></a>npm notice 200B dist/index.d.ts
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4"></a>npm notice 689B dist/my-ui.css
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5"></a>npm notice 583B dist/my-ui.js
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6"></a>npm notice 802B dist/variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>파일 크기는 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1"></a>grep<span class="w"> </span>-oh<span class="w"> </span><span class="s1">'var(--[a-z0-9-]*'</span><span class="w"> </span>my-ui/src/components/*/*.css<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s/var(//'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>&gt;<span class="w"> </span>used.txt
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1"></a>grep<span class="w"> </span>-oh<span class="w"> </span><span class="s1">'^  --[a-z0-9-]*'</span><span class="w"> </span>my-ui/src/tokens/variables.css<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">' '</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-u<span class="w"> </span>&gt;<span class="w"> </span>defined.txt
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1"></a>comm<span class="w"> </span>-23<span class="w"> </span>used.txt<span class="w"> </span>defined.txt
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 공개 export가 Button, Input 두 개이고 패키지 목록에 JS, 타입 선언, 컴포넌트 CSS, 토큰 CSS(<code>variables.css</code>)가 모두 있습니다. <code>comm -23</code>이 아무것도 출력하지 않습니다.</p>
+</li>
+<li><strong>확인 방법</strong>: <code>comm -23</code>에 <code>--</code>로 시작하는 줄이 출력되면 컴포넌트 CSS가 참조하는데 발행된 토큰 파일에 없는 토큰입니다. 이름의 철자를 <a href="../design-tokens/">토큰 실습</a>의 변환 결과와 대조합니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>체크리스트 항목</th>
+<th>위 실행에서 확인한 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공개할 컴포넌트가 <code>src/index.ts</code>에서 export된다</td>
+<td><code>grep '^export {'</code> 결과 2개</td>
+</tr>
+<tr>
+<td><code>dist</code>에 JS, 타입 선언, CSS가 있다</td>
+<td><code>npm pack --dry-run</code>의 <code>index.d.ts</code>, <code>my-ui.js</code>, <code>my-ui.css</code></td>
+</tr>
+<tr>
+<td>토큰 CSS가 별도 파일로 <code>dist</code>에 포함된다</td>
+<td><code>dist/variables.css</code> 항목</td>
+</tr>
+<tr>
+<td>컴포넌트가 참조하는 토큰이 모두 발행됨</td>
+<td><code>comm -23</code> 출력 없음</td>
+</tr>
+<tr>
+<td><code>peerDependencies</code>와 React 미포함</td>
+<td><a href="../component-library/#5-2-빌드-실행">5-2의 확인</a>(<code>head -n 1 dist/my-ui.js</code>)을 <code>my-ui</code>에서 다시 실행</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-다른-프로젝트에서-설치">3-3. 다른 프로젝트에서 설치<a class="headerlink" href="#3-3-다른-프로젝트에서-설치" title="Permanent link">¶</a></h3>
+<p>체크리스트의 "다른 프로젝트에 설치해 import와 스타일 적용이 된다" 항목입니다. 이번에는 <code>handoff</code>의 패키지 파일로 설치합니다. 개념 문서는 이 항목이 전체 패키지로는 검증되지 않았다고 적었으므로, Button, Input 둘을 모두 쓰는 <code>consumer/main.tsx</code>로 확인합니다.</p>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>consumer</code> 폴더에서 기존 설치를 지우고 <code>handoff</code>의 파일로 다시 설치한 뒤 타입 검사와 빌드를 실행합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="nb">cd</span><span class="w"> </span>consumer
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>dist<span class="w"> </span>node_modules/my-ui
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1"></a>npm<span class="w"> </span>install<span class="w"> </span>../handoff/my-ui-0.1.0.tgz
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<span class="normal"><a href="#__codelineno-37-2">2</a></span>
+<span class="normal"><a href="#__codelineno-37-3">3</a></span>
+<span class="normal"><a href="#__codelineno-37-4">4</a></span>
+<span class="normal"><a href="#__codelineno-37-5">5</a></span>
+<span class="normal"><a href="#__codelineno-37-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1"></a>added 2 packages, and audited 24 packages in 348ms
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3"></a>8 packages are looking for funding
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4"></a>  run `npm fund` for details
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5"></a>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6"></a>found 0 vulnerabilities
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>패키지 수, 소요 시간은 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1"></a>npx<span class="w"> </span>tsc
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1"></a>npx<span class="w"> </span>vite<span class="w"> </span>build
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-40-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-40-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-40-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-40-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-40-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-40-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-40-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-40-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-40-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1"></a>vite v8.3.8 building client environment for production...
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2"></a>transforming...
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3"></a>✓ 18 modules transformed.
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4"></a>rendering chunks...
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5"></a>computing gzip size...
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6"></a>dist/index.html                   0.16 kB │ gzip:  0.14 kB
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7"></a>dist/assets/index-BqvNoPlE.css    1.32 kB │ gzip:  0.44 kB
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8"></a>dist/assets/index-C1J7w1Ij.js   219.94 kB │ gzip: 68.79 kB
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9"></a>
+</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10"></a>✓ built in 312ms
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>해시와 크기, 소요 시간은 환경에 따라 다를 수 있습니다.</p>
+</li>
+<li>
+<p><strong>기대 결과</strong>: 타입 검사와 빌드가 오류 없이 끝나고, 설치된 패키지 폴더에 <code>README.md</code>와 <code>CHANGELOG.md</code>가 있습니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 아래 명령으로 패키지 내용을 확인합니다. 빌드된 CSS에 토큰 값이 들어 있으면 스타일 적용도 된 것입니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1"></a>ls<span class="w"> </span>node_modules/my-ui
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
+<span class="normal"><a href="#__codelineno-42-2">2</a></span>
+<span class="normal"><a href="#__codelineno-42-3">3</a></span>
+<span class="normal"><a href="#__codelineno-42-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1"></a>CHANGELOG.md
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2"></a>README.md
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3"></a>dist
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4"></a>package.json
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1"></a>grep<span class="w"> </span>-o<span class="w"> </span><span class="s1">'#3b82f6'</span><span class="w"> </span>dist/assets/*.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-44-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1"></a>#3b82f6
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+</ol>
+<h3 id="3-4-사용-가이드와-일관성">3-4. 사용 가이드와 일관성<a class="headerlink" href="#3-4-사용-가이드와-일관성" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>체크리스트 항목</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>설치 방법이 현재 패키지 이름·버전과 일치한다</td>
+<td><code>README.md</code>의 <code>npm install my-ui</code>가 <code>my-ui/package.json</code>의 <code>name</code>과 같은지 봅니다.</td>
+</tr>
+<tr>
+<td>토큰 CSS를 먼저 불러와야 한다는 안내가 있다</td>
+<td><code>README.md</code>의 "시작하기"에 순서 설명이 있는지 봅니다.</td>
+</tr>
+<tr>
+<td>컴포넌트 목록이 공개 목록과 일치한다</td>
+<td>3-2의 공개 export 2개와 <code>README.md</code>의 목록 두 행을 대조합니다.</td>
+</tr>
+<tr>
+<td>Figma variant마다 대응하는 story가 카탈로그에 있다</td>
+<td><code>grep -n '^export const' my-ui/src/components/*/*.stories.tsx</code>에서 <code>Primary</code>, <code>Default</code>, <code>Invalid</code>가 나오는지 봅니다.</td>
+</tr>
+<tr>
+<td>토큰 이름이 같은 규칙으로 이어진다</td>
+<td><a href="../figma-organize/">Figma 정리 실습</a>의 변수 이름, <code>tokens.json</code>, <code>variables.css</code>의 이름이 <code>.</code>과 <code>-</code>만 다른지 봅니다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>모든 항목을 통과하면 <a href="../../handoff/#정리-확인">개념 문서의 정리 확인</a> 중 산출물 존재, 체크리스트 확인이 끝난 것입니다. 버전·변경 이력 반영은 4단계에서 확인합니다.</li>
+</ul>
+<hr>
+<h2 id="4-토큰-값-변경과-변경-이력-갱신">4. 토큰 값 변경과 변경 이력 갱신<a class="headerlink" href="#4-토큰-값-변경과-변경-이력-갱신" title="Permanent link">¶</a></h2>
+<p>전달 뒤 Figma에서 값 하나가 바뀐 상황을 가정합니다. 개념 문서의 <a href="../../handoff/#변경이-생겼을-때의-되돌아가기">되돌아가기 표</a>에서 "토큰 값 변경"은 토큰 추출·발행 → 전달 산출물 정리 순서로 다시 진행합니다. 컴포넌트 코드는 바뀌지 않습니다.</p>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>되돌아간 단계</th>
+<th>이 실습에서 하는 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Figma에서 값 변경</td>
+<td><code>color.blue.500</code>을 <code>#3b82f6</code>에서 <code>#2563eb</code>로 바꿈</td>
+</tr>
+<tr>
+<td>2</td>
+<td>토큰 추출·발행</td>
+<td>토큰 JSON 수정, 변환 실행</td>
+</tr>
+<tr>
+<td>3</td>
+<td>전달 산출물 정리</td>
+<td>복사, 버전, <code>CHANGELOG.md</code>, 패키지 다시 만들기, 체크리스트 재확인</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-토큰-값-바꾸고-다시-변환">4-1. 토큰 값 바꾸고 다시 변환<a class="headerlink" href="#4-1-토큰-값-바꾸고-다시-변환" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>design-system-practice</code> 폴더로 돌아와 진행합니다(3-3에서 <code>consumer</code>에 있었다면 아래의 첫 명령을 실행합니다). 실제로는 Figma에서 값을 바꾸고 <a href="../design-tokens/#2-1-토큰-내보내기">토큰 내보내기</a>를 다시 합니다. 이 실습에서는 같은 결과가 되도록 <code>tokens/tokens.json</code>의 <code>color.blue.500</code> 값을 직접 고칩니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="s1">'s/#3b82f6/#2563eb/'</span><span class="w"> </span>tokens/tokens.json
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다). <code>sed -i ''</code>는 macOS 기준입니다. Linux에서는 <code>sed -i</code>로 씁니다. 에디터로 직접 고쳐도 됩니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1"></a>node<span class="w"> </span>build-tokens.js
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
+<span class="normal"><a href="#__codelineno-48-2">2</a></span>
+<span class="normal"><a href="#__codelineno-48-3">3</a></span>
+<span class="normal"><a href="#__codelineno-48-4">4</a></span>
+<span class="normal"><a href="#__codelineno-48-5">5</a></span>
+<span class="normal"><a href="#__codelineno-48-6">6</a></span>
+<span class="normal"><a href="#__codelineno-48-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1"></a>css
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2"></a>- build/css/variables.css
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3"></a>- build/css
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4"></a>- build
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5"></a>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6"></a>css
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7"></a>✔︎ build/css/variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1"></a>diff<span class="w"> </span>handoff/tokens/variables.css<span class="w"> </span>build/css/variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
+<span class="normal"><a href="#__codelineno-50-2">2</a></span>
+<span class="normal"><a href="#__codelineno-50-3">3</a></span>
+<span class="normal"><a href="#__codelineno-50-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1"></a>7c7
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2"></a>&lt;   --color-blue-500: #3b82f6;
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3"></a>---
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4"></a>&gt;   --color-blue-500: #2563eb;
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>diff</code>가 <code>--color-blue-500</code> 한 줄의 변경만 보여 줍니다.</p>
+</li>
+<li><strong>확인 방법</strong>: 의미 기반 토큰(<code>--color-bg-primary-default</code> 등)은 <code>var(--color-blue-500)</code> 참조라서 <code>variables.css</code>에서 줄이 바뀌지 않아야 합니다. 값 하나만 바꿨는데 <code>diff</code>가 여러 줄이면 JSON의 다른 값이 함께 바뀐 것입니다.</li>
+</ol>
+<h3 id="4-2-복사본-갱신과-버전변경-이력">4-2. 복사본 갱신과 버전·변경 이력<a class="headerlink" href="#4-2-복사본-갱신과-버전변경-이력" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: 새 CSS를 <code>my-ui</code>와 <code>handoff</code>에 복사하고 버전을 올립니다. 토큰 값만 바뀌었으므로 개념 문서의 <a href="../../handoff/#버전과-변경-이력-표기">버전 표</a>에 따라 PATCH(<code>0.1.0</code> → <code>0.1.1</code>)로 올립니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1"></a>cp<span class="w"> </span>build/css/variables.css<span class="w"> </span>my-ui/src/tokens/variables.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-52-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1"></a>cp<span class="w"> </span>tokens/tokens.json<span class="w"> </span>handoff/tokens/
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1"></a>cp<span class="w"> </span>build/css/variables.css<span class="w"> </span>handoff/tokens/
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="nb">cd</span><span class="w"> </span>my-ui
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1"></a>npm<span class="w"> </span>version<span class="w"> </span>patch<span class="w"> </span>--no-git-tag-version
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1"></a>v0.1.1
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>이어서 <code>my-ui/CHANGELOG.md</code> 맨 위에 새 버전을 추가합니다. 토큰 변경과 컴포넌트 변경을 구분해 적고, 영향을 받는 토큰도 함께 적습니다.</p>
+<div class="language-md highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">my-ui/CHANGELOG.md</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-57-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-57-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-57-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-57-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-57-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-57-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-57-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-57-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-57-10">10</a></span>
+<span class="normal"><a href="#__codelineno-57-11">11</a></span>
+<span class="normal"><a href="#__codelineno-57-12">12</a></span>
+<span class="normal"><a href="#__codelineno-57-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="gh"># Changelog</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2"></a>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="gu">## 0.1.1 - 2026-11-22</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4"></a><span class="gu">### 토큰</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5"></a><span class="k">-</span><span class="w"> </span>변경: <span class="sb">`color.blue.500`</span> <span class="sb">`#3b82f6`</span> → <span class="sb">`#2563eb`</span> (이 값을 참조하는 <span class="sb">`color.bg.primary.default`</span>, <span class="sb">`color.border.input.focus`</span>도 함께 바뀜)
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6"></a><span class="gu">### 컴포넌트</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7"></a><span class="k">-</span><span class="w"> </span>변경 없음
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8"></a>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9"></a><span class="gu">## 0.1.0 - 2026-11-22</span>
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10"></a><span class="gu">### 토큰</span>
+</span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11"></a><span class="k">-</span><span class="w"> </span>추가: 색상·간격·반경 토큰 20개
+</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12"></a><span class="gu">### 컴포넌트</span>
+</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13"></a><span class="k">-</span><span class="w"> </span>추가: Button, Input
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>package.json</code>의 <code>version</code>이 <code>0.1.1</code>이고 <code>CHANGELOG.md</code> 맨 위가 <code>0.1.1</code>입니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: 아래 명령을 실행해 <code>"0.1.1"</code>이 나오는지 확인합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-58-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1"></a>npm<span class="w"> </span>pkg<span class="w"> </span>get<span class="w"> </span>version
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-59-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1"></a>"0.1.1"
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">토큰 값만 바뀌어도 MINOR로 올릴 수 있습니다</p>
+<p>개념 문서의 표는 토큰 값만 바뀐 경우를 "PATCH 또는 MINOR"로 두었습니다. 사용 측 화면의 색이 눈에 띄게 바뀌므로 팀이 MINOR로 알리기로 정하면 <code>npm version minor</code>를 씁니다. 이 실습은 PATCH를 택했습니다.</p>
+</div>
+<h3 id="4-3-패키지-다시-만들고-전달-확인">4-3. 패키지 다시 만들고 전달 확인<a class="headerlink" href="#4-3-패키지-다시-만들고-전달-확인" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>작업</strong>: <code>my-ui</code> 폴더에서 빌드하고 패키지를 만든 뒤, <code>consumer</code>에서 새 파일로 설치해 빌드합니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-60-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-61-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-61-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-61-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-61-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-61-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-61-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-61-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-61-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-61-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-61-10">10</a></span>
+<span class="normal"><a href="#__codelineno-61-11">11</a></span>
+<span class="normal"><a href="#__codelineno-61-12">12</a></span>
+<span class="normal"><a href="#__codelineno-61-13">13</a></span>
+<span class="normal"><a href="#__codelineno-61-14">14</a></span>
+<span class="normal"><a href="#__codelineno-61-15">15</a></span>
+<span class="normal"><a href="#__codelineno-61-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1"></a>&gt; my-ui@0.1.1 build
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2"></a>&gt; tsc --noEmit &amp;&amp; vite build &amp;&amp; cp src/tokens/variables.css dist/variables.css
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3"></a>
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4"></a>vite v8.3.8 building client environment for production...
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5"></a>transforming...
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6"></a>✓ 8 modules transformed.
+</span><span id="__span-61-7"><a id="__codelineno-61-7" name="__codelineno-61-7"></a>rendering chunks...
+</span><span id="__span-61-8"><a id="__codelineno-61-8" name="__codelineno-61-8"></a>
+</span><span id="__span-61-9"><a id="__codelineno-61-9" name="__codelineno-61-9"></a>[unplugin:dts] Start generate declaration files...
+</span><span id="__span-61-10"><a id="__codelineno-61-10" name="__codelineno-61-10"></a>[unplugin:dts] Declaration files built in 584ms.
+</span><span id="__span-61-11"><a id="__codelineno-61-11" name="__codelineno-61-11"></a>
+</span><span id="__span-61-12"><a id="__codelineno-61-12" name="__codelineno-61-12"></a>computing gzip size...
+</span><span id="__span-61-13"><a id="__codelineno-61-13" name="__codelineno-61-13"></a>dist/my-ui.css  0.68 kB │ gzip: 0.29 kB
+</span><span id="__span-61-14"><a id="__codelineno-61-14" name="__codelineno-61-14"></a>dist/my-ui.js   0.58 kB │ gzip: 0.32 kB
+</span><span id="__span-61-15"><a id="__codelineno-61-15" name="__codelineno-61-15"></a>
+</span><span id="__span-61-16"><a id="__codelineno-61-16" name="__codelineno-61-16"></a>✓ built in 596ms
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>소요 시간은 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-62-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1"></a>npm<span class="w"> </span>pack<span class="w"> </span>--pack-destination<span class="w"> </span>../handoff
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-63-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-63-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-63-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-63-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-63-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-63-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-63-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-63-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-63-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-63-10">10</a></span>
+<span class="normal"><a href="#__codelineno-63-11">11</a></span>
+<span class="normal"><a href="#__codelineno-63-12">12</a></span>
+<span class="normal"><a href="#__codelineno-63-13">13</a></span>
+<span class="normal"><a href="#__codelineno-63-14">14</a></span>
+<span class="normal"><a href="#__codelineno-63-15">15</a></span>
+<span class="normal"><a href="#__codelineno-63-16">16</a></span>
+<span class="normal"><a href="#__codelineno-63-17">17</a></span>
+<span class="normal"><a href="#__codelineno-63-18">18</a></span>
+<span class="normal"><a href="#__codelineno-63-19">19</a></span>
+<span class="normal"><a href="#__codelineno-63-20">20</a></span>
+<span class="normal"><a href="#__codelineno-63-21">21</a></span>
+<span class="normal"><a href="#__codelineno-63-22">22</a></span>
+<span class="normal"><a href="#__codelineno-63-23">23</a></span>
+<span class="normal"><a href="#__codelineno-63-24">24</a></span>
+<span class="normal"><a href="#__codelineno-63-25">25</a></span>
+<span class="normal"><a href="#__codelineno-63-26">26</a></span>
+<span class="normal"><a href="#__codelineno-63-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1"></a>npm notice
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2"></a>npm notice 📦  my-ui@0.1.1
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3"></a>npm notice Tarball Contents
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4"></a>npm notice 349B CHANGELOG.md
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5"></a>npm notice 1.4kB README.md
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6"></a>npm notice 300B dist/components/Button/Button.d.ts
+</span><span id="__span-63-7"><a id="__codelineno-63-7" name="__codelineno-63-7"></a>npm notice 298B dist/components/Button/Button.stories.d.ts
+</span><span id="__span-63-8"><a id="__codelineno-63-8" name="__codelineno-63-8"></a>npm notice 80B dist/components/Button/index.d.ts
+</span><span id="__span-63-9"><a id="__codelineno-63-9" name="__codelineno-63-9"></a>npm notice 76B dist/components/Input/index.d.ts
+</span><span id="__span-63-10"><a id="__codelineno-63-10" name="__codelineno-63-10"></a>npm notice 276B dist/components/Input/Input.d.ts
+</span><span id="__span-63-11"><a id="__codelineno-63-11" name="__codelineno-63-11"></a>npm notice 335B dist/components/Input/Input.stories.d.ts
+</span><span id="__span-63-12"><a id="__codelineno-63-12" name="__codelineno-63-12"></a>npm notice 200B dist/index.d.ts
+</span><span id="__span-63-13"><a id="__codelineno-63-13" name="__codelineno-63-13"></a>npm notice 689B dist/my-ui.css
+</span><span id="__span-63-14"><a id="__codelineno-63-14" name="__codelineno-63-14"></a>npm notice 583B dist/my-ui.js
+</span><span id="__span-63-15"><a id="__codelineno-63-15" name="__codelineno-63-15"></a>npm notice 802B dist/variables.css
+</span><span id="__span-63-16"><a id="__codelineno-63-16" name="__codelineno-63-16"></a>npm notice 1.2kB package.json
+</span><span id="__span-63-17"><a id="__codelineno-63-17" name="__codelineno-63-17"></a>npm notice Tarball Details
+</span><span id="__span-63-18"><a id="__codelineno-63-18" name="__codelineno-63-18"></a>npm notice name: my-ui
+</span><span id="__span-63-19"><a id="__codelineno-63-19" name="__codelineno-63-19"></a>npm notice version: 0.1.1
+</span><span id="__span-63-20"><a id="__codelineno-63-20" name="__codelineno-63-20"></a>npm notice filename: my-ui-0.1.1.tgz
+</span><span id="__span-63-21"><a id="__codelineno-63-21" name="__codelineno-63-21"></a>npm notice package size: 3.1 kB
+</span><span id="__span-63-22"><a id="__codelineno-63-22" name="__codelineno-63-22"></a>npm notice unpacked size: 6.5 kB
+</span><span id="__span-63-23"><a id="__codelineno-63-23" name="__codelineno-63-23"></a>npm notice shasum: d465a585e70adfaef3eb2d31e97a204d1dc3641a
+</span><span id="__span-63-24"><a id="__codelineno-63-24" name="__codelineno-63-24"></a>npm notice integrity: sha512-r5qBCucOIZK+6[...]m4Q/wArkIAhHQ==
+</span><span id="__span-63-25"><a id="__codelineno-63-25" name="__codelineno-63-25"></a>npm notice total files: 13
+</span><span id="__span-63-26"><a id="__codelineno-63-26" name="__codelineno-63-26"></a>npm notice
+</span><span id="__span-63-27"><a id="__codelineno-63-27" name="__codelineno-63-27"></a>my-ui-0.1.1.tgz
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>파일 크기와 해시는 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/my-ui</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="nb">cd</span><span class="w"> </span>../consumer
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1"></a>npm<span class="w"> </span>install<span class="w"> </span>../handoff/my-ui-0.1.1.tgz
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span>
+<span class="normal"><a href="#__codelineno-66-2">2</a></span>
+<span class="normal"><a href="#__codelineno-66-3">3</a></span>
+<span class="normal"><a href="#__codelineno-66-4">4</a></span>
+<span class="normal"><a href="#__codelineno-66-5">5</a></span>
+<span class="normal"><a href="#__codelineno-66-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1"></a>changed 1 package, and audited 24 packages in 339ms
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2"></a>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3"></a>8 packages are looking for funding
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4"></a>  run `npm fund` for details
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5"></a>
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6"></a>found 0 vulnerabilities
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>패키지 수, 소요 시간은 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1"></a>npx<span class="w"> </span>tsc
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong>: 없음(출력이 없으면 정상입니다).</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-68-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1"></a>npx<span class="w"> </span>vite<span class="w"> </span>build
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-69-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-69-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-69-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-69-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-69-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-69-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-69-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-69-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-69-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-69-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1"></a>vite v8.3.8 building client environment for production...
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2"></a>transforming...
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3"></a>✓ 18 modules transformed.
+</span><span id="__span-69-4"><a id="__codelineno-69-4" name="__codelineno-69-4"></a>rendering chunks...
+</span><span id="__span-69-5"><a id="__codelineno-69-5" name="__codelineno-69-5"></a>computing gzip size...
+</span><span id="__span-69-6"><a id="__codelineno-69-6" name="__codelineno-69-6"></a>dist/index.html                   0.16 kB │ gzip:  0.14 kB
+</span><span id="__span-69-7"><a id="__codelineno-69-7" name="__codelineno-69-7"></a>dist/assets/index-DVtxTKe-.css    1.32 kB │ gzip:  0.44 kB
+</span><span id="__span-69-8"><a id="__codelineno-69-8" name="__codelineno-69-8"></a>dist/assets/index-ThEPx-rt.js   219.94 kB │ gzip: 68.79 kB
+</span><span id="__span-69-9"><a id="__codelineno-69-9" name="__codelineno-69-9"></a>
+</span><span id="__span-69-10"><a id="__codelineno-69-10" name="__codelineno-69-10"></a>✓ built in 52ms
+</span></code></pre></div></td></tr></tbody></table></div>
+<p>해시와 크기, 소요 시간은 환경에 따라 다를 수 있습니다.</p>
+<p><strong>실행 위치</strong>: <code>design-system-practice/consumer</code></p>
+<p><strong>명령어</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-70-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1"></a>grep<span class="w"> </span>-o<span class="w"> </span><span class="s1">'#2563eb\|#3b82f6'</span><span class="w"> </span>dist/assets/*.css
+</span></code></pre></div></td></tr></tbody></table></div>
+<p><strong>출력 결과</strong></p>
+<div class="language-text highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-71-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1"></a>#2563eb
+</span></code></pre></div></td></tr></tbody></table></div>
+</li>
+<li>
+<p><strong>기대 결과</strong>: <code>handoff</code>에 <code>my-ui-0.1.0.tgz</code>, <code>my-ui-0.1.1.tgz</code>와 <code>tokens</code> 폴더가 있고, <code>consumer</code>의 빌드 결과에 새 값만 있습니다.</p>
+</li>
+<li>
+<p><strong>확인 방법</strong>: <code>#3b82f6</code>이 함께 출력되면 <code>consumer</code>가 이전 패키지를 계속 쓰는 것입니다. <code>consumer/package.json</code>의 <code>my-ui</code> 항목이 <code>file:../handoff/my-ui-0.1.1.tgz</code>인지 확인하고 <code>npm install</code>을 다시 실행합니다.</p>
+</li>
+<li>
+<p>이전 버전 파일(<code>my-ui-0.1.0.tgz</code>)은 롤백 용도로 남겨 두거나 정리합니다. 어느 쪽이든 전달 시점에는 최신 버전만 넘기는 것을 권장합니다.</p>
+</li>
+<li>3단계의 체크리스트를 새 버전에 대해 다시 실행합니다. 특히 3-1의 <code>SAME</code> 확인이 이 변경의 핵심입니다.</li>
+</ol>
+<hr>
+<h2 id="막혔을-때">막혔을 때<a class="headerlink" href="#막혔을-때" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>증상</th>
+<th>확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm pack --pack-destination</code>에서 <code>handoff</code> 폴더가 없다는 오류</td>
+<td>1-1의 <code>mkdir -p handoff/tokens</code>를 실행했는지 확인합니다.</td>
+</tr>
+<tr>
+<td>패키지에 <code>README.md</code>나 <code>CHANGELOG.md</code>가 없음</td>
+<td><code>my-ui/package.json</code>의 <code>files</code>에 두 파일이 있는지 확인하고 <code>npm pack</code>을 다시 실행합니다.</td>
+</tr>
+<tr>
+<td><code>dist/variables.css</code>가 패키지 목록에 없음</td>
+<td><code>npm run build</code>를 하지 않고 <code>npm pack</code>을 실행한 것입니다. <code>npm run build</code>의 <code>cp</code>가 이 파일을 <code>dist</code>로 복사합니다.</td>
+</tr>
+<tr>
+<td><code>consumer</code>가 새 값을 못 받음</td>
+<td><code>consumer/package.json</code>의 <code>my-ui</code> 경로가 새 <code>.tgz</code>인지 확인하고 <code>rm -rf node_modules/my-ui</code> 뒤 다시 설치합니다.</td>
+</tr>
+<tr>
+<td><code>comm -23</code>에 토큰 이름이 출력됨</td>
+<td>컴포넌트 CSS가 참조하는데 <code>variables.css</code>에 없는 토큰입니다. 토큰 실습의 변환 결과와 이름을 대조합니다.</td>
+</tr>
+<tr>
+<td>3-1에서 <code>diff</code>가 출력됨</td>
+<td><code>my-ui/src/tokens/variables.css</code> 또는 <code>handoff/tokens/variables.css</code>가 오래된 복사본입니다. 최신 <code>build/css/variables.css</code>를 복사합니다.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="실습-완료-확인">실습 완료 확인<a class="headerlink" href="#실습-완료-확인" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <code>handoff</code> 폴더에 <code>tokens/tokens.json</code>, <code>tokens/variables.css</code>, <code>my-ui-0.1.1.tgz</code>가 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <code>my-ui/README.md</code>에 설치, 시작하기, props 규칙, 테마 조정, 컴포넌트 목록이 있고 토큰 CSS를 먼저 불러오라는 안내가 있다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 3단계의 체크리스트 명령이 모두 기대 결과와 같다(<code>SAME</code>, 공개 export 2개, <code>comm -23</code> 출력 없음).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <code>consumer</code>에서 <code>handoff</code>의 패키지로 설치해 타입 검사와 빌드가 된다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 토큰 값 하나를 바꿔 <code>package.json</code>의 <code>version</code>이 <code>0.1.1</code>이 되고 <code>CHANGELOG.md</code>에 토큰 변경이 기록되었다.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> 새 패키지로 빌드한 <code>consumer</code> CSS에 <code>#2563eb</code>만 있고 <code>#3b82f6</code>은 없다.</li>
+</ul>
+<p>이 실습으로 개념 문서의 <a href="../../handoff/#정리-확인">정리 확인</a>에 나온 전체 흐름(개발환경 → Figma 정리 → 토큰 → 컴포넌트 → 전달)을 한 번 따라 해 본 것입니다.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/lightbox-zoom.js"></script>
+      
+        <script src="../../../javascripts/scroll-buttons.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
