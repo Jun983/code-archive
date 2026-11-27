@@ -13,7 +13,7 @@ hide:
 |---|---|
 | 입력 | [토큰 실습](design-tokens.md)의 `tokens/tokens.json`, `build/css/variables.css`와 [컴포넌트 라이브러리 실습](component-library.md)의 `my-ui` 프로젝트 |
 | 산출물 | `handoff` 폴더(토큰 파일, 패키지 `.tgz`), `my-ui/README.md`(사용 가이드), `my-ui/CHANGELOG.md`, 갱신된 버전 `0.1.1` |
-| 마지막 실습 | 이 실습이 실습편의 마지막 단계입니다. |
+| 다음 단계 | 없음. 이 실습이 실습편의 마지막 단계입니다. |
 
 실제 전달 대상(백엔드)이 선호하는 전달 형식은 확인하지 못했으므로 이 실습은 `.tgz` 패키지 파일과 토큰 파일 묶음을 전달하는 것으로 가정하며, 형식이 정해지면 `handoff` 폴더 구성만 바꿉니다.
 
@@ -54,18 +54,53 @@ hide:
 
 1. **작업**: `design-system-practice` 폴더에서 터미널을 열고 아래 명령을 실행합니다. 토큰 파일은 원본(JSON)과 변환 결과(CSS)를 함께 복사합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
     mkdir -p handoff/tokens
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
     cp tokens/tokens.json handoff/tokens/
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
     cp build/css/variables.css handoff/tokens/
     ```
 
     **출력 결과**: 없음(출력이 없으면 정상입니다).
 
 2. **기대 결과**: `handoff/tokens`에 `tokens.json`, `variables.css`가 있습니다.
-3. **확인 방법**: `ls handoff/tokens`를 실행해 두 파일이 보이는지 확인합니다.
+3. **확인 방법**: 아래 명령을 실행해 두 파일이 보이는지 확인합니다.
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    ls handoff/tokens
+    ```
+
+    **출력 결과**
+
+    ```text
+    tokens.json
+    variables.css
+    ```
 
 ### 1-2. 전달 묶음 구성
 
@@ -181,53 +216,152 @@ design-system-practice/
     - 추가: Button, Input
     ```
 
-2. `README.md`와 `CHANGELOG.md`가 패키지에 들어가도록 `files`를 고칩니다.
+    이어서 `README.md`와 `CHANGELOG.md`가 패키지에 들어가도록 `files`를 고칩니다.
+
+    **실행 위치**: `design-system-practice`
 
     **명령어**
 
     ```bash
     cd my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set --json files='["dist","README.md","CHANGELOG.md"]'
     ```
 
     **출력 결과**: 없음(출력이 없으면 정상입니다).
 
-3. **기대 결과**: `package.json`의 `files`가 `["dist", "README.md", "CHANGELOG.md"]`입니다.
-4. **확인 방법**: 3단계의 패키지 파일 목록에서 두 파일이 보이는지 확인합니다.
+2. **기대 결과**: `package.json`의 `files`가 `["dist", "README.md", "CHANGELOG.md"]`입니다.
+3. **확인 방법**: 3단계의 패키지 파일 목록에서 두 파일이 보이는지 확인합니다.
 
 ### 2-3. 패키지 만들어 handoff에 넣기
 
 1. **작업**: `my-ui` 폴더에서 빌드하고 패키지 파일을 `handoff` 폴더에 만듭니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
     npm run build
+    ```
+
+    **출력 결과**
+
+    ```text
+    > my-ui@0.1.0 build
+    > tsc --noEmit && vite build && cp src/tokens/variables.css dist/variables.css
+
+    vite v8.3.8 building client environment for production...
+    transforming...
+    ✓ 8 modules transformed.
+    rendering chunks...
+
+    [unplugin:dts] Start generate declaration files...
+    [unplugin:dts] Declaration files built in 584ms.
+
+    computing gzip size...
+    dist/my-ui.css  0.68 kB │ gzip: 0.29 kB
+    dist/my-ui.js   0.58 kB │ gzip: 0.32 kB
+
+    ✓ built in 596ms
+    ```
+
+    [5-2](component-library.md#5-2-빌드-실행)와 같은 형태입니다. 소요 시간은 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pack --pack-destination ../handoff
     ```
 
-    **출력 결과**: `npm run build`는 [5-2](component-library.md#5-2-빌드-실행)와 같은 출력으로 끝나고, `npm pack`은 포함 파일 목록 끝에 `total files: 13`과 `my-ui-0.1.0.tgz`를 출력합니다. 파일 크기와 해시는 환경에 따라 다를 수 있습니다.
+    **출력 결과**
+
+    ```text
+    npm notice
+    npm notice 📦  my-ui@0.1.0
+    npm notice Tarball Contents
+    npm notice 133B CHANGELOG.md
+    npm notice 1.4kB README.md
+    npm notice 300B dist/components/Button/Button.d.ts
+    npm notice 298B dist/components/Button/Button.stories.d.ts
+    npm notice 80B dist/components/Button/index.d.ts
+    npm notice 76B dist/components/Input/index.d.ts
+    npm notice 276B dist/components/Input/Input.d.ts
+    npm notice 335B dist/components/Input/Input.stories.d.ts
+    npm notice 200B dist/index.d.ts
+    npm notice 689B dist/my-ui.css
+    npm notice 583B dist/my-ui.js
+    npm notice 802B dist/variables.css
+    npm notice 1.2kB package.json
+    npm notice Tarball Details
+    npm notice name: my-ui
+    npm notice version: 0.1.0
+    npm notice filename: my-ui-0.1.0.tgz
+    npm notice package size: 3.0 kB
+    npm notice unpacked size: 6.3 kB
+    npm notice shasum: de9e9a1c996b3dd063d0b53dd5c1ee77990aa814
+    npm notice integrity: sha512-SxEgszcaetQPW[...]jon3yuatoQrHg==
+    npm notice total files: 13
+    npm notice
+    my-ui-0.1.0.tgz
+    ```
+
+    파일 크기와 해시는 환경에 따라 다를 수 있습니다.
 
 2. **기대 결과**: `handoff/my-ui-0.1.0.tgz`가 생깁니다.
-3. **확인 방법**: `ls handoff`에 `my-ui-0.1.0.tgz`와 `tokens`가 보이는지 확인합니다.
+3. **확인 방법**: 아래 명령을 순서대로 실행해 `my-ui-0.1.0.tgz`와 `tokens`가 보이는지 확인합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    cd ..
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    ls handoff
+    ```
+
+    **출력 결과**
+
+    ```text
+    my-ui-0.1.0.tgz
+    tokens
+    ```
 
 ---
 
 ## 3. 체크리스트 실행
 
-개념 문서의 [산출물 누락 확인](../handoff.md#산출물-누락-확인) 항목을 위에서 아래로 실행합니다. 2단계에서 `my-ui` 폴더에 있었다면 `cd ..`로 `design-system-practice` 폴더로 돌아와 시작합니다.
+개념 문서의 [산출물 누락 확인](../handoff.md#산출물-누락-확인) 항목을 위에서 아래로 실행합니다. `design-system-practice` 폴더에서 시작합니다.
 
 ### 3-1. 토큰 파일
 
 1. **작업**: 토큰 JSON을 다시 변환해 CSS 변수 파일이 현재 JSON의 결과인지, 의미 기반 토큰이 참조로 남아 있는지 확인합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
     node build-tokens.js
-    diff build/css/variables.css my-ui/src/tokens/variables.css && echo SAME
-    diff build/css/variables.css handoff/tokens/variables.css && echo SAME
-    grep -c '"\$value": "{' tokens/tokens.json
     ```
 
     **출력 결과**
@@ -240,28 +374,67 @@ design-system-practice/
 
     css
     ✔︎ build/css/variables.css
+    ```
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    diff build/css/variables.css my-ui/src/tokens/variables.css && echo SAME
+    ```
+
+    **출력 결과**
+
+    ```text
     SAME
+    ```
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    diff build/css/variables.css handoff/tokens/variables.css && echo SAME
+    ```
+
+    **출력 결과**
+
+    ```text
     SAME
+    ```
+
+    `diff`는 차이가 없으면 아무것도 출력하지 않아 `&& echo SAME`이 실행됩니다.
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    grep -c '"\$value": "{' tokens/tokens.json
+    ```
+
+    **출력 결과**
+
+    ```text
     8
     ```
 
-    `diff`는 차이가 없으면 아무것도 출력하지 않아 `&& echo SAME`이 실행됩니다. 마지막 숫자 `8`은 `{...}` 참조를 가진 의미 기반 토큰 수입니다.
+    숫자 `8`은 `{...}` 참조를 가진 의미 기반 토큰 수입니다.
 
 2. **기대 결과**: `SAME`이 두 번 나오고, 참조 수가 의미 기반 토큰 수(8)와 같습니다.
 3. **확인 방법**: `SAME`이 나오지 않고 `diff` 결과가 출력되면 그 파일이 이전 시점의 복사본입니다. 최신 `build/css/variables.css`를 해당 위치에 다시 복사합니다.
 
 ### 3-2. 컴포넌트 라이브러리 패키지
 
-1. **작업**: 공개 export, 패키지 파일 목록, 토큰 참조 누락을 확인합니다. 모두 `design-system-practice` 폴더에서 실행합니다.
+1. **작업**: 공개 export, 패키지 파일 목록, 토큰 참조 누락을 확인합니다. `design-system-practice` 폴더에서 시작합니다.
+
+    **실행 위치**: `design-system-practice`
 
     **명령어**
 
     ```bash
     grep '^export {' my-ui/src/index.ts
-    cd my-ui && npm pack --dry-run 2>&1 | grep -E 'variables.css|my-ui.(js|css)|index.d.ts'; cd ..
-    grep -oh 'var(--[a-z0-9-]*' my-ui/src/components/*/*.css | sed 's/var(//' | sort -u > used.txt
-    grep -oh '^  --[a-z0-9-]*' my-ui/src/tokens/variables.css | tr -d ' ' | sort -u > defined.txt
-    comm -23 used.txt defined.txt
     ```
 
     **출력 결과**
@@ -269,6 +442,29 @@ design-system-practice/
     ```text
     export { Button } from './components/Button';
     export { Input } from './components/Input';
+    ```
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    cd my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    npm pack --dry-run 2>&1 | grep -E 'variables.css|my-ui.(js|css)|index.d.ts'
+    ```
+
+    **출력 결과**
+
+    ```text
     npm notice 80B dist/components/Button/index.d.ts
     npm notice 76B dist/components/Input/index.d.ts
     npm notice 200B dist/index.d.ts
@@ -277,7 +473,47 @@ design-system-practice/
     npm notice 802B dist/variables.css
     ```
 
-    `comm -23`은 출력이 없으면 정상입니다. 파일 크기는 환경에 따라 다를 수 있습니다.
+    파일 크기는 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    cd ..
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    grep -oh 'var(--[a-z0-9-]*' my-ui/src/components/*/*.css | sed 's/var(//' | sort -u > used.txt
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    grep -oh '^  --[a-z0-9-]*' my-ui/src/tokens/variables.css | tr -d ' ' | sort -u > defined.txt
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    comm -23 used.txt defined.txt
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
 
 2. **기대 결과**: 공개 export가 Button, Input 두 개이고 패키지 목록에 JS, 타입 선언, 컴포넌트 CSS, 토큰 CSS(`variables.css`)가 모두 있습니다. `comm -23`이 아무것도 출력하지 않습니다.
 3. **확인 방법**: `comm -23`에 `--`로 시작하는 줄이 출력되면 컴포넌트 CSS가 참조하는데 발행된 토큰 파일에 없는 토큰입니다. 이름의 철자를 [토큰 실습](design-tokens.md)의 변환 결과와 대조합니다.
@@ -296,17 +532,66 @@ design-system-practice/
 
 1. **작업**: `consumer` 폴더에서 기존 설치를 지우고 `handoff`의 파일로 다시 설치한 뒤 타입 검사와 빌드를 실행합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
     cd consumer
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     rm -rf dist node_modules/my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npm install ../handoff/my-ui-0.1.0.tgz
+    ```
+
+    **출력 결과**
+
+    ```text
+    added 2 packages, and audited 24 packages in 348ms
+
+    8 packages are looking for funding
+      run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
+    패키지 수, 소요 시간은 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npx tsc
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npx vite build
     ```
 
-    **출력 결과**: `npm install`은 `found 0 vulnerabilities`로 끝나고, `npx tsc`는 출력이 없으면 정상입니다. `npx vite build`는 아래와 같이 끝납니다. 해시와 크기, 소요 시간은 환경에 따라 다를 수 있습니다.
+    **출력 결과**
 
     ```text
     vite v8.3.8 building client environment for production...
@@ -321,14 +606,17 @@ design-system-practice/
     ✓ built in 312ms
     ```
 
+    해시와 크기, 소요 시간은 환경에 따라 다를 수 있습니다.
+
 2. **기대 결과**: 타입 검사와 빌드가 오류 없이 끝나고, 설치된 패키지 폴더에 `README.md`와 `CHANGELOG.md`가 있습니다.
 3. **확인 방법**: 아래 명령으로 패키지 내용을 확인합니다. 빌드된 CSS에 토큰 값이 들어 있으면 스타일 적용도 된 것입니다.
+
+    **실행 위치**: `design-system-practice/consumer`
 
     **명령어**
 
     ```bash
     ls node_modules/my-ui
-    grep -o '#3b82f6' dist/assets/*.css
     ```
 
     **출력 결과**
@@ -338,6 +626,19 @@ design-system-practice/
     README.md
     dist
     package.json
+    ```
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
+    grep -o '#3b82f6' dist/assets/*.css
+    ```
+
+    **출력 결과**
+
+    ```text
     #3b82f6
     ```
 
@@ -367,17 +668,55 @@ design-system-practice/
 
 ### 4-1. 토큰 값 바꾸고 다시 변환
 
-1. **작업**: `design-system-practice` 폴더로 돌아와(3-3에서 `consumer`에 있었다면 `cd ..`) 진행합니다. 실제로는 Figma에서 값을 바꾸고 [토큰 내보내기](design-tokens.md#2-1-토큰-내보내기)를 다시 합니다. 이 실습에서는 같은 결과가 되도록 `tokens/tokens.json`의 `color.blue.500` 값을 직접 고칩니다.
+1. **작업**: `design-system-practice` 폴더로 돌아와 진행합니다(3-3에서 `consumer`에 있었다면 아래의 첫 명령을 실행합니다). 실제로는 Figma에서 값을 바꾸고 [토큰 내보내기](design-tokens.md#2-1-토큰-내보내기)를 다시 합니다. 이 실습에서는 같은 결과가 되도록 `tokens/tokens.json`의 `color.blue.500` 값을 직접 고칩니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
+    cd ..
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
 
     **명령어**
 
     ```bash
     sed -i '' 's/#3b82f6/#2563eb/' tokens/tokens.json
-    node build-tokens.js
-    diff handoff/tokens/variables.css build/css/variables.css
     ```
 
-    `sed -i ''`는 macOS 기준입니다. Linux에서는 `sed -i`로 씁니다. 에디터로 직접 고쳐도 됩니다.
+    **출력 결과**: 없음(출력이 없으면 정상입니다). `sed -i ''`는 macOS 기준입니다. Linux에서는 `sed -i`로 씁니다. 에디터로 직접 고쳐도 됩니다.
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    node build-tokens.js
+    ```
+
+    **출력 결과**
+
+    ```text
+    css
+    - build/css/variables.css
+    - build/css
+    - build
+
+    css
+    ✔︎ build/css/variables.css
+    ```
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    diff handoff/tokens/variables.css build/css/variables.css
+    ```
 
     **출력 결과**
 
@@ -395,13 +734,51 @@ design-system-practice/
 
 1. **작업**: 새 CSS를 `my-ui`와 `handoff`에 복사하고 버전을 올립니다. 토큰 값만 바뀌었으므로 개념 문서의 [버전 표](../handoff.md#버전과-변경-이력-표기)에 따라 PATCH(`0.1.0` → `0.1.1`)로 올립니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
     cp build/css/variables.css my-ui/src/tokens/variables.css
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
     cp tokens/tokens.json handoff/tokens/
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
     cp build/css/variables.css handoff/tokens/
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
     cd my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm version patch --no-git-tag-version
     ```
 
@@ -411,7 +788,7 @@ design-system-practice/
     v0.1.1
     ```
 
-2. `my-ui/CHANGELOG.md` 맨 위에 새 버전을 추가합니다. 토큰 변경과 컴포넌트 변경을 구분해 적고, 영향을 받는 토큰도 함께 적습니다.
+    이어서 `my-ui/CHANGELOG.md` 맨 위에 새 버전을 추가합니다. 토큰 변경과 컴포넌트 변경을 구분해 적고, 영향을 받는 토큰도 함께 적습니다.
 
     ```md title="my-ui/CHANGELOG.md"
     # Changelog
@@ -429,8 +806,22 @@ design-system-practice/
     - 추가: Button, Input
     ```
 
-3. **기대 결과**: `package.json`의 `version`이 `0.1.1`이고 `CHANGELOG.md` 맨 위가 `0.1.1`입니다.
-4. **확인 방법**: `npm pkg get version`을 실행해 `"0.1.1"`이 나오는지 확인합니다.
+2. **기대 결과**: `package.json`의 `version`이 `0.1.1`이고 `CHANGELOG.md` 맨 위가 `0.1.1`입니다.
+3. **확인 방법**: 아래 명령을 실행해 `"0.1.1"`이 나오는지 확인합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    npm pkg get version
+    ```
+
+    **출력 결과**
+
+    ```text
+    "0.1.1"
+    ```
 
 !!! note "토큰 값만 바뀌어도 MINOR로 올릴 수 있습니다"
     개념 문서의 표는 토큰 값만 바뀐 경우를 "PATCH 또는 MINOR"로 두었습니다. 사용 측 화면의 색이 눈에 띄게 바뀌므로 팀이 MINOR로 알리기로 정하면 `npm version minor`를 씁니다. 이 실습은 PATCH를 택했습니다.
@@ -439,19 +830,154 @@ design-system-practice/
 
 1. **작업**: `my-ui` 폴더에서 빌드하고 패키지를 만든 뒤, `consumer`에서 새 파일로 설치해 빌드합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
     npm run build
+    ```
+
+    **출력 결과**
+
+    ```text
+    > my-ui@0.1.1 build
+    > tsc --noEmit && vite build && cp src/tokens/variables.css dist/variables.css
+
+    vite v8.3.8 building client environment for production...
+    transforming...
+    ✓ 8 modules transformed.
+    rendering chunks...
+
+    [unplugin:dts] Start generate declaration files...
+    [unplugin:dts] Declaration files built in 584ms.
+
+    computing gzip size...
+    dist/my-ui.css  0.68 kB │ gzip: 0.29 kB
+    dist/my-ui.js   0.58 kB │ gzip: 0.32 kB
+
+    ✓ built in 596ms
+    ```
+
+    소요 시간은 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pack --pack-destination ../handoff
+    ```
+
+    **출력 결과**
+
+    ```text
+    npm notice
+    npm notice 📦  my-ui@0.1.1
+    npm notice Tarball Contents
+    npm notice 349B CHANGELOG.md
+    npm notice 1.4kB README.md
+    npm notice 300B dist/components/Button/Button.d.ts
+    npm notice 298B dist/components/Button/Button.stories.d.ts
+    npm notice 80B dist/components/Button/index.d.ts
+    npm notice 76B dist/components/Input/index.d.ts
+    npm notice 276B dist/components/Input/Input.d.ts
+    npm notice 335B dist/components/Input/Input.stories.d.ts
+    npm notice 200B dist/index.d.ts
+    npm notice 689B dist/my-ui.css
+    npm notice 583B dist/my-ui.js
+    npm notice 802B dist/variables.css
+    npm notice 1.2kB package.json
+    npm notice Tarball Details
+    npm notice name: my-ui
+    npm notice version: 0.1.1
+    npm notice filename: my-ui-0.1.1.tgz
+    npm notice package size: 3.1 kB
+    npm notice unpacked size: 6.5 kB
+    npm notice shasum: d465a585e70adfaef3eb2d31e97a204d1dc3641a
+    npm notice integrity: sha512-r5qBCucOIZK+6[...]m4Q/wArkIAhHQ==
+    npm notice total files: 13
+    npm notice
+    my-ui-0.1.1.tgz
+    ```
+
+    파일 크기와 해시는 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     cd ../consumer
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npm install ../handoff/my-ui-0.1.1.tgz
+    ```
+
+    **출력 결과**
+
+    ```text
+    changed 1 package, and audited 24 packages in 339ms
+
+    8 packages are looking for funding
+      run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
+    패키지 수, 소요 시간은 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npx tsc
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npx vite build
+    ```
+
+    **출력 결과**
+
+    ```text
+    vite v8.3.8 building client environment for production...
+    transforming...
+    ✓ 18 modules transformed.
+    rendering chunks...
+    computing gzip size...
+    dist/index.html                   0.16 kB │ gzip:  0.14 kB
+    dist/assets/index-DVtxTKe-.css    1.32 kB │ gzip:  0.44 kB
+    dist/assets/index-ThEPx-rt.js   219.94 kB │ gzip: 68.79 kB
+
+    ✓ built in 52ms
+    ```
+
+    해시와 크기, 소요 시간은 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     grep -o '#2563eb\|#3b82f6' dist/assets/*.css
     ```
 
-    **출력 결과**: `npm pack`은 `my-ui-0.1.1.tgz`를 출력하고, `npx tsc`는 출력이 없으며, `npx vite build`는 3-3과 같은 형태로 끝납니다. 마지막 `grep`은 아래 한 줄만 출력합니다.
+    **출력 결과**
 
     ```text
     #2563eb

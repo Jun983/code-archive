@@ -35,6 +35,8 @@ hide:
 
 1. **작업**: [환경 체크리스트](environment.md)에서 만든 `design-system-practice` 폴더에서 터미널을 열고 아래 명령을 한 줄씩 실행합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
@@ -60,6 +62,8 @@ hide:
     }
     ```
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
@@ -67,6 +71,8 @@ hide:
     ```
 
     **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
 
     **명령어**
 
@@ -95,6 +101,8 @@ hide:
 
 2. **기대 결과**: 폴더에 `package.json`과 `node_modules`가 생깁니다. `package.json`에 `"type": "module"`이 들어 있습니다.
 3. **확인 방법**: 아래 명령으로 두 패키지의 버전이 표와 같으면 정상입니다.
+
+    **실행 위치**: `design-system-practice`
 
     **명령어**
 
@@ -157,10 +165,21 @@ hide:
 
     10. 내보낸 `tokens.json`은 먼저 다운로드 폴더(`~/Downloads`)에 저장됩니다. 작업 폴더에서 아래 명령으로 `tokens/tokens.json`으로 옮깁니다.
 
+        **실행 위치**: `design-system-practice`
+
         **명령어**
 
         ```bash
         mkdir -p tokens
+        ```
+
+        **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+        **실행 위치**: `design-system-practice`
+
+        **명령어**
+
+        ```bash
         mv ~/Downloads/tokens.json tokens/tokens.json
         ```
 
@@ -301,6 +320,8 @@ hide:
 
 1. **작업**: 작업 폴더에서 아래 명령을 실행합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
@@ -365,6 +386,8 @@ hide:
 
 1. **작업**: 위 내용을 `expected/variables.css`로 저장한 뒤 아래 명령으로 생성 결과와 비교합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
@@ -391,7 +414,7 @@ hide:
 
 ## 막혔을 때
 
-| 증상 | 대체 경로 |
+| 증상 | 확인 |
 |---|---|
 | Tokens Studio에서 Figma 변수를 가져오지 못함 | [2-2](#2-2-기대-결과-json)의 `expected/tokens.json`을 `tokens/tokens.json`으로 복사한 뒤(`mkdir -p tokens && cp expected/tokens.json tokens/tokens.json`) 3단계부터 진행합니다. |
 | 플러그인 설치나 실행이 막힘 | 위와 같습니다. 변환 실습은 플러그인 없이 진행할 수 있습니다. |
