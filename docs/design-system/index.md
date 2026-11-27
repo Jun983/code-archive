@@ -32,13 +32,17 @@ flowchart LR
 
 ## 문서 목록
 
-위에서부터 순서대로 읽는 것을 권장합니다.
+위에서부터 순서대로 읽는 것을 권장합니다. 실습을 시작하기 전에 [공통 준비](practice/sample-file.md)에서 샘플 Figma 파일을 만듭니다.
 
-| # | 주제 | 설명 |
-|---|------|------|
-| 1 | [개발환경 준비](setup.md) | Figma, Node.js, 코드 에디터와 토큰 변환·AI 자동화 도구를 준비하는 방법 |
-| 2 | [Figma 디자인 시스템 정리](figma-organize.md) | 색상·타이포그래피·간격·컴포넌트를 일관된 규칙으로 정돈하는 방법 |
-| 3 | [디자인 토큰 추출·발행](design-tokens.md) | Figma의 스타일과 변수를 코드용 토큰 파일로 내보내는 방법 |
-| 4 | [React 컴포넌트 라이브러리 구축](component-library.md) | 토큰을 사용하는 React 컴포넌트 라이브러리를 만드는 방법 |
-| 5 | [개발 전달 산출물 정리](handoff.md) | 개발자가 바로 쓸 수 있는 문서와 사용 가이드를 정리하는 방법 |
-| 6 | [실습편](practice/index.md) | 개념 문서를 샘플 Figma 파일로 직접 따라 해 보는 실습 자료 |
+| # | 개념 문서 | 실습 문서 | 설명 |
+|---|------|------|------|
+| 1 | [개발환경 준비](setup.md) | [환경 체크리스트](practice/environment.md) | Figma, Node.js, 코드 에디터와 토큰 변환·AI 자동화 도구를 준비하는 방법 |
+| 2 | [Figma 디자인 시스템 정리](figma-organize.md) | [Figma 정리 실습](practice/figma-organize.md) | 색상·타이포그래피·간격·컴포넌트를 일관된 규칙으로 정돈하는 방법 |
+| 3 | [디자인 토큰 추출·발행](design-tokens.md) | [토큰 실습](practice/design-tokens.md) | Figma의 스타일과 변수를 코드용 토큰 파일로 내보내는 방법 |
+| 4 | [React 컴포넌트 라이브러리 구축](component-library.md) | [컴포넌트 실습](practice/component-library.md) | 토큰을 사용하는 React 컴포넌트 라이브러리를 만드는 방법 |
+| 5 | [개발 전달 산출물 정리](handoff.md) | [개발 전달 실습](practice/handoff.md) | 개발자가 바로 쓸 수 있는 문서와 사용 가이드를 정리하는 방법 |
+
+실습 진행 원칙은 다음과 같습니다.
+
+- 개념 설명은 개념 문서에 두고, 실습 문서에는 작업 순서와 확인 방법만 둡니다.
+- 모든 실습은 같은 샘플 Figma 파일에서 시작하고, 마친 뒤 본인 파일에 같은 순서로 적용합니다.
