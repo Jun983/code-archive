@@ -62,15 +62,64 @@ hide:
 
 1. **작업**: [토큰 실습](design-tokens.md)을 마친 `design-system-practice` 폴더 안에 `my-ui` 폴더를 만들고, 그 폴더에서 터미널을 열어 아래 명령을 한 줄씩 실행합니다.
 
+    **실행 위치**: `design-system-practice`
+
     **명령어**
 
     ```bash
-    mkdir my-ui && cd my-ui
+    mkdir my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    cd my-ui
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm init -y
+    ```
+
+    **출력 결과**
+
+    ```text
+    Wrote to /Users/<사용자>/programming/design-system-practice/my-ui/package.json:
+
+    {
+      "name": "my-ui",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    }
+    ```
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set type=module
     ```
 
-    **출력 결과**: `npm init -y`가 `Wrote to .../my-ui/package.json:` 뒤에 `package.json` 내용을 출력합니다. `npm pkg set`은 출력이 없으면 정상입니다.
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
 
     **명령어**
 
@@ -94,6 +143,8 @@ hide:
 
 2. **기대 결과**: `my-ui` 폴더에 `package.json`과 `node_modules`가 생기고, `package.json`에 `"type": "module"`이 들어 있습니다.
 3. **확인 방법**: 아래 명령의 버전이 [환경](#환경)의 표와 같으면 정상입니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
 
     **명령어**
 
@@ -121,16 +172,27 @@ hide:
 
 1. **작업**: `my-ui` 폴더 안에서 아래 명령으로 폴더를 만들고, 토큰 실습의 산출물을 복사합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
     mkdir -p src/tokens src/components/Button src/components/Input
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     cp ../build/css/variables.css src/tokens/variables.css
     ```
 
-    **출력 결과**: 없음(출력이 없으면 정상입니다). `cp`에서 `No such file or directory`가 나오면 `../build/css/variables.css`가 없는 것이므로 [토큰 실습의 3단계](design-tokens.md#3-코드용-포맷-변환)를 먼저 마칩니다.
+    **출력 결과**: 없음(출력이 없으면 정상입니다). `No such file or directory`가 나오면 `../build/css/variables.css`가 없는 것이므로 [토큰 실습의 3단계](design-tokens.md#3-코드용-포맷-변환)를 먼저 마칩니다.
 
-2. `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `tsconfig.json`을 만들고 아래 내용을 저장합니다.
+    `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `tsconfig.json`을 만들고 아래 내용을 저장합니다.
 
     ```json title="tsconfig.json"
     {
@@ -228,6 +290,8 @@ hide:
 2. **기대 결과**: 타입 검사가 오류 없이 끝납니다.
 3. **확인 방법**: 아래 명령을 실행해 아무것도 출력되지 않으면 정상입니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
@@ -244,17 +308,18 @@ hide:
 
 1. **작업**: `my-ui` 폴더에서 아래 명령으로 Storybook을 설치합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
     npm install --save-dev storybook@10.6.8 @storybook/react-vite@10.6.8
-    npm pkg set scripts.storybook="storybook dev -p 6006" scripts.build-storybook="storybook build"
     ```
 
     **출력 결과**
 
     ```text
-    added 137 packages, and audited 201 packages in 5s
+    added 138 packages, and audited 201 packages in 4s
 
     46 packages are looking for funding
       run `npm fund` for details
@@ -269,9 +334,18 @@ hide:
 
     - 패키지 수, 소요 시간, 취약점 개수는 환경에 따라 다를 수 있습니다.
     - `npm audit fix --force`는 실행하지 않습니다. 버전이 바뀌어 이후 단계의 결과가 달라질 수 있습니다.
-    - `npm pkg set`은 출력이 없으면 정상입니다.
 
-2. `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `.storybook` 폴더를 만들고 설정 파일 두 개를 저장합니다.
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    npm pkg set scripts.storybook="storybook dev -p 6006" scripts.build-storybook="storybook build"
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    `my-ui` 폴더 바로 아래(`package.json`과 같은 위치)에 `.storybook` 폴더를 만들고 설정 파일 두 개를 저장합니다.
 
     ```ts title=".storybook/main.ts"
     import type { StorybookConfig } from '@storybook/react-vite';
@@ -327,7 +401,9 @@ hide:
     export const Primary: Story = { args: { variant: 'primary' } };
     ```
 
-2. `my-ui` 폴더에서 카탈로그를 실행합니다.
+    `my-ui` 폴더에서 카탈로그를 실행합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
 
     **명령어**
 
@@ -428,7 +504,17 @@ hide:
     - `outline: none`을 쓰므로 포커스 표시는 `:focus-visible`의 테두리 색 변경이 대신합니다. 이 규칙을 지우면 포커스가 보이지 않게 됩니다.
 
 2. **기대 결과**: 타입 검사가 오류 없이 끝납니다.
-3. **확인 방법**: `npx tsc --noEmit`을 실행해 출력이 없으면 정상입니다.
+3. **확인 방법**: 아래 명령을 실행해 아무것도 출력되지 않으면 정상입니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    npx tsc --noEmit
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
 
 ### 4-2. Input story와 화면 확인
 
@@ -451,7 +537,18 @@ hide:
     export const Invalid: Story = { args: { invalid: true } };
     ```
 
-2. `npm run storybook -- --no-open`을 다시 실행하고(이미 실행 중이면 저장만 하면 목록이 갱신됩니다) 브라우저에서 확인합니다.
+    아래 명령을 다시 실행하고(이미 실행 중이면 저장만 하면 목록이 갱신됩니다) 브라우저에서 확인합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
+    npm run storybook -- --no-open
+    ```
+
+    **출력 결과**: [3-2](#3-2-button-story-작성과-화면-확인)와 같습니다.
+
 3. **기대 결과**: 왼쪽 목록에 `Input → Default, Invalid`가 추가됩니다. `Default`는 회색 테두리, `Invalid`는 빨간색(`#ef4444`) 테두리의 입력창이고 둘 다 옅은 회색 `Placeholder` 글자가 보입니다.
 
     ![Storybook에서 Input의 Default story를 연 화면](../../assets/images/design-system/practice/storybook-input-default.png){ width="100%" }
@@ -502,15 +599,53 @@ hide:
     | `rollupOptions.external` | React를 번들에 넣지 않음 |
     | `dts()` | 빌드 시 `.d.ts` 타입 선언을 함께 출력 |
 
-2. `my-ui` 폴더에서 `package.json`에 배포 관련 필드를 추가합니다. 아래 명령으로 한 번에 지정합니다.
+    `my-ui` 폴더에서 `package.json`에 배포 관련 필드를 추가합니다. 아래 명령을 순서대로 실행해 지정합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
 
     **명령어**
 
     ```bash
     npm pkg set version=0.1.0 types=./dist/index.d.ts
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set --json files='["dist"]' sideEffects='["*.css"]'
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set --json exports='{".":{"types":"./dist/index.d.ts","import":"./dist/my-ui.js"},"./style.css":"./dist/my-ui.css","./tokens.css":"./dist/variables.css"}'
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set peerDependencies.react='^19.0.0' peerDependencies.react-dom='^19.0.0'
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     npm pkg set scripts.build='tsc --noEmit && vite build && cp src/tokens/variables.css dist/variables.css'
     ```
 
@@ -545,6 +680,8 @@ hide:
 
 1. **작업**: `my-ui` 폴더에서 아래 명령을 실행합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
@@ -577,6 +714,8 @@ hide:
 2. **기대 결과**: `dist` 폴더에 `index.d.ts`, `my-ui.css`, `my-ui.js`, `variables.css`, `components/`(타입 선언)가 생깁니다.
 3. **확인 방법**: `dist/my-ui.js`를 열어 `react/jsx-runtime`만 import되고 React 본체가 들어 있지 않은지 확인합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
@@ -599,20 +738,135 @@ hide:
 
 1. **작업**: 먼저 `my-ui` 폴더에서 패키지 파일을 만들고, `consumer` 폴더에서 설치합니다.
 
+    **실행 위치**: `design-system-practice/my-ui`
+
     **명령어**
 
     ```bash
     npm pack
+    ```
+
+    **출력 결과**
+
+    ```text
+    npm notice
+    npm notice 📦  my-ui@0.1.0
+    npm notice Tarball Contents
+    npm notice 300B dist/components/Button/Button.d.ts
+    npm notice 298B dist/components/Button/Button.stories.d.ts
+    npm notice 80B dist/components/Button/index.d.ts
+    npm notice 76B dist/components/Input/index.d.ts
+    npm notice 276B dist/components/Input/Input.d.ts
+    npm notice 335B dist/components/Input/Input.stories.d.ts
+    npm notice 200B dist/index.d.ts
+    npm notice 689B dist/my-ui.css
+    npm notice 583B dist/my-ui.js
+    npm notice 802B dist/variables.css
+    npm notice 1.1kB package.json
+    npm notice Tarball Details
+    npm notice name: my-ui
+    npm notice version: 0.1.0
+    npm notice filename: my-ui-0.1.0.tgz
+    npm notice package size: 2.0 kB
+    npm notice unpacked size: 4.8 kB
+    npm notice shasum: 4ad70c1280824d8326e1667ebef28ad53cb3e4d9
+    npm notice integrity: sha512-E4csf9Jsncwfe[...]JvViuqxdTb76Q==
+    npm notice total files: 11
+    npm notice
+    my-ui-0.1.0.tgz
+    ```
+
+    파일 크기와 해시는 환경에 따라 다를 수 있습니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
+
+    **명령어**
+
+    ```bash
     cd ..
-    mkdir consumer && cd consumer
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    mkdir consumer
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice`
+
+    **명령어**
+
+    ```bash
+    cd consumer
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npm init -y
+    ```
+
+    **출력 결과**
+
+    ```text
+    Wrote to /Users/<사용자>/programming/design-system-practice/consumer/package.json:
+
+    {
+      "name": "consumer",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    }
+    ```
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npm pkg set type=module
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
     npm install react@19.3.1 react-dom@19.3.1 ../my-ui/my-ui-0.1.0.tgz typescript@6.0.3 @types/react@19.3.0 vite@8.3.8
     ```
 
-    **출력 결과**: `npm pack`이 포함 파일 목록 끝에 `total files: 9`와 `my-ui-0.1.0.tgz`를 출력하고, 마지막 `npm install`이 `found 0 vulnerabilities`로 끝납니다. 파일 크기, 패키지 수는 환경에 따라 다를 수 있습니다.
+    **출력 결과**
 
-2. `consumer` 폴더에 `tsconfig.json`과 `main.tsx`를 만듭니다.
+    ```text
+    added 22 packages, and audited 23 packages in 1s
+
+    8 packages are looking for funding
+      run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
+    패키지 수, 소요 시간은 환경에 따라 다를 수 있습니다.
+
+    `consumer` 폴더에 `tsconfig.json`과 `main.tsx`를 만듭니다.
 
     ```json title="consumer/tsconfig.json"
     {
@@ -643,7 +897,27 @@ hide:
     ```
 
 3. **기대 결과**: 타입 검사가 오류 없이 끝납니다. `import`가 `my-ui`, `my-ui/tokens.css`, `my-ui/style.css` 세 경로 모두 해석됩니다.
-4. **확인 방법**: `npx tsc`를 실행해 출력이 없으면 정상입니다. 이어서 `Button`에 정의하지 않은 값을 넣어 타입 선언이 동작하는지 확인합니다. `main.tsx`의 `<Button>`을 `<Button variant="secondary">`로 바꾸고 `npx tsc`를 실행하면 오류가 나야 하며, 확인 후 되돌립니다.
+3. **확인 방법**: 아래 명령을 실행해 출력이 없으면 정상입니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
+    npx tsc
+    ```
+
+    **출력 결과**: 없음(출력이 없으면 정상입니다).
+
+    이어서 `Button`에 정의하지 않은 값을 넣어 타입 선언이 동작하는지 확인합니다. `main.tsx`의 `<Button>`을 `<Button variant="secondary">`로 바꾸고 아래 명령을 실행하면 오류가 나야 하며, 확인 후 되돌립니다.
+
+    **실행 위치**: `design-system-practice/consumer`
+
+    **명령어**
+
+    ```bash
+    npx tsc
+    ```
 
     **출력 결과**
 
@@ -668,6 +942,8 @@ hide:
 
     createRoot(document.getElementById('root')!).render(<App />);
     ```
+
+    **실행 위치**: `design-system-practice/consumer`
 
     **명령어**
 
@@ -702,6 +978,8 @@ hide:
 배포는 하지 않고 정적 파일로 빌드되는지까지만 확인합니다.
 
 1. **작업**: `my-ui` 폴더에서 아래 명령을 실행합니다.
+
+    **실행 위치**: `design-system-practice/my-ui`
 
     **명령어**
 

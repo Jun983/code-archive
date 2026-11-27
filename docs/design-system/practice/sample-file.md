@@ -9,6 +9,12 @@ hide:
 
 모든 실습은 같은 샘플 Figma 파일에서 시작합니다. 샘플 파일 이 문서의 절차를 따라 직접 만듭니다. 정리 전 상태를 재현하려고 일부러 규칙 없이 만든 파일입니다. 실제 업무 파일이나 개인정보는 들어 있지 않습니다.
 
+| 구분 | 내용 |
+|---|---|
+| 입력 | 없음. 빈 Figma Design 파일에서 시작합니다. |
+| 산출물 | 정리 전 상태의 샘플 Figma 파일(Cover, Components, Examples 페이지) |
+| 다음 단계 | [환경 체크리스트](environment.md)로 작업 환경을 확인합니다. |
+
 ---
 
 ## 파일 구성
@@ -42,7 +48,7 @@ hide:
 
 ---
 
-## 샘플 파일 만들기
+## 실습 환경
 
 아래 절차를 순서대로 따라 샘플 파일을 직접 만듭니다. Free 플랜에서도 진행할 수 있습니다.
 
@@ -51,7 +57,11 @@ hide:
 - "오른쪽 패널"은 화면 오른쪽의 Design 탭입니다. 아래 단계는 이 패널의 영역 이름(Position, Layout, Appearance, Fill, Stroke, Typography, Auto layout, Properties)으로 위치를 안내합니다.
 - 레이어·페이지 이름은 대상 이름을 더블클릭해 바꿉니다.
 
-### 1. 새 Design 파일 만들기
+---
+
+## 1. 파일·페이지 준비
+
+### 1-1. 새 Design 파일 만들기
 
 1. **작업**:
     1. 브라우저나 Figma 데스크톱 앱에서 Figma에 로그인한 상태로 홈(Recents)을 엽니다.
@@ -65,7 +75,7 @@ hide:
 
 3. **확인 방법**: 왼쪽 위 파일 이름이 `Untitled`이고 캔버스가 비어 있으며, 하단 툴바에 이동·프레임·도형·펜·텍스트 도구가 보이면 정상입니다.
 
-### 2. 파일 이름 바꾸기
+### 1-2. 파일 이름 바꾸기
 
 1. **작업**:
     1. 왼쪽 사이드바에서 **File** 탭을 엽니다.
@@ -77,7 +87,7 @@ hide:
 
 3. **확인 방법**: 제목 아래에 `Team project`와 `Free` 표시가 보이면 Free 플랜 파일로 만들어진 것입니다.
 
-### 3. 페이지 만들기
+### 1-3. 페이지 만들기
 
 1. **작업**:
     1. 왼쪽 사이드바의 **File** 탭을 열면 Pages 목록이 나옵니다. 목록이 접혀 있으면 **Pages** 제목을 눌러 펼칩니다.
@@ -89,7 +99,11 @@ hide:
 
 3. **확인 방법**: 각 페이지를 눌러 이동할 수 있고, 세 페이지 모두 빈 캔버스면 정상입니다.
 
-### 4. Button 프레임 만들기
+---
+
+## 2. Button 컴포넌트 만들기
+
+### 2-1. Button 프레임 만들기
 
 1. **작업**:
     1. 왼쪽 사이드바의 Pages 목록에서 `Components` 페이지를 엽니다.
@@ -103,7 +117,7 @@ hide:
 
 3. **확인 방법**: 프레임을 선택했을 때 오른쪽 패널 제목이 `Frame`이고 W 120, H 40, Fill `FFFFFF`로 표시되면 정상입니다.
 
-### 5. Button 채우기 색을 HEX로 직접 입력하기
+### 2-2. Button 채우기 색을 HEX로 직접 입력하기
 
 1. **작업**:
     1. `Button` 프레임을 선택합니다.
@@ -115,7 +129,7 @@ hide:
 
 3. **확인 방법**: Fill 항목에 `3B82F6`이 표시되고, 변수·스타일 아이콘이 연결되어 있지 않으면 정상입니다.
 
-### 6. 모서리 반경을 어중간한 값으로 넣기
+### 2-3. 모서리 반경을 어중간한 값으로 넣기
 
 1. **작업**:
     1. `Button` 프레임을 선택합니다.
@@ -127,7 +141,7 @@ hide:
 
 3. **확인 방법**: Corner radius 칸에 `6`이 표시되면 정상입니다.
 
-### 7. Button 텍스트 넣기
+### 2-4. Button 텍스트 넣기
 
 1. **작업**:
     1. **T**를 누르고 프레임 안을 클릭해 `Button`을 입력한 뒤 **Esc**를 눌러 입력을 마칩니다.
@@ -141,7 +155,7 @@ hide:
 
 3. **확인 방법**: Layers에서 `Button` 아래에 들여쓰기된 텍스트 레이어가 보이면 텍스트가 프레임 안에 들어간 것입니다. 텍스트를 선택했을 때 Typography에 `Inter`, `Medium`, `14`가 표시되고 Fill이 `FFFFFF`면 정상입니다.
 
-### 8. Auto layout과 패딩 지정하기
+### 2-5. Auto layout과 패딩 지정하기
 
 1. **작업**:
     1. Layers에서 `Button`을 선택하고 **Shift + A**를 **한 번만** 누릅니다. Auto layout이 이미 켜져 있으면 다시 누르지 않습니다.
@@ -154,7 +168,7 @@ hide:
 
 3. **확인 방법**: 오른쪽 패널에서 Padding이 `10`·`12`, Alignment가 가운데, Corner radius가 `6`, Fill이 `3B82F6`이면 정상입니다.
 
-### 9. Button을 컴포넌트로 변환하기
+### 2-6. Button을 컴포넌트로 변환하기
 
 1. **작업**:
     1. Layers에서 `Button` 프레임을 선택합니다.
@@ -166,7 +180,11 @@ hide:
 
 3. **확인 방법**: 크기 `65 × 41`, Padding `10`·`12`, Corner radius `6`, Fill `3B82F6`이 그대로 유지되어 있으면 정상입니다.
 
-### 10. Input 프레임과 테두리 만들기
+---
+
+## 3. Input 컴포넌트 만들기
+
+### 3-1. Input 프레임과 테두리 만들기
 
 1. **작업**:
     1. `Components` 페이지에서 `Button` 오른쪽 빈 곳에 **F**로 프레임을 그립니다.
@@ -179,7 +197,7 @@ hide:
 
 3. **확인 방법**: Stroke에 `D1D5DB`, `Inside`, 두께 `1`이 표시되고 크기가 `240 × 40`이면 정상입니다.
 
-### 11. Input 모서리 반경과 placeholder 텍스트 넣기
+### 3-2. Input 모서리 반경과 placeholder 텍스트 넣기
 
 1. **작업**:
     1. `Input` 프레임을 선택하고 Appearance의 **Corner radius**에 `7`을 입력합니다. Button의 `6`과 일부러 다르게 둔 값입니다.
@@ -192,7 +210,7 @@ hide:
 
 3. **확인 방법**: 텍스트를 선택했을 때 Typography에 `Inter`, `Regular`, `14`가 표시되고 Fill이 `9CA3AF`면 정상입니다.
 
-### 12. Input에 Auto layout과 패딩 지정하기
+### 3-3. Input에 Auto layout과 패딩 지정하기
 
 1. **작업**:
     1. Layers에서 `Input`을 선택하고 **Shift + A**를 **한 번만** 누릅니다.
@@ -208,7 +226,7 @@ hide:
 
 3. **확인 방법**: 오른쪽 패널에서 Dimensions가 `240`·`40`, Padding이 `10`·`13`, Corner radius가 `7`, Fill이 `FFFFFF`, Stroke가 `D1D5DB`(`Inside`, `1`)이면 정상입니다.
 
-### 13. Input을 컴포넌트로 변환하기
+### 3-4. Input을 컴포넌트로 변환하기
 
 1. **작업**:
     1. Layers에서 `Input` 프레임을 선택합니다.
@@ -220,7 +238,7 @@ hide:
 
 3. **확인 방법**: Properties 영역이 표시되고, 크기 `240 × 40`, Padding `10`·`13`, Corner radius `7`이 그대로면 정상입니다.
 
-### 14. Input 상태 Variant 만들기
+### 3-5. Input 상태 Variant 만들기
 
 1. **작업**:
     1. `Input` 컴포넌트를 선택하고 오른쪽 패널 Properties 영역의 **+** 에서 **Variant**를 추가합니다.
@@ -234,7 +252,7 @@ hide:
 
 3. **확인 방법**: Variant를 선택했을 때 Properties에 `State`와 현재 값이 표시되고, 세 값이 모두 소문자이면 정상입니다.
 
-### 15. focus 상태 스타일 지정하기
+### 3-6. focus 상태 스타일 지정하기
 
 1. **작업**:
     1. Layers에서 `Input` 아래의 `focus` Variant를 선택합니다. 컴포넌트 세트(`Input`)가 아니라 그 안의 `focus`를 골라야 합니다.
@@ -246,7 +264,7 @@ hide:
 
 3. **확인 방법**: `focus`를 선택했을 때 Stroke가 `3B82F6`, Weight가 `1`이고, 나머지 Variant의 테두리는 그대로이면 정상입니다.
 
-### 16. error 상태 스타일 지정하기
+### 3-7. error 상태 스타일 지정하기
 
 1. **작업**:
     1. Layers에서 `Input` 아래의 `error` Variant를 선택합니다. 컴포넌트 세트(`Input`)가 아니라 그 안의 `error`를 골라야 합니다.
@@ -258,9 +276,13 @@ hide:
 
 3. **확인 방법**: `error`를 선택했을 때 Stroke가 `EF4444`이고, 세 Variant의 테두리가 각각 회색(default), 파란색(focus), 빨간색(error)이면 정상입니다.
 
-### 17. Card 프레임과 Auto layout 만들기
+---
 
-Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단계에서는 빈 틀(프레임)만 만들고, 텍스트는 18단계에서 넣습니다. 아래 값은 모두 숫자와 색을 직접 입력하며, Variables(변수)는 연결하지 않습니다.
+## 4. Card 컴포넌트 만들기
+
+### 4-1. Card 프레임과 Auto layout 만들기
+
+Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단계에서는 빈 틀(프레임)만 만들고, 텍스트는 4-2단계에서 넣습니다. 아래 값은 모두 숫자와 색을 직접 입력하며, Variables(변수)는 연결하지 않습니다.
 
 1. **작업**:
     1. `Components` 페이지에서 `Input` 컴포넌트 세트 오른쪽 빈 곳에 **F**를 누르고 드래그해 프레임을 그립니다. 크기는 대략 `280 × 120`이면 됩니다.
@@ -280,7 +302,7 @@ Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단�
 
 3. **확인 방법**: `Card`를 선택했을 때 Properties의 Flow에서 두 번째 아이콘(세로)이 선택되어 있고, Gap `8`, Padding `16`, Fill `FFFFFF`, Stroke `E5E7EB`가 표시되고, Layers의 `Card` 아이콘에 Auto layout 표시가 있으면 정상입니다.
 
-### 18. Card 텍스트 넣기와 컴포넌트 변환
+### 4-2. Card 텍스트 넣기와 컴포넌트 변환
 
 1. **작업**:
     1. **T**를 누르고 `Card` 프레임 안을 클릭해 제목 텍스트 `Card title`을 입력합니다. 글꼴은 `Inter`, `Medium`, `16`으로 지정합니다.
@@ -291,12 +313,16 @@ Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단�
 
     ![컴포넌트로 변환된 Card. Layers에 Card title, Card description이 있고 크기가 280 × 78 Hug로 표시된다](../../assets/images/design-system/practice/figma-card-component.png){ width="100%" }
 
-3. **확인 방법**: Layers에서 `Card` 아래에 `Card title`, `Card description` 두 텍스트 레이어가 보이고, Properties 항목이 생기며, 크기가 `280 × 78 Hug`이면 정상입니다. 17단계의 Gap `8`, Padding `16`, Corner radius `12`는 그대로 유지됩니다.
+3. **확인 방법**: Layers에서 `Card` 아래에 `Card title`, `Card description` 두 텍스트 레이어가 보이고, Properties 항목이 생기며, 크기가 `280 × 78 Hug`이면 정상입니다. 4-1단계의 Gap `8`, Padding `16`, Corner radius `12`는 그대로 유지됩니다.
 
-### 19. Examples 페이지 만들기
+---
+
+## 5. Examples·Cover 페이지 만들기
+
+### 5-1. Examples 페이지 만들기
 
 1. **작업**:
-    1. 왼쪽 사이드바 Pages에서 3단계에서 만든 `Examples` 페이지를 엽니다.
+    1. 왼쪽 사이드바 Pages에서 1-3단계에서 만든 `Examples` 페이지를 엽니다.
     2. 왼쪽 맨 끝 아이콘 줄에서 **Assets**를 열고, `Button`, `Input`, `Card`를 캔버스로 하나씩 끌어다 놓습니다. `Input`은 `Components`에서 컴포넌트 세트를 복사하지 말고 Assets에서 놓아야 `default` 인스턴스 하나만 놓입니다. 세트를 복사하면 원본이 하나 더 생깁니다.
     3. 세 인스턴스를 세로로 한 줄에 쌓아 배치합니다. 각 인스턴스를 선택하고 오른쪽 패널 위쪽 Position 영역의 **X**, **Y** 칸에 아래 값을 입력합니다.
 
@@ -313,10 +339,10 @@ Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단�
 
 3. **확인 방법**: Layers에서 `Button`, `Input`, `Card`의 아이콘이 모두 속이 빈 ◇(인스턴스)이면 정상입니다. `Input`이 ❖ 아이콘이고 `error`, `focus`, `default`가 안에 보이면 세트를 복사한 것이므로 삭제하고 Assets에서 다시 놓습니다. `Card`를 선택하면 Properties에 `From this file`이 보이고, 위치가 `X 100, Y 280`, 크기가 `280 × 78 Hug`입니다.
 
-### 20. Cover 페이지 만들기
+### 5-2. Cover 페이지 만들기
 
 1. **작업**:
-    1. Pages에서 3단계에서 만든 `Cover` 페이지를 엽니다.
+    1. Pages에서 1-3단계에서 만든 `Cover` 페이지를 엽니다.
     2. 키보드 **T**를 누르고 캔버스 빈 곳을 클릭해 `Design System Practice - Sample`을 입력한 뒤 **Esc**를 누릅니다. Properties의 Typography에서 글꼴을 Inter Medium, 크기를 `32`로 맞추고, 오른쪽 패널 위쪽 Position 영역의 **X**, **Y** 칸에 `X 100, Y 100`을 입력합니다.
     3. 다시 **T**를 누르고 제목 아래 빈 곳을 클릭해 한 줄 설명(`디자인 시스템 실습용 샘플 파일입니다.`)을 입력한 뒤 **Esc**를 누릅니다. 글꼴을 Inter Regular, 크기를 `16`으로 맞추고, 오른쪽 패널 위쪽 Position 영역의 **X**, **Y** 칸에 `X 100, Y 150`을 입력합니다.
 2. **기대 결과**: `Cover` 페이지에 제목과 한 줄 설명이 위아래로 놓이고, 페이지 순서는 `Cover`, `Components`, `Examples`입니다.
@@ -324,9 +350,3 @@ Card는 제목과 본문 텍스트를 세로로 쌓는 카드입니다. 이 단�
     ![Cover 페이지에 놓인 제목과 한 줄 설명](../../assets/images/design-system/practice/figma-cover-page.png){ width="100%" }
 
 3. **확인 방법**: Layers에 텍스트 레이어 두 개가 보이고, 제목을 선택하면 Typography가 `Inter` `Medium` `32`, 위치가 `X 100, Y 100`입니다. Pages 목록의 순서와 이름이 위 표와 같으면 정상입니다.
-
----
-
-## 다음 단계
-
-[환경 체크리스트](environment.md)로 작업 환경을 확인합니다.
