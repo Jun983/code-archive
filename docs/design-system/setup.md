@@ -30,7 +30,7 @@ hide:
 
 ### 코드 에디터
 
-토큰 파일과 컴포넌트 코드를 작성하고 확인할 편집기가 필요합니다. 이 저장소의 다른 문서와 같이 VSCode를 기준으로 합니다.
+토큰 파일과 컴포넌트 코드를 작성하고 확인할 편집기가 필요합니다. 이 문서들은 VSCode를 기준으로 합니다.
 
 ---
 
@@ -60,12 +60,16 @@ Codex 앱에서는 Plugins 화면에서 Figma 옆의 **+** → **Install Figma**
 url = "https://mcp.figma.com/mcp"
 ```
 
-변수 읽기에는 `get_variable_defs` 도구를 씁니다. 선택 영역에서 쓰인 변수와 스타일을 반환합니다.
+변수 읽기에는 `get_variable_defs` 도구를 씁니다. 선택 영역에서 쓰인 변수와 스타일을 반환합니다. 원격 서버를 쓸 때는 대상 프레임이나 레이어를 우클릭해 **Copy/Paste as** → **Copy link to selection**으로 복사한, `node-id`가 포함된 링크를 프롬프트에 넣습니다.
+
+2026년 11월 27일에 Codex 데스크톱 앱(ChatGPT 앱 26.1120.50957, Codex 0.171.0-alpha.13.2)에서 `get_variable_defs` 동작을 확인했습니다. 실습 파일의 `Button` 컴포넌트 링크로 호출하자 변수 5개와 텍스트 스타일 `text/label/default`가 반환됐습니다.
+
+Figma 데이터를 읽는 도구에는 호출 제한이 있습니다. View·Collab 시트는 월 20회이며, 시트와 요금제별 제한은 [Rate limits and access](https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/)에서 확인합니다.
 
 !!! warning "확인 필요"
-    Codex 버전별 MCP 지원 범위와 최소 버전은 OpenAI 문서에서 확인하지 못했습니다. Codex에서 `get_variable_defs`가 실제로 동작하는지도 직접 실행해 확인해야 합니다.
+    Codex 버전별 MCP 지원 범위와 최소 버전은 OpenAI 문서에서 확인하지 못했습니다. Codex CLI에서의 `get_variable_defs` 동작은 확인하지 않았습니다.
 
-    Figma 공식 문서에는 MCP 서버의 버전 번호와 변수 도구의 호출 횟수 제한이 나와 있지 않습니다. 데스크톱 서버는 Dev 또는 Full 시트가 필요하지만, 원격 서버의 요금제별 제약은 이 문서 작성 시점에 확인하지 못했습니다. Figma의 "Plans, access, and permissions" 문서에서 확인합니다.
+    Figma 공식 문서에서 MCP 서버의 버전 번호는 확인하지 못했습니다. 데스크톱 서버는 Dev 또는 Full 시트가 필요하지만, 원격 서버의 요금제별 제약은 이 문서 작성 시점에 확인하지 못했습니다. Figma의 "Plans, access, and permissions" 문서에서 확인합니다.
 
 ---
 
@@ -77,4 +81,4 @@ url = "https://mcp.figma.com/mcp"
 - [ ] 터미널에서 Node.js와 `npm`의 버전이 출력된다.
 - [ ] 코드 에디터에서 프로젝트 폴더를 열 수 있다.
 - [ ] `npm ls style-dictionary @tokens-studio/sd-transforms`로 토큰 변환 도구의 버전이 출력된다.
-- [ ] `codex mcp list`에 figma가 표시되고, Codex의 `/mcp` 화면에서 figma가 활성 서버로 보인다.
+- [ ] Figma MCP 서버가 연결되어 있다. CLI 방식은 `codex mcp list`와 Codex의 `/mcp` 화면에서 figma를 확인하고, 앱 방식은 Plugins 화면의 **Installed**에서 Figma를 확인한다.
